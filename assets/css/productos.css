@@ -1,0 +1,79 @@
+/* =========================
+   HERO CARRUSEL PRODUCTOS
+========================= */
+
+.product-marquee {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+.product-track {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: max-content;
+  animation: scrollProducts 28s linear infinite;
+}
+
+.product-track img {
+  border: solid 2px black;
+  border-radius: 50%;
+  margin: 40px 0px;
+  width: 280px;
+  height: 280px;
+  object-fit: cover;
+}
+
+/* movimiento continuo */
+@keyframes scrollProducts {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.hero-productos {
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.catalogo-productos {
+  padding-top: 16px;
+}
+
+/* =========================
+   RESPONSIVE PRODUCTOS
+========================= */
+@media (max-width: 768px) {
+  .product-marquee {
+    height: 40vh;
+    min-height: 260px;
+  }
+
+  .product-track img {
+    width: 220px;
+    min-height: 260px;
+  }
+}
+
+@media (max-width: 520px) {
+  .product-marquee {
+    height: 34vh;
+    min-height: 220px;
+  }
+
+  .product-track {
+    gap: 12px;
+  }
+
+  .product-track img {
+    width: 220px;
+    height: 220px;
+    min-height: 220px;
+    object-fit: cover;
+  }
+}
+
