@@ -66,13 +66,14 @@ const siteHeader = document.getElementById("siteHeader");
 if (siteHeader) {
   let lastScrollY = window.scrollY;
   let headerStopTimer = null;
+  let ticking = false;
 
   const showHeader = () => {
     siteHeader.classList.remove("header-hidden");
   };
 
   const hideHeader = () => {
-    if (window.scrollY > 140) {
+    if (window.scrollY > 120) {
       siteHeader.classList.add("header-hidden");
     }
   };
@@ -80,27 +81,37 @@ if (siteHeader) {
   const updateHeaderState = () => {
     const currentScrollY = window.scrollY;
 
-    siteHeader.classList.toggle("header-scrolled", currentScrollY > 18);
+    siteHeader.classList.toggle("header-scrolled", currentScrollY > 14);
 
-    if (currentScrollY <= 10) {
+    if (currentScrollY <= 6) {
       showHeader();
       lastScrollY = currentScrollY;
       return;
     }
 
-    if (currentScrollY > lastScrollY + 8) {
+    if (currentScrollY > lastScrollY + 10) {
       hideHeader();
     } else if (currentScrollY < lastScrollY - 8) {
       showHeader();
     }
 
     clearTimeout(headerStopTimer);
-    headerStopTimer = setTimeout(showHeader, 140);
+    headerStopTimer = setTimeout(showHeader, 220);
 
     lastScrollY = currentScrollY;
   };
 
-  window.addEventListener("scroll", updateHeaderState, { passive: true });
+  const onScroll = () => {
+    if (ticking) return;
+
+    ticking = true;
+    requestAnimationFrame(() => {
+      updateHeaderState();
+      ticking = false;
+    });
+  };
+
+  window.addEventListener("scroll", onScroll, { passive: true });
   window.addEventListener("load", updateHeaderState);
 }
 
