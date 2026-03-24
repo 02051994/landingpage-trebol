@@ -653,15 +653,13 @@
   align-items: start;
 }
 
-.section_nosotros_2 .about-media {
-  order: 2;
+.section_nosotros_2 .section-divider {
+  grid-column: 1 / -1;
 }
 
 .section_nosotros_2 .about-content {
-  order: 1;
   max-width: 700px;
   justify-self: start;
-  align-self: center;
 }
 
 .section_nosotros_2 .about-content h2 {
