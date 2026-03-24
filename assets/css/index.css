@@ -1916,7 +1916,7 @@
   font-size: clamp(2rem, 4vw, 3.5rem);
   line-height: 1.02;
   max-width: 15ch;
-  color: #ffffff;
+  color: #ffffff !important;
   letter-spacing: -0.03em;
 }
 
