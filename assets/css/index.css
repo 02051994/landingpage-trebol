@@ -595,6 +595,37 @@
   font-size: 0.96rem;
 }
 
+.cinta-floating-stack {
+  position: absolute;
+  top: 20px;
+  right: 18px;
+  z-index: 2;
+  display: grid;
+  gap: 12px;
+  pointer-events: none;
+}
+
+.cinta-floating-item {
+  width: 122px;
+  height: 90px;
+  border-radius: 14px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.34);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.24);
+  animation: floatBadge 7s ease-in-out infinite;
+}
+
+.cinta-floating-item:nth-child(2) {
+  animation-delay: 1.2s;
+}
+
+.cinta-floating-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
 /* =========================
    ABOUT SLIDER INDEX
 ========================= */
@@ -763,6 +794,111 @@
 .about-indicator.active {
   background-color: #ffffff;
   transform: scale(1.2);
+}
+
+.about-orbit-pills {
+  position: absolute;
+  right: -16px;
+  bottom: 34px;
+  display: grid;
+  gap: 10px;
+  z-index: 4;
+}
+
+.about-orbit-pills span {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 114px;
+  padding: 10px 15px;
+  border-radius: 999px;
+  background: rgba(8, 20, 15, 0.72);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #fff;
+  font-size: 0.82rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  backdrop-filter: blur(8px);
+  animation: orbitPulse 6.8s ease-in-out infinite;
+}
+
+.about-orbit-pills span:nth-child(2) {
+  margin-left: 16px;
+  animation-delay: 0.8s;
+}
+
+.about-orbit-pills span:nth-child(3) {
+  margin-left: 8px;
+  animation-delay: 1.6s;
+}
+
+/* =========================
+   VIDEO CORPORATIVO
+========================= */
+.section-video-corporativo {
+  width: 100%;
+  padding: 0;
+  margin: 10px 0 0;
+}
+
+.video-corporativo-wrap {
+  position: relative;
+  min-height: clamp(340px, 45vw, 620px);
+  overflow: hidden;
+}
+
+.video-corporativo-wrap video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: saturate(1.08) contrast(1.04);
+}
+
+.video-corporativo-overlay {
+  position: relative;
+  min-height: clamp(340px, 45vw, 620px);
+  display: grid;
+  place-items: center;
+  text-align: center;
+  padding: 34px 20px;
+  background:
+    linear-gradient(120deg, rgba(3, 12, 19, 0.68), rgba(8, 46, 32, 0.52));
+}
+
+.video-corporativo-content h2 {
+  color: #fff;
+  font-size: clamp(2rem, 4vw, 3.2rem);
+  margin: 10px 0 14px;
+  letter-spacing: -0.03em;
+}
+
+.video-corporativo-content p {
+  color: rgba(255, 255, 255, 0.92);
+  max-width: 70ch;
+  margin: 0 auto;
+  line-height: 1.8;
+}
+
+@keyframes floatBadge {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-10px) rotate(-1deg);
+  }
+}
+
+@keyframes orbitPulse {
+  0%, 100% {
+    transform: translateX(0);
+    opacity: 0.92;
+  }
+  50% {
+    transform: translateX(-8px);
+    opacity: 1;
+  }
 }
 
 @keyframes aboutImageDrift {
@@ -1650,6 +1786,11 @@
     justify-self: stretch;
   }
 
+  .about-orbit-pills {
+    right: 12px;
+    bottom: 18px;
+  }
+
   .section_nosotros_2 {
     padding-top: 40px;
   }
@@ -1813,10 +1954,29 @@
     border-radius: 24px;
   }
 
+  .cinta-floating-stack {
+    top: 14px;
+    right: 14px;
+  }
+
+  .cinta-floating-item {
+    width: 96px;
+    height: 70px;
+  }
+
   .about-slider,
   .about-slide {
     height: 380px;
     border-radius: 24px;
+  }
+
+  .about-orbit-pills {
+    display: none;
+  }
+
+  .video-corporativo-wrap,
+  .video-corporativo-overlay {
+    min-height: 320px;
   }
 
   .products-premium-section {
@@ -1865,6 +2025,10 @@
   .flip-card-front {
     font-size: 0.95rem;
     padding: 14px 10px;
+  }
+
+  .cinta-floating-stack {
+    display: none;
   }
 }
 
