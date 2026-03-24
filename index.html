@@ -11,11 +11,11 @@
   <link rel="stylesheet" href="assets/css/global.css" />
   <link rel="stylesheet" href="assets/css/index.css" />
 </head>
-<body>
+<body class="page-index">
 
   <header class="header" id="siteHeader">
     <div class="container navbar">
-      <a href="index.html" class="logo">
+      <a href="index.html" class="logo" aria-label="Grupo Trébol">
         <img src="assets/img/icons/logo_svg_trebol_2.jpeg" alt="Grupo Trébol">
         <span>GRUPO TRÉBOL</span>
       </a>
@@ -53,44 +53,33 @@
           class="hero-slide active"
           data-tag="Bienvenidos"
           data-title="Tecnología, campo y excelencia en cada cosecha"
-          data-text="Integramos tecnología, manejo agronómico y disciplina operativa para entregar arándanos frescos y consistentes a mercados exigentes."
+          data-text="Integramos innovación tecnológica, manejo agronómico especializado y prácticas agrícolas responsables para garantizar frutos de calidad superior. Nuestro trabajo en campo se orienta a ofrecer arándanos frescos, seguros y consistentes para los mercados más exigentes del mundo."
         >
           <img src="assets/img/hero/principal.jpeg" alt="Imagen principal 1 de Grupo Trébol" />
-          <div class="hero-slide-caption">
-            <span>Producción inteligente</span>
-            <p>Innovación agronómica aplicada en cada etapa.</p>
-          </div>
         </div>
 
         <div
           class="hero-slide"
           data-tag="Capacitación"
           data-title="Equipos preparados para cada desafío en campo"
-          data-text="Fortalecemos el desempeño diario con capacitación técnica, protocolos de seguridad y acompañamiento operativo constante."
+          data-text="Impulsamos una cultura de aprendizaje continuo con capacitaciones técnicas, acompañamiento operativo y protocolos que fortalecen la seguridad, la productividad y la calidad en cada jornada."
         >
           <img src="assets/img/hero/principal_2.jpeg" alt="Imagen principal 2 de Grupo Trébol" />
-          <div class="hero-slide-caption">
-            <span>Talento en acción</span>
-            <p>Personas preparadas para ejecutar con precisión.</p>
-          </div>
         </div>
 
         <div
           class="hero-slide"
           data-tag="Exportación"
           data-title="Producción confiable para mercados internacionales"
-          data-text="Del campo a la salida comercial, cada proceso se gestiona con trazabilidad y cumplimiento para responder a clientes internacionales."
+          data-text="Cada proceso, desde el manejo agronómico hasta la salida comercial, está orientado a responder con consistencia, trazabilidad y cumplimiento a clientes que exigen resultados de alto nivel."
         >
           <img src="assets/img/hero/principal_3.jpeg" alt="Imagen principal 3 de Grupo Trébol" />
-          <div class="hero-slide-caption">
-            <span>Visión exportadora</span>
-            <p>Trazabilidad y cumplimiento para mercados globales.</p>
-          </div>
         </div>
 
         <div class="hero-overlay"></div>
         <div class="hero-glow hero-glow-1"></div>
         <div class="hero-glow hero-glow-2"></div>
+        <div class="hero-noise"></div>
 
         <div class="container hero-content-wrapper">
           <div class="hero-content hero-content-slider">
@@ -102,8 +91,13 @@
             <h1 id="heroTitle">Tecnología, campo y excelencia en cada cosecha</h1>
 
             <p id="heroText">
-              Integramos tecnología, manejo agronómico y disciplina operativa para entregar arándanos frescos y consistentes a mercados exigentes.
+              Integramos innovación tecnológica, manejo agronómico especializado y prácticas agrícolas responsables para garantizar frutos de calidad superior. Nuestro trabajo en campo se orienta a ofrecer arándanos frescos, seguros y consistentes para los mercados más exigentes del mundo.
             </p>
+
+            <div class="hero-actions" id="heroActions">
+              <a href="productos.html" class="btn btn-primary">Explorar productos</a>
+              <a href="nosotros.html" class="btn btn-secondary">Conocer más</a>
+            </div>
 
             <div class="hero-metrics" id="heroMetrics" aria-label="Indicadores de campaña">
               <article class="hero-metric-card">
@@ -249,11 +243,11 @@
         </div>
 
         <div class="cinta-nosotros-media reveal">
-          <div class="cinta-nosotros-frame">
+          <div class="cinta-nosotros-frame image-lift" data-float-strength="16">
             <img
               src="assets/img/nosotros/nosotros_hero1.jpeg"
               alt="Equipo de Grupo Trébol"
-              class="cinta-nosotros-image"
+              class="cinta-nosotros-image parallax-soft"
               id="cintaNosotrosImage"
             >
             <div class="cinta-nosotros-overlay-card">
@@ -272,7 +266,7 @@
         <div class="about-slider" id="aboutSlider">
           <div class="about-slider-track">
             <div class="about-slide">
-              <img src="assets/img/nosotros/nosotros_hero1.jpeg" alt="Grupo Trébol imagen 1" class="about-image">
+              <img src="assets/img/nosotros/nosotros_hero1.jpeg" alt="Grupo Trébol imagen 1" class="about-image parallax-soft">
               <div class="about-slide-caption">
                 <span>Capacitación técnica</span>
                 <strong>Equipos alineados con el estándar operativo</strong>
@@ -280,7 +274,7 @@
             </div>
 
             <div class="about-slide">
-              <img src="assets/img/nosotros/nosotros_hero2.jpeg" alt="Grupo Trébol imagen 2" class="about-image">
+              <img src="assets/img/nosotros/nosotros_hero2.jpeg" alt="Grupo Trébol imagen 2" class="about-image parallax-soft">
               <div class="about-slide-caption">
                 <span>Seguridad y control</span>
                 <strong>Procesos más seguros, más ordenados y más eficientes</strong>
@@ -288,21 +282,12 @@
             </div>
 
             <div class="about-slide">
-              <img src="assets/img/nosotros/nosotros_hero3.jpeg" alt="Grupo Trébol imagen 3" class="about-image">
+              <img src="assets/img/nosotros/nosotros_hero3.jpeg" alt="Grupo Trébol imagen 3" class="about-image parallax-soft">
               <div class="about-slide-caption">
                 <span>Mejora continua</span>
                 <strong>Disciplina operativa para sostener la calidad</strong>
               </div>
             </div>
-          </div>
-
-          <div class="about-slider-controls" aria-label="Controles del slider de equipo">
-            <button class="about-nav about-prev" type="button" aria-label="Slide anterior">
-              <span>&#10094;</span>
-            </button>
-            <button class="about-nav about-next" type="button" aria-label="Siguiente slide">
-              <span>&#10095;</span>
-            </button>
           </div>
 
           <div class="about-slider-indicators">
@@ -327,7 +312,7 @@
     </section>
 
     <section class="section certifications-section">
-      <div class="container certifications-container">
+      <div class="container">
         <header class="section-header reveal certifications-header">
           <span class="section-tag">Estándares</span>
           <h2>Procesos orientados a calidad, trazabilidad y cumplimiento</h2>
@@ -575,7 +560,7 @@
               data-description="Embalaje de Clamshell 12x4.4oz, peso: 1.5 kilogramos dirigido a mercados Europeos y Asiáticos."
               data-images="assets/img/productos/4.4oz.jpg,assets/img/productos/producto1_carrousel.jpg,assets/img/productos/bulk.jpg">
               <div class="card-media">
-                <img src="assets/img/productos/4.4oz.jpg" alt="Producto Clamshell 4.4oz" />
+                <img src="assets/img/productos/4.4oz.jpg" alt="Producto Clamshell 4.4oz" class="parallax-soft" />
                 <span class="product-chip">Europa / Asia</span>
               </div>
               <div class="card-body">
@@ -591,7 +576,7 @@
               data-description="Embalaje Clamshell pinta, 8x18oz peso: 4.08 kilogramos dirigido a EEUU."
               data-images="assets/img/productos/11oz.png,assets/img/productos/producto1_carrousel.jpg,assets/img/productos/bulk.jpg">
               <div class="card-media">
-                <img src="assets/img/productos/11oz.png" alt="Producto Clamshell Pinta 11oz" />
+                <img src="assets/img/productos/11oz.png" alt="Producto Clamshell Pinta 11oz" class="parallax-soft" />
                 <span class="product-chip">EEUU</span>
               </div>
               <div class="card-body">
@@ -607,7 +592,7 @@
               data-description="Embalaje Clamshell pinta, 12xDrypint peso: 3.744 kilogramos dirigido a EEUU."
               data-images="assets/img/productos/drypint.jpg,assets/img/productos/producto1_carrousel.jpg,assets/img/productos/bulk.jpg">
               <div class="card-media">
-                <img src="assets/img/productos/drypint.jpg" alt="Producto Clamshell Pinta Drypint" />
+                <img src="assets/img/productos/drypint.jpg" alt="Producto Clamshell Pinta Drypint" class="parallax-soft" />
                 <span class="product-chip">EEUU</span>
               </div>
               <div class="card-body">
@@ -630,11 +615,12 @@
       <div class="container">
         <div class="values-layout reveal">
           <div class="values-media">
-            <div class="values-image-card">
+            <div class="values-image-card image-lift" data-float-strength="12">
               <img
                 id="valuesImage"
                 src="assets/img/nosotros/nosotros_hero2.jpeg"
                 alt="Valor corporativo Grupo Trébol"
+                class="parallax-soft"
               />
               <div class="values-image-overlay">
                 <span class="section-tag values-image-tag">Cultura organizacional</span>

@@ -1,4 +1,20 @@
 /* =========================
+   ESTADO JS
+========================= */
+document.body.classList.add("js-ready");
+
+/* =========================
+   HELPERS
+========================= */
+function debounce(fn, delay = 120) {
+  let timer = null;
+  return (...args) => {
+    clearTimeout(timer);
+    timer = setTimeout(() => fn(...args), delay);
+  };
+}
+
+/* =========================
    MENÚ BURGER
 ========================= */
 const menuToggle = document.querySelector(".menu-toggle");
@@ -112,6 +128,77 @@ function revealOnScroll() {
 window.addEventListener("scroll", revealOnScroll, { passive: true });
 window.addEventListener("load", revealOnScroll);
 window.addEventListener("resize", revealOnScroll);
+
+/* =========================
+   PARALLAX SUAVE PARA IMÁGENES
+========================= */
+const parallaxItems = document.querySelectorAll(".parallax-soft");
+
+function updateSoftParallax() {
+  if (!parallaxItems.length || window.innerWidth <= 768) return;
+
+  const viewportHeight = window.innerHeight;
+
+  parallaxItems.forEach((item) => {
+    const rect = item.getBoundingClientRect();
+
+    if (rect.bottom < 0 || rect.top > viewportHeight) return;
+
+    const center = rect.top + rect.height / 2;
+    const viewportCenter = viewportHeight / 2;
+    const offset = (center - viewportCenter) * -0.03;
+
+    item.style.transform = `translate3d(0, ${offset}px, 0) scale(1.04)`;
+  });
+}
+
+const updateSoftParallaxDebounced = debounce(updateSoftParallax, 10);
+
+window.addEventListener("scroll", updateSoftParallaxDebounced, { passive: true });
+window.addEventListener("load", updateSoftParallaxDebounced);
+window.addEventListener("resize", () => {
+  if (window.innerWidth <= 768) {
+    parallaxItems.forEach((item) => {
+      item.style.transform = "";
+    });
+  } else {
+    updateSoftParallaxDebounced();
+  }
+});
+
+/* =========================
+   FLOAT EFECTO PREMIUM
+========================= */
+const floatCards = document.querySelectorAll(".image-lift");
+
+function updateFloatingCards() {
+  if (!floatCards.length || window.innerWidth <= 768) return;
+
+  floatCards.forEach((card) => {
+    const rect = card.getBoundingClientRect();
+    const viewportCenter = window.innerHeight / 2;
+    const cardCenter = rect.top + rect.height / 2;
+    const distance = viewportCenter - cardCenter;
+    const strength = Number(card.dataset.floatStrength || 10);
+    const movement = Math.max(Math.min(distance * 0.02, strength), -strength);
+
+    card.style.transform = `translate3d(0, ${movement}px, 0)`;
+  });
+}
+
+const updateFloatingCardsDebounced = debounce(updateFloatingCards, 10);
+
+window.addEventListener("scroll", updateFloatingCardsDebounced, { passive: true });
+window.addEventListener("load", updateFloatingCardsDebounced);
+window.addEventListener("resize", () => {
+  if (window.innerWidth <= 768) {
+    floatCards.forEach((card) => {
+      card.style.transform = "";
+    });
+  } else {
+    updateFloatingCardsDebounced();
+  }
+});
 
 /* =========================
    MODAL PARA PRODUCTOS

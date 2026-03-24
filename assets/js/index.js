@@ -31,6 +31,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const heroTag = document.getElementById("heroTag");
   const heroTitle = document.getElementById("heroTitle");
   const heroText = document.getElementById("heroText");
+  const heroActions = document.getElementById("heroActions");
   const heroCounter = document.getElementById("heroCounter");
   const heroMetrics = document.getElementById("heroMetrics");
   const heroMetricValues = document.querySelectorAll(".hero-metric-value");
@@ -103,6 +104,11 @@ document.addEventListener("DOMContentLoaded", () => {
     heroTag.textContent = tag;
     heroTitle.textContent = title;
     heroText.textContent = text;
+
+    if (heroActions) {
+      heroActions.classList.remove("show");
+    }
+
     heroCounter.textContent = `${String(index + 1).padStart(2, "0")} / ${String(slides.length).padStart(2, "0")}`;
 
     heroOriginalText = title;
@@ -157,6 +163,10 @@ document.addEventListener("DOMContentLoaded", () => {
     heroText.classList.remove("show");
     heroMetrics.classList.remove("show");
 
+    if (heroActions) {
+      heroActions.classList.remove("show");
+    }
+
     const letters = heroTitle.querySelectorAll(".letter");
     letters.forEach((letter) => letter.classList.remove("show"));
   }
@@ -183,12 +193,18 @@ document.addEventListener("DOMContentLoaded", () => {
       heroText.classList.add("show");
     }, titleAnimationTime);
 
+    const actionsTimer = setTimeout(() => {
+      if (heroActions) {
+        heroActions.classList.add("show");
+      }
+    }, titleAnimationTime + 120);
+
     const metricsTimer = setTimeout(() => {
       heroMetrics.classList.add("show");
       animateHeroCounters();
-    }, titleAnimationTime + 220);
+    }, titleAnimationTime + 240);
 
-    heroTimers.push(textTimer, metricsTimer);
+    heroTimers.push(textTimer, actionsTimer, metricsTimer);
   }
 
   function resetDotProgress() {
@@ -506,6 +522,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
       if (progress < 1) {
         mapRouteVehicle._rafId = requestAnimationFrame(step);
+      } else {
+        setTimeout(() => {
+          mapRouteVehicle.style.opacity = "0";
+        }, 250);
       }
     }
 
