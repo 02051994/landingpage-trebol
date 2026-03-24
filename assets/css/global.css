@@ -65,6 +65,10 @@ ul {
   --header-height: 82px;
   --header-bg: rgba(246, 244, 239, 0.82);
   --header-border: rgba(24, 32, 40, 0.08);
+:root {
+  --header-height: 82px;
+  --header-bg: linear-gradient(90deg, rgba(12, 95, 128, 0.94), rgba(20, 77, 112, 0.94));
+  --header-border: rgba(255, 255, 255, 0.16);
 
   --color-bg: #f6f4ef;
   --color-surface: #ffffff;
@@ -247,6 +251,7 @@ p {
    HEADER GLOBAL
 ========================= */
 .header {
+.header {
   position: fixed;
   top: 0;
   left: 0;
@@ -270,6 +275,25 @@ p {
 .header.header-hidden {
   transform: translateY(-100%);
 }
+  background: var(--header-bg);
+  backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--header-border);
+  transition:
+    transform 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 0.35s ease,
+    background-color 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.header.header-scrolled {
+  background: linear-gradient(90deg, rgba(8, 79, 108, 0.96), rgba(15, 64, 95, 0.96));
+  box-shadow: 0 14px 32px rgba(0, 0, 0, 0.22);
+}
+
+.header.header-hidden {
+  transform: translateY(-110%);
+  opacity: 0;
+}
 
 .navbar {
   min-height: var(--header-height);
@@ -281,11 +305,13 @@ p {
 }
 
 .logo {
+.logo {
   display: flex;
   align-items: center;
   gap: 12px;
   font-weight: 800;
   color: var(--color-text);
+  color: #ffffff;
   position: relative;
   z-index: 1100;
 }
@@ -315,7 +341,11 @@ p {
 
 .nav-list a {
   color: var(--color-text-soft);
-  font-weight: 700;
+.nav-list a {
+  color: rgba(255, 255, 255, 0.86);
+  font-weight: 700;Collapse commentComment on lines R318 to R320chatgpt-codex-connector[bot] commented on Mar 24, 2026 chatgpt-codex-connector[bot]on Mar 24, 2026More actions  Restore readable link color in mobile nav menu
+This change sets .nav-list a to a white text color globally, but in the same stylesheet the mobile dropdown (@media (max-width: 980px)) still uses a white menu panel (.nav { background-color: #ffffff; }). When the burger menu opens on phone/tablet widths, navigation links become low-contrast and effectively unreadable, which blocks core navigation. Please add a mobile-specific color override (including hover/active states) for links shown inside the light dropdown.
+Useful? React with 👍 / 👎.ReactWrite a replyResolve comment
   padding: 10px 14px;
   border-radius: 12px;
   transition: color 0.25s ease, background-color 0.25s ease;
@@ -326,7 +356,13 @@ p {
   color: var(--color-text);
   background-color: rgba(255, 255, 255, 0.72);
 }
+.nav-list a:hover,
+.nav-list a.active {
+  color: #ffffff;
+  background-color: rgba(255, 255, 255, 0.14);
+}
 
+.menu-toggle {
 .menu-toggle {
   display: none;
   width: 46px;
@@ -334,6 +370,9 @@ p {
   border: 1px solid var(--color-border);
   border-radius: 12px;
   background-color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  border-radius: 12px;
+  background-color: rgba(255, 255, 255, 0.08);
   cursor: pointer;
   padding: 0;
   position: relative;
@@ -341,10 +380,12 @@ p {
 }
 
 .menu-toggle span {
+.menu-toggle span {
   display: block;
   width: 22px;
   height: 2px;
   background-color: var(--color-text);
+  background-color: #ffffff;
   margin: 5px auto;
   transition: transform 0.3s ease, opacity 0.3s ease;
 }
@@ -997,4 +1038,5 @@ p {
   .page-index .section {
     padding: 88px 0;
   }
+}
 }
