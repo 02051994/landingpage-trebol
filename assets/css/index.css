@@ -1886,6 +1886,45 @@
   outline-offset: -2px;
 }
 
+
+/* =========================
+   AJUSTES SOLICITADOS INDEX
+========================= */
+.page-index .section-cinta-nosotros {
+  padding: 118px 0 72px;
+}
+
+.page-index .section_nosotros_2 {
+  padding: 82px 0 118px;
+  align-items: start;
+}
+
+.page-index .section_nosotros_2 .about-media,
+.page-index .section_nosotros_2 .about-slider,
+.page-index .section_nosotros_2 .about-slide,
+.page-index .section_nosotros_2 .cinta-nosotros-frame {
+  margin-top: 0;
+}
+
+.page-index h1,
+.page-index h2,
+.page-index h3 {
+  color: #000000;
+}
+
+.peru-map-stage::before {
+  content: "";
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  width: 132px;
+  height: 44px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, rgba(229, 241, 239, 0.96), rgba(217, 236, 232, 0.96));
+  z-index: 4;
+  pointer-events: none;
+}
+
 /* =========================
    RESPONSIVE INDEX
 ========================= */
