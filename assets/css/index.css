@@ -49,6 +49,43 @@
   transform: scale(1);
 }
 
+.hero-slide-caption {
+  position: absolute;
+  right: clamp(16px, 4vw, 42px);
+  bottom: clamp(88px, 11vh, 124px);
+  z-index: 4;
+  max-width: 340px;
+  padding: 14px 16px;
+  border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(6, 16, 11, 0.48);
+  backdrop-filter: blur(10px);
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.hero-slide.active .hero-slide-caption {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.hero-slide-caption span {
+  display: inline-block;
+  color: #ffffff;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+
+.hero-slide-caption p {
+  color: rgba(255, 255, 255, 0.86);
+  font-size: 0.92rem;
+  line-height: 1.5;
+}
+
 .hero-overlay {
   position: absolute;
   inset: 0;
@@ -1565,7 +1602,9 @@
   }
 
   .hero-metrics {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(3, minmax(180px, 1fr));
+    overflow-x: auto;
+    padding-bottom: 8px;
   }
 
   .certifications-layout {
@@ -1600,8 +1639,9 @@
 
 @media (max-width: 768px) {
   .hero-content-wrapper {
-    padding-top: calc(var(--header-height) + 10px);
-    padding-bottom: 120px;
+    min-height: 100svh;
+    padding-top: calc(var(--header-height) + 6px);
+    padding-bottom: 82px;
   }
 
   .hero-content-slider::before {
@@ -1609,9 +1649,36 @@
     height: 110px;
   }
 
+  .hero-content-slider h1 {
+    font-size: clamp(2.1rem, 8.2vw, 3rem);
+    margin-bottom: 16px;
+  }
+
+  .hero-content-slider p {
+    font-size: 0.98rem;
+    line-height: 1.6;
+    margin-bottom: 18px;
+  }
+
   .hero-content-topline {
     gap: 12px;
     margin-bottom: 16px;
+  }
+
+  .hero-slide-caption {
+    right: 12px;
+    left: 12px;
+    bottom: 84px;
+    max-width: unset;
+    padding: 10px 12px;
+  }
+
+  .hero-slide-caption span {
+    font-size: 0.68rem;
+  }
+
+  .hero-slide-caption p {
+    font-size: 0.82rem;
   }
 
   .hero-controls-wrap {
