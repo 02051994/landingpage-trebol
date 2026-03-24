@@ -49,7 +49,7 @@ const siteHeader = document.getElementById("siteHeader");
 
 if (siteHeader) {
   let lastScrollY = window.scrollY;
-  let headerStopTimer = null;
+  let ticking = false;
 
   const showHeader = () => {
     siteHeader.classList.remove("header-hidden");
@@ -78,13 +78,16 @@ if (siteHeader) {
       showHeader();
     }
 
-    clearTimeout(headerStopTimer);
-    headerStopTimer = setTimeout(showHeader, 140);
-
     lastScrollY = currentScrollY;
+    ticking = false;
   };
 
-  window.addEventListener("scroll", updateHeaderState, { passive: true });
+  window.addEventListener("scroll", () => {
+    if (!ticking) {
+      window.requestAnimationFrame(updateHeaderState);
+      ticking = true;
+    }
+  }, { passive: true });
   window.addEventListener("load", updateHeaderState);
 }
 
