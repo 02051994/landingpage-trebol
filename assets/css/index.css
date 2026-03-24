@@ -1007,24 +1007,20 @@
   overflow: hidden;
 }
 
-.peru-map-svg {
+.peru-map-iframe {
   position: absolute;
-  inset: 12px;
-  width: calc(100% - 24px);
-  height: calc(100% - 24px);
-  animation: mapPeruFloat 8s ease-in-out infinite;
+  inset: 10px;
+  width: calc(100% - 20px);
+  height: calc(100% - 20px);
+  border: 0;
+  border-radius: 18px;
 }
 
-.peru-shape {
-  fill: url(#peruGradient);
-  stroke: rgba(17, 67, 47, 0.34);
-  stroke-width: 3;
-}
 
 .huaral-point {
   position: absolute;
-  left: 49%;
-  top: 37%;
+  left: 43%;
+  top: 42%;
   width: 16px;
   height: 16px;
   border-radius: 50%;
@@ -1053,11 +1049,6 @@
   padding-left: 18px;
   display: grid;
   gap: 8px;
-}
-
-@keyframes mapPeruFloat {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-8px) scale(1.01); }
 }
 
 @keyframes huaralPulse {
@@ -2332,7 +2323,7 @@
   .cinta-nosotros-image,
   .about-image,
   .about-slide-caption,
-  .peru-map-svg,
+  .peru-map-iframe,
   .huaral-point,
   .cinta-floating-item {
     animation: none !important;
