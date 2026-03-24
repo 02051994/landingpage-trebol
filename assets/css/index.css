@@ -548,10 +548,9 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  clip-path: inset(0 28% 0 28%);
   transform-origin: center center;
-  transition: clip-path 0.14s linear, transform 0.7s ease;
-  will-change: clip-path, transform;
+  transition: transform 0.7s ease;
+  will-change: transform;
   animation: cintaImageBreath 14s ease-in-out infinite alternate;
 }
 
@@ -576,9 +575,9 @@
   max-width: 360px;
   padding: 20px 22px;
   border-radius: 22px;
-  background: rgba(8, 17, 12, 0.54);
-  border: 1px solid rgba(255, 255, 255, 0.14);
-  color: #fff;
+  background: rgba(255, 255, 255, 0.82);
+  border: 1px solid rgba(19, 103, 138, 0.15);
+  color: #102f24;
   backdrop-filter: blur(12px);
 }
 
@@ -590,33 +589,48 @@
 
 .cinta-nosotros-overlay-card span {
   display: block;
-  color: rgba(255, 255, 255, 0.8);
+  color: rgba(16, 47, 36, 0.84);
   line-height: 1.7;
   font-size: 0.96rem;
 }
 
 .cinta-floating-stack {
   position: absolute;
-  top: 20px;
+  top: 18px;
   right: 18px;
   z-index: 2;
   display: grid;
-  gap: 12px;
+  gap: 10px;
   pointer-events: none;
 }
 
 .cinta-floating-item {
-  width: 122px;
-  height: 90px;
-  border-radius: 14px;
+  width: 110px;
+  aspect-ratio: 1 / 1;
+  border-radius: 18px;
   overflow: hidden;
-  border: 1px solid rgba(255, 255, 255, 0.34);
-  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.24);
+  border: 1px solid rgba(255, 255, 255, 0.58);
+  box-shadow:
+    0 16px 34px rgba(0, 0, 0, 0.24),
+    0 0 0 1px rgba(255,255,255,0.18) inset;
   animation: floatBadge 7s ease-in-out infinite;
+  position: relative;
+}
+
+.cinta-floating-item::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(160deg, rgba(255,255,255,0.24), transparent 50%);
+  pointer-events: none;
 }
 
 .cinta-floating-item:nth-child(2) {
-  animation-delay: 1.2s;
+  animation-delay: 0.8s;
+}
+
+.cinta-floating-item:nth-child(3) {
+  animation-delay: 1.6s;
 }
 
 .cinta-floating-item img {
@@ -636,7 +650,7 @@
   display: grid;
   grid-template-columns: minmax(0, 1.14fr) minmax(0, 0.86fr);
   gap: clamp(34px, 5vw, 84px);
-  align-items: center;
+  align-items: start;
 }
 
 .section_nosotros_2 .about-media {
@@ -647,6 +661,7 @@
   order: 2;
   max-width: 620px;
   justify-self: end;
+  align-self: start;
 }
 
 .section_nosotros_2 .about-content h2 {
@@ -741,10 +756,10 @@
   z-index: 3;
   padding: 20px 22px;
   border-radius: 18px;
-  background: rgba(10, 18, 14, 0.42);
-  border: 1px solid rgba(255,255,255,0.14);
+  background: rgba(255, 255, 255, 0.82);
+  border: 1px solid rgba(19, 103, 138, 0.14);
   backdrop-filter: blur(10px);
-  color: #fff;
+  color: #102f24;
   transform: translateY(24px);
   opacity: 0;
   transition: transform 0.6s ease, opacity 0.6s ease;
@@ -760,7 +775,7 @@
   font-size: 0.82rem;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: rgba(255,255,255,0.7);
+  color: rgba(16, 47, 36, 0.7);
   margin-bottom: 8px;
 }
 
@@ -779,6 +794,35 @@
   display: flex;
   flex-direction: column;
   gap: 10px;
+}
+
+.about-slider-arrows {
+  position: absolute;
+  left: 18px;
+  top: 18px;
+  z-index: 4;
+  display: flex;
+  gap: 10px;
+}
+
+.about-arrow {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  border: 1px solid rgba(19, 103, 138, 0.24);
+  background: rgba(255, 255, 255, 0.86);
+  color: #0f2f3f;
+  display: grid;
+  place-items: center;
+  font-size: 1rem;
+  cursor: pointer;
+  backdrop-filter: blur(8px);
+  transition: transform 0.25s ease, background-color 0.25s ease;
+}
+
+.about-arrow:hover {
+  transform: translateY(-2px);
+  background: #ffffff;
 }
 
 .about-indicator {
@@ -812,9 +856,9 @@
   min-width: 114px;
   padding: 10px 15px;
   border-radius: 999px;
-  background: rgba(8, 20, 15, 0.72);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  color: #fff;
+  background: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(19, 103, 138, 0.14);
+  color: #0f2f3f;
   font-size: 0.82rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -864,18 +908,18 @@
   text-align: center;
   padding: 34px 20px;
   background:
-    linear-gradient(120deg, rgba(3, 12, 19, 0.68), rgba(8, 46, 32, 0.52));
+    linear-gradient(120deg, rgba(244, 251, 247, 0.72), rgba(225, 241, 232, 0.62));
 }
 
 .video-corporativo-content h2 {
-  color: #fff;
+  color: #111111;
   font-size: clamp(2rem, 4vw, 3.2rem);
   margin: 10px 0 14px;
   letter-spacing: -0.03em;
 }
 
 .video-corporativo-content p {
-  color: rgba(255, 255, 255, 0.92);
+  color: rgba(17, 17, 17, 0.88);
   max-width: 70ch;
   margin: 0 auto;
   line-height: 1.8;
@@ -920,6 +964,106 @@
   100% {
     transform: scale(1.05);
   }
+}
+
+/* =========================
+   UBICACIÓN PERÚ
+========================= */
+.section-ubicacion-peru {
+  background: linear-gradient(180deg, rgba(19, 103, 138, 0.06), rgba(19, 103, 138, 0.01));
+}
+
+.ubicacion-peru-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 0.78fr);
+  gap: 24px;
+}
+
+.ubicacion-peru-map-card,
+.ubicacion-peru-copy-card {
+  padding: 26px;
+  border-radius: 28px;
+  background: rgba(255,255,255,0.88);
+  border: 1px solid rgba(19, 103, 138, 0.12);
+  box-shadow: 0 18px 42px rgba(0,0,0,0.06);
+}
+
+.ubicacion-peru-map-card h2,
+.ubicacion-peru-copy-card h3 {
+  color: #111111;
+  margin: 10px 0 10px;
+}
+
+.ubicacion-peru-map-card p {
+  margin-bottom: 14px;
+}
+
+.peru-map-stage {
+  position: relative;
+  min-height: 360px;
+  border-radius: 24px;
+  border: 1px solid rgba(19, 103, 138, 0.1);
+  background: radial-gradient(circle at 30% 20%, #f3fbf7, #e4f2eb);
+  overflow: hidden;
+}
+
+.peru-map-svg {
+  position: absolute;
+  inset: 12px;
+  width: calc(100% - 24px);
+  height: calc(100% - 24px);
+  animation: mapPeruFloat 8s ease-in-out infinite;
+}
+
+.peru-shape {
+  fill: url(#peruGradient);
+  stroke: rgba(17, 67, 47, 0.34);
+  stroke-width: 3;
+}
+
+.huaral-point {
+  position: absolute;
+  left: 49%;
+  top: 37%;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: #1f6b45;
+  border: 2px solid #fff;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 0 0 0 rgba(31, 107, 69, 0.4);
+  animation: huaralPulse 2.2s ease infinite;
+  z-index: 2;
+}
+
+.huaral-point span {
+  position: absolute;
+  left: 22px;
+  top: -8px;
+  color: #111111;
+  font-weight: 700;
+  background: rgba(255,255,255,0.9);
+  border: 1px solid rgba(19, 103, 138, 0.14);
+  padding: 6px 10px;
+  border-radius: 999px;
+}
+
+.ubicacion-peru-copy-card ul {
+  margin: 8px 0 22px;
+  padding-left: 18px;
+  display: grid;
+  gap: 8px;
+}
+
+@keyframes mapPeruFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px) scale(1.01); }
+}
+
+@keyframes huaralPulse {
+  0% { box-shadow: 0 0 0 0 rgba(31, 107, 69, 0.4); }
+  70% { box-shadow: 0 0 0 16px rgba(31, 107, 69, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(31, 107, 69, 0); }
 }
 
 /* =========================
@@ -1769,10 +1913,11 @@
   }
 }
 
-@media (max-width: 1100px) {
+@media (max-width: 960px) {
   .section_nosotros_2,
   .cinta-nosotros-container,
-  .values-layout {
+  .values-layout,
+  .ubicacion-peru-layout {
     grid-template-columns: 1fr;
   }
 
@@ -1955,19 +2100,27 @@
   }
 
   .cinta-floating-stack {
-    top: 14px;
-    right: 14px;
+    right: 10px;
+    left: 10px;
+    top: auto;
+    bottom: 12px;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
   }
 
   .cinta-floating-item {
-    width: 96px;
-    height: 70px;
+    width: 100%;
   }
 
   .about-slider,
   .about-slide {
     height: 380px;
     border-radius: 24px;
+  }
+
+  .about-slider-arrows {
+    top: auto;
+    bottom: 16px;
   }
 
   .about-orbit-pills {
@@ -2027,8 +2180,8 @@
     padding: 14px 10px;
   }
 
-  .cinta-floating-stack {
-    display: none;
+  .cinta-floating-item {
+    border-radius: 12px;
   }
 }
 
@@ -2116,6 +2269,10 @@
     min-height: 280px;
   }
 
+  .peru-map-stage {
+    min-height: 270px;
+  }
+
   .about-slider,
   .about-slide {
     height: 280px;
@@ -2174,7 +2331,10 @@
   .map-point-destination,
   .cinta-nosotros-image,
   .about-image,
-  .about-slide-caption {
+  .about-slide-caption,
+  .peru-map-svg,
+  .huaral-point,
+  .cinta-floating-item {
     animation: none !important;
     transition: none !important;
   }
