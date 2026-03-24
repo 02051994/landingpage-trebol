@@ -65,8 +65,8 @@ ul {
 ========================= */
 :root {
   --header-height: 82px;
-  --header-bg: rgba(246, 244, 239, 0.82);
-  --header-border: rgba(24, 32, 40, 0.08);
+  --header-bg: linear-gradient(95deg, rgba(8, 83, 130, 0.95), rgba(11, 66, 120, 0.94), rgba(16, 51, 109, 0.95));
+  --header-border: rgba(255, 255, 255, 0.18);
 
   --color-bg: #f6f4ef;
   --color-surface: #ffffff;
@@ -275,22 +275,24 @@ p {
   width: 100%;
   z-index: 1000;
   min-height: var(--header-height);
-  background-color: var(--header-bg);
+  background: var(--header-bg);
   backdrop-filter: blur(14px);
   border-bottom: 1px solid var(--header-border);
   transition:
-    transform 0.35s ease,
+    transform 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 0.35s ease,
     background-color 0.25s ease,
     box-shadow 0.25s ease;
 }
 
 .header.header-scrolled {
-  background-color: rgba(246, 244, 239, 0.92);
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.06);
+  background: linear-gradient(95deg, rgba(7, 72, 118, 0.97), rgba(9, 56, 103, 0.98), rgba(12, 44, 95, 0.98));
+  box-shadow: 0 14px 32px rgba(0, 0, 0, 0.26);
 }
 
 .header.header-hidden {
-  transform: translateY(-100%);
+  transform: translateY(-110%);
+  opacity: 0;
 }
 
 .navbar {
@@ -307,7 +309,7 @@ p {
   align-items: center;
   gap: 12px;
   font-weight: 800;
-  color: var(--color-text);
+  color: #ffffff;
   position: relative;
   z-index: 1100;
   flex-shrink: 0;
@@ -338,7 +340,7 @@ p {
 }
 
 .nav-list a {
-  color: var(--color-text-soft);
+  color: rgba(255, 255, 255, 0.86);
   font-weight: 700;
   padding: 10px 14px;
   border-radius: 12px;
@@ -347,17 +349,17 @@ p {
 
 .nav-list a:hover,
 .nav-list a.active {
-  color: var(--color-text);
-  background-color: rgba(255, 255, 255, 0.72);
+  color: #ffffff;
+  background-color: rgba(255, 255, 255, 0.14);
 }
 
 .menu-toggle {
   display: none;
   width: 46px;
   height: 46px;
-  border: 1px solid var(--color-border);
+  border: 1px solid rgba(255, 255, 255, 0.28);
   border-radius: 12px;
-  background-color: #ffffff;
+  background-color: rgba(255, 255, 255, 0.08);
   cursor: pointer;
   padding: 0;
   position: relative;
@@ -369,7 +371,7 @@ p {
   display: block;
   width: 22px;
   height: 2px;
-  background-color: var(--color-text);
+  background-color: #ffffff;
   margin: 5px auto;
   transition: transform 0.3s ease, opacity 0.3s ease;
 }

@@ -325,6 +325,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const aboutTrack = aboutSlider.querySelector(".about-slider-track");
     const aboutSlides = aboutSlider.querySelectorAll(".about-slide");
     const aboutIndicators = aboutSlider.querySelectorAll(".about-indicator");
+    const aboutPrev = aboutSlider.querySelector(".about-prev");
+    const aboutNext = aboutSlider.querySelector(".about-next");
 
     let aboutIndex = 0;
     let aboutInterval = null;
@@ -367,6 +369,20 @@ document.addEventListener("DOMContentLoaded", () => {
         startAboutAutoplay();
       });
     });
+
+    if (aboutPrev) {
+      aboutPrev.addEventListener("click", () => {
+        prevAboutSlide();
+        startAboutAutoplay();
+      });
+    }
+
+    if (aboutNext) {
+      aboutNext.addEventListener("click", () => {
+        nextAboutSlide();
+        startAboutAutoplay();
+      });
+    }
 
     aboutSlider.addEventListener("touchstart", (e) => {
       startY = e.touches[0].clientY;
@@ -411,9 +427,9 @@ document.addEventListener("DOMContentLoaded", () => {
     const sectionCenter = rect.top + rect.height / 2;
     const viewportCenter = viewportHeight / 2;
     const distance = Math.abs(sectionCenter - viewportCenter);
-    const maxDistance = viewportHeight * 0.62;
+    const maxDistance = viewportHeight * 0.58;
     const progress = 1 - Math.min(distance / maxDistance, 1);
-    const sideInset = 28 - progress * 28;
+    const sideInset = 34 - progress * 34;
 
     cintaNosotrosImage.style.clipPath = `inset(0 ${sideInset}% 0 ${sideInset}%)`;
   }
