@@ -644,24 +644,24 @@
    ABOUT SLIDER INDEX
 ========================= */
 .section_nosotros_2 {
-  width: min(100% - 40px, 1380px);
+  width: min(100% - 32px, 1520px);
   margin: 0 auto;
   padding: 82px 0 118px;
   display: grid;
-  grid-template-columns: minmax(0, 1.14fr) minmax(0, 0.86fr);
-  gap: clamp(34px, 5vw, 84px);
+  grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr);
+  gap: clamp(34px, 5vw, 88px);
   align-items: start;
 }
 
 .section_nosotros_2 .about-media {
-  order: 1;
+  order: 2;
 }
 
 .section_nosotros_2 .about-content {
-  order: 2;
-  max-width: 620px;
-  justify-self: end;
-  align-self: start;
+  order: 1;
+  max-width: 700px;
+  justify-self: start;
+  align-self: center;
 }
 
 .section_nosotros_2 .about-content h2 {
@@ -2113,7 +2113,7 @@
 
   .cinta-nosotros-container,
   .section_nosotros_2 {
-    width: min(100% - 24px, 1380px);
+    width: min(100% - 24px, 1520px);
     gap: 28px;
   }
 

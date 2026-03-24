@@ -1006,10 +1006,14 @@ body.js-ready .parallax-soft {
 }
 
 .page-index .section-cinta-nosotros .cinta-nosotros-container,
-.page-index .section_nosotros_2,
 .page-index .products-premium-section .container {
   width: min(100% - 40px, 1380px);
   max-width: 1380px;
+}
+
+.page-index .section_nosotros_2 {
+  width: min(100% - 32px, 1520px);
+  max-width: 1520px;
 }
 
 .page-index .products-premium-section .card-media {
@@ -1045,9 +1049,12 @@ body.js-ready .parallax-soft {
 
 @media (max-width: 768px) {
   .page-index .section-cinta-nosotros .cinta-nosotros-container,
-  .page-index .section_nosotros_2,
   .page-index .products-premium-section .container {
     width: min(100% - 24px, 1380px);
+  }
+
+  .page-index .section_nosotros_2 {
+    width: min(100% - 24px, 1520px);
   }
 
   .page-index .section {
