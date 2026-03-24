@@ -335,6 +335,9 @@ document.addEventListener("DOMContentLoaded", () => {
       if (!aboutTrack || !aboutSlides.length) return;
 
       aboutTrack.style.transform = `translateY(-${aboutIndex * 100}%)`;
+      aboutSlides.forEach((slide, index) => {
+        slide.classList.toggle("is-active", index === aboutIndex);
+      });
 
       aboutIndicators.forEach((dot, index) => {
         dot.classList.toggle("active", index === aboutIndex);
@@ -402,6 +405,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (!cintaNosotros || !cintaNosotrosImage || window.innerWidth <= 768) {
       if (cintaNosotrosImage && window.innerWidth <= 768) {
         cintaNosotrosImage.style.clipPath = "inset(0 0 0 0)";
+        cintaNosotrosImage.style.transform = "";
       }
       return;
     }
@@ -414,8 +418,11 @@ document.addEventListener("DOMContentLoaded", () => {
     const maxDistance = viewportHeight * 0.62;
     const progress = 1 - Math.min(distance / maxDistance, 1);
     const sideInset = 28 - progress * 28;
+    const travelY = (0.5 - progress) * 14;
+    const scale = 1.02 + progress * 0.03;
 
     cintaNosotrosImage.style.clipPath = `inset(0 ${sideInset}% 0 ${sideInset}%)`;
+    cintaNosotrosImage.style.transform = `translate3d(0, ${travelY}px, 0) scale(${scale})`;
   }
 
   window.addEventListener("scroll", updateCintaNosotrosReveal, { passive: true });
