@@ -325,6 +325,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const aboutTrack = aboutSlider.querySelector(".about-slider-track");
     const aboutSlides = aboutSlider.querySelectorAll(".about-slide");
     const aboutIndicators = aboutSlider.querySelectorAll(".about-indicator");
+    const aboutPrev = aboutSlider.querySelector(".about-prev");
+    const aboutNext = aboutSlider.querySelector(".about-next");
 
     let aboutIndex = 0;
     let aboutInterval = null;
@@ -371,6 +373,20 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     });
 
+    if (aboutNext) {
+      aboutNext.addEventListener("click", () => {
+        nextAboutSlide();
+        startAboutAutoplay();
+      });
+    }
+
+    if (aboutPrev) {
+      aboutPrev.addEventListener("click", () => {
+        prevAboutSlide();
+        startAboutAutoplay();
+      });
+    }
+
     aboutSlider.addEventListener("touchstart", (e) => {
       startY = e.touches[0].clientY;
       stopAboutAutoplay();
@@ -404,8 +420,7 @@ document.addEventListener("DOMContentLoaded", () => {
   function updateCintaNosotrosReveal() {
     if (!cintaNosotros || !cintaNosotrosImage || window.innerWidth <= 768) {
       if (cintaNosotrosImage && window.innerWidth <= 768) {
-        cintaNosotrosImage.style.clipPath = "inset(0 0 0 0)";
-        cintaNosotrosImage.style.transform = "";
+        cintaNosotrosImage.style.transform = "scale(1.02)";
       }
       return;
     }
@@ -417,11 +432,9 @@ document.addEventListener("DOMContentLoaded", () => {
     const distance = Math.abs(sectionCenter - viewportCenter);
     const maxDistance = viewportHeight * 0.62;
     const progress = 1 - Math.min(distance / maxDistance, 1);
-    const sideInset = 28 - progress * 28;
     const travelY = (0.5 - progress) * 14;
-    const scale = 1.02 + progress * 0.03;
+    const scale = 1.01 + progress * 0.035;
 
-    cintaNosotrosImage.style.clipPath = `inset(0 ${sideInset}% 0 ${sideInset}%)`;
     cintaNosotrosImage.style.transform = `translate3d(0, ${travelY}px, 0) scale(${scale})`;
   }
 
