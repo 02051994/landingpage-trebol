@@ -3,6 +3,7 @@
 ========================= */
 .hero-slider-section {
   padding: 0;
+  min-height: 100svh;
   min-height: 100dvh;
   background:
     radial-gradient(circle at 20% 20%, rgba(31, 107, 69, 0.18), transparent 32%),
@@ -13,6 +14,8 @@
 .hero-slider {
   position: relative;
   width: 100%;
+  height: 100svh;
+  min-height: 100svh;
   min-height: 100dvh;
   overflow: clip;
   isolation: isolate;
@@ -47,6 +50,47 @@
 
 .hero-slide.active img {
   transform: scale(1);
+}
+
+
+.hero-slide-label {
+  position: absolute;
+  left: clamp(18px, 3vw, 40px);
+  right: clamp(18px, 3vw, 40px);
+  bottom: 108px;
+  z-index: 4;
+  max-width: min(560px, 92vw);
+  padding: 14px 18px;
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  background: rgba(6, 20, 29, 0.42);
+  color: #ffffff;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.22);
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity 0.35s ease, transform 0.35s ease;
+  pointer-events: none;
+}
+
+.hero-slide.active .hero-slide-label {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.hero-slide-label strong {
+  display: block;
+  font-size: 0.92rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.hero-slide-label span {
+  display: block;
+  margin-top: 6px;
+  font-size: 0.95rem;
+  line-height: 1.45;
+  color: rgba(255, 255, 255, 0.9);
 }
 
 .hero-overlay {
@@ -111,6 +155,7 @@
 .hero-content-wrapper {
   position: relative;
   z-index: 4;
+  min-height: 100svh;
   min-height: 100dvh;
   display: flex;
   align-items: center;
@@ -396,11 +441,37 @@
   padding: 118px 0 72px;
   background:
     linear-gradient(180deg, rgba(19, 103, 138, 0.06), rgba(19, 103, 138, 0.02));
+  isolation: isolate;
 }
 
 .section_nosotros_2 {
   background:
     linear-gradient(180deg, rgba(31, 107, 69, 0.07), rgba(31, 107, 69, 0.02));
+}
+
+.section-cinta-nosotros::before,
+.section_nosotros_2::before {
+  content: "";
+  position: absolute;
+  width: min(52vw, 520px);
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;
+  pointer-events: none;
+  filter: blur(80px);
+  z-index: -1;
+  opacity: 0.35;
+}
+
+.section-cinta-nosotros::before {
+  right: -10%;
+  top: 4%;
+  background: radial-gradient(circle, rgba(19, 103, 138, 0.3) 0%, rgba(19, 103, 138, 0) 72%);
+}
+
+.section_nosotros_2::before {
+  left: -10%;
+  top: 8%;
+  background: radial-gradient(circle, rgba(31, 107, 69, 0.22) 0%, rgba(31, 107, 69, 0) 74%);
 }
 
 /* =========================
@@ -470,6 +541,7 @@
   background: #dfe9ee;
   box-shadow: 0 24px 60px rgba(0, 0, 0, 0.12);
   perspective: 1200px;
+  border: 1px solid rgba(255, 255, 255, 0.45);
 }
 
 .cinta-nosotros-image {
@@ -477,12 +549,23 @@
   height: 100%;
   object-fit: cover;
   clip-path: inset(0 28% 0 28%);
-  transition: clip-path 0.14s linear, transform 0.6s ease;
+  transform-origin: center center;
+  transition: clip-path 0.14s linear, transform 0.7s ease;
   will-change: clip-path, transform;
+  animation: cintaImageBreath 14s ease-in-out infinite alternate;
 }
 
 .cinta-nosotros-frame:hover .cinta-nosotros-image {
   transform: scale(1.035) rotateY(-3deg);
+}
+
+.cinta-nosotros-frame::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background: linear-gradient(120deg, rgba(255, 255, 255, 0.18), transparent 34%, transparent 58%, rgba(255, 255, 255, 0.12));
 }
 
 .cinta-nosotros-overlay-card {
@@ -609,6 +692,14 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
+  transform: scale(1.07);
+  filter: saturate(0.95) contrast(1.03);
+  transition: transform 1s ease, filter 0.8s ease;
+}
+
+.about-slide.is-active .about-image {
+  animation: aboutImageDrift 9s ease-in-out infinite alternate;
+  filter: saturate(1.04) contrast(1.06);
 }
 
 .about-slide-caption {
@@ -623,6 +714,14 @@
   border: 1px solid rgba(255,255,255,0.14);
   backdrop-filter: blur(10px);
   color: #fff;
+  transform: translateY(24px);
+  opacity: 0;
+  transition: transform 0.6s ease, opacity 0.6s ease;
+}
+
+.about-slide.is-active .about-slide-caption {
+  transform: translateY(0);
+  opacity: 1;
 }
 
 .about-slide-caption span {
@@ -664,6 +763,27 @@
 .about-indicator.active {
   background-color: #ffffff;
   transform: scale(1.2);
+}
+
+@keyframes aboutImageDrift {
+  0% {
+    transform: scale(1.06) translateY(0);
+  }
+  50% {
+    transform: scale(1.11) translateY(-10px);
+  }
+  100% {
+    transform: scale(1.08) translateY(-4px);
+  }
+}
+
+@keyframes cintaImageBreath {
+  0% {
+    transform: scale(1.015);
+  }
+  100% {
+    transform: scale(1.05);
+  }
 }
 
 /* =========================
@@ -1601,8 +1721,13 @@
 
 @media (max-width: 768px) {
   .hero-content-wrapper {
-    padding-top: calc(var(--header-height) + 10px);
-    padding-bottom: 120px;
+    padding-top: calc(var(--header-height) + 6px);
+    padding-bottom: 98px;
+    align-items: flex-start;
+  }
+
+  .hero-content-slider {
+    padding-top: 8px;
   }
 
   .hero-content-slider::before {
@@ -1617,7 +1742,7 @@
 
   .hero-controls-wrap {
     gap: 12px;
-    bottom: 24px;
+    bottom: 16px;
   }
 
   .hero-nav {
@@ -1626,7 +1751,40 @@
   }
 
   .hero-dot {
-    width: 34px;
+    width: 30px;
+  }
+
+  .hero-metrics {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 8px;
+  }
+
+  .hero-metric-card {
+    padding: 10px 8px;
+    border-radius: 14px;
+  }
+
+  .hero-metric-label {
+    margin-bottom: 6px;
+    font-size: 0.72rem;
+    line-height: 1.2;
+  }
+
+  .hero-metric-value {
+    font-size: 1.2rem;
+  }
+
+  .hero-slide-label {
+    bottom: 78px;
+    padding: 10px 12px;
+  }
+
+  .hero-slide-label strong {
+    font-size: 0.78rem;
+  }
+
+  .hero-slide-label span {
+    font-size: 0.82rem;
   }
 
   .hero-scroll-indicator {
@@ -1731,23 +1889,26 @@
   }
 
   .hero-content-slider h1 {
-    font-size: 2.35rem;
+    font-size: 2rem;
     line-height: 1.02;
+    margin-bottom: 14px;
   }
 
   .hero-content-slider p {
-    font-size: 1rem;
-    line-height: 1.8;
+    font-size: 0.92rem;
+    line-height: 1.55;
+    margin-bottom: 12px;
   }
 
   .hero-counter {
-    font-size: 0.8rem;
-    letter-spacing: 0.12em;
+    font-size: 0.74rem;
+    letter-spacing: 0.1em;
   }
 
   .hero-controls-wrap {
     width: calc(100% - 24px);
     justify-content: center;
+    bottom: 12px;
   }
 
   .hero-nav {
@@ -1761,11 +1922,21 @@
   }
 
   .hero-metric-card {
-    padding: 16px;
+    padding: 8px 6px;
+  }
+
+  .hero-metric-label {
+    font-size: 0.66rem;
   }
 
   .hero-metric-value {
-    font-size: 2rem;
+    font-size: 1.02rem;
+  }
+
+  .hero-slide-label {
+    left: 12px;
+    right: 12px;
+    bottom: 62px;
   }
 
   .cinta-nosotros-texto h2 {
@@ -1836,7 +2007,10 @@
   #heroActions,
   .hero-metrics,
   .map-route-path,
-  .map-point-destination {
+  .map-point-destination,
+  .cinta-nosotros-image,
+  .about-image,
+  .about-slide-caption {
     animation: none !important;
     transition: none !important;
   }
