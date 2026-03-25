@@ -1713,6 +1713,21 @@
   line-height: 1.6;
 }
 
+.contact-form-status {
+  min-height: 24px;
+  margin: 6px 0 4px;
+  font-size: 0.92rem;
+  color: var(--color-text-soft);
+}
+
+.contact-form-status.is-success {
+  color: #0f7a43;
+}
+
+.contact-form-status.is-error {
+  color: #b3261e;
+}
+
 /* =========================
    HERO TITLE PREMIUM
 ========================= */
