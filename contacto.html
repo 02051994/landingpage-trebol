@@ -34,8 +34,8 @@
           <h2>Hablemos hoy</h2>
           <p>Respondemos rápido para ayudarte a evaluar formatos, ventanas comerciales y condiciones de exportación.</p>
           <ul class="contact-list">
-            <li><strong>Correo:</strong> contacto@grupotrebol.com</li>
-            <li><strong>Teléfono:</strong> +51 999 999 999</li>
+            <li><strong>Correo:</strong> gestionhumana@grupotrebol.pe</li>
+            <li><strong>Teléfono:</strong> +51 957 035 114</li>
             <li><strong>Dirección:</strong> Lima, Perú</li>
             <li><strong>Horario:</strong> Lunes a viernes de 8:00 a.m. a 6:00 p.m.</li>
           </ul>
@@ -44,11 +44,12 @@
           </div>
         </div>
 
-        <form class="contact-form reveal">
-          <div class="form-group"><label for="nombre">Nombre</label><input type="text" id="nombre" name="nombre" placeholder="Tu nombre" /></div>
-          <div class="form-group"><label for="email">Correo electrónico</label><input type="email" id="email" name="email" placeholder="Tu correo" /></div>
-          <div class="form-group"><label for="telefono">Teléfono</label><input type="text" id="telefono" name="telefono" placeholder="Tu teléfono" /></div>
-          <div class="form-group"><label for="mensaje">Mensaje</label><textarea id="mensaje" name="mensaje" rows="6" placeholder="Cuéntanos qué necesitas"></textarea></div>
+        <form class="contact-form reveal" novalidate>
+          <div class="form-group"><label for="nombre">Nombre</label><input type="text" id="nombre" name="nombre" placeholder="Tu nombre" required /></div>
+          <div class="form-group"><label for="email">Correo electrónico</label><input type="email" id="email" name="email" placeholder="Tu correo" required /></div>
+          <div class="form-group"><label for="telefono">Teléfono</label><input type="tel" id="telefono" name="telefono" placeholder="Tu teléfono" required /></div>
+          <div class="form-group"><label for="mensaje">Mensaje</label><textarea id="mensaje" name="mensaje" rows="6" placeholder="Cuéntanos qué necesitas" required></textarea></div>
+          <p class="contact-form-status" aria-live="polite"></p>
           <button type="submit" class="btn btn-primary btn-full">Enviar mensaje</button>
         </form>
       </div>
@@ -59,7 +60,7 @@
     <div class="container footer-grid">
       <div><h3>Grupo Trébol</h3><p>Empresa comprometida con brindar soluciones, productos y atención de calidad.</p></div>
       <div><h3>Enlaces</h3><ul class="footer-links"><li><a href="index.html">Inicio</a></li><li><a href="servicios.html">Servicios</a></li><li><a href="productos.html">Productos</a></li><li><a href="nosotros.html">Nosotros</a></li><li><a href="contacto.html">Contacto</a></li></ul></div>
-      <div><h3>Contacto</h3><ul class="footer-links"><li><a href="mailto:contacto@grupotrebol.com">contacto@grupotrebol.com</a></li><li><a href="tel:+51999999999">+51 999 999 999</a></li><li>Lima, Perú</li></ul></div>
+      <div><h3>Contacto</h3><ul class="footer-links"><li><a href="mailto:gestionhumana@grupotrebol.pe">gestionhumana@grupotrebol.pe</a></li><li><a href="tel:+51957035114">+51 957 035 114</a></li><li>Lima, Perú</li></ul></div>
     </div>
     <div class="footer-bottom"><p>&copy; 2025 Grupo Trébol. Todos los derechos reservados.</p></div>
   </footer>

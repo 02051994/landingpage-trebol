@@ -18,3 +18,20 @@
   border-radius: 50%;
   background: radial-gradient(circle, rgba(31, 107, 69, 0.18), transparent 66%);
 }
+
+
+.contact-form-status {
+  min-height: 1.4rem;
+  margin: 8px 0 2px;
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: var(--color-text-soft);
+}
+
+.contact-form-status.is-success {
+  color: #17653f;
+}
+
+.contact-form-status.is-error {
+  color: #b42318;
+}

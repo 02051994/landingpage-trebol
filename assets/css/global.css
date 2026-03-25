@@ -24,7 +24,7 @@ body {
     radial-gradient(circle at top left, rgba(31, 107, 69, 0.04), transparent 26%),
     radial-gradient(circle at bottom right, rgba(24, 85, 55, 0.04), transparent 22%),
     var(--color-bg);
-  color: #ffffff;
+  color: var(--color-text);
   line-height: 1.7;
   letter-spacing: -0.01em;
   overflow-x: hidden;
