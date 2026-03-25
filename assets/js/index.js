@@ -801,10 +801,11 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  async function sendPremiumContactEmail({ nombre, email, mensaje }) {
+  async function sendPremiumContactEmail({ nombre, email, telefono, mensaje }) {
     const payload = {
       nombre,
       email,
+      telefono,
       mensaje,
       _subject: "Nuevo mensaje desde el formulario de inicio - Grupo Trébol",
       _captcha: "false",
@@ -825,10 +826,11 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  function openPremiumContactWhatsApp({ nombre, email, mensaje }) {
+  function openPremiumContactWhatsApp({ nombre, email, telefono, mensaje }) {
     const whatsappMessage = [
       "Hola, soy " + nombre + ".",
       "Mi correo es: " + email + ".",
+      "Mi teléfono es: " + telefono + ".",
       "Mensaje:",
       mensaje
     ].join("\n");
@@ -844,10 +846,11 @@ document.addEventListener("DOMContentLoaded", () => {
       const formData = new FormData(premiumContactForm);
       const nombre = (formData.get("nombre") || "").toString().trim();
       const email = (formData.get("email") || "").toString().trim();
+      const telefono = (formData.get("telefono") || "").toString().trim();
       const mensaje = (formData.get("mensaje") || "").toString().trim();
 
-      if (!nombre || !email || !mensaje) {
-        updatePremiumContactStatus("Completa nombre, correo y mensaje para enviar el formulario.", "is-error");
+      if (!nombre || !email || !telefono || !mensaje) {
+        updatePremiumContactStatus("Completa nombre, correo, teléfono y mensaje para enviar el formulario.", "is-error");
         return;
       }
 
@@ -855,8 +858,8 @@ document.addEventListener("DOMContentLoaded", () => {
         updatePremiumContactStatus("Enviando mensaje...");
         if (premiumContactSubmit) premiumContactSubmit.disabled = true;
 
-        await sendPremiumContactEmail({ nombre, email, mensaje });
-        openPremiumContactWhatsApp({ nombre, email, mensaje });
+        await sendPremiumContactEmail({ nombre, email, telefono, mensaje });
+        openPremiumContactWhatsApp({ nombre, email, telefono, mensaje });
 
         premiumContactForm.reset();
         updatePremiumContactStatus("¡Listo! Tu mensaje fue enviado al correo y se abrió WhatsApp para notificar al celular.", "is-success");
