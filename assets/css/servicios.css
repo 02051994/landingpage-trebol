@@ -26,6 +26,7 @@
 .origin-ring { fill: none; stroke: #1f6b45; stroke-width: 2; opacity: .4; }
 .world-map text { font-size: 20px; fill: #1f2937; font-weight: 600; }
 .map-routes path { fill:none; stroke:#2ea86b; stroke-width:2; stroke-dasharray:5 5; animation:routeFlow 4s linear infinite; }
+.destination-label { font-size: 14px; fill: #111827; font-weight: 700; text-shadow: 0 1px 0 rgba(255,255,255,0.6); }
 @keyframes routeFlow { to { stroke-dashoffset: -30; } }
 .destinos-content h2 { margin-bottom: 18px; }
 .destinos-list { margin-top: 20px; display:grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
