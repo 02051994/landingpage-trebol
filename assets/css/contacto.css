@@ -1,7 +1,20 @@
-.hero.page-hero {
-  padding-bottom: 40px;
+.hero.page-hero.contacto-hero {
+  padding-bottom: 46px;
+  background: radial-gradient(circle at 10% 12%, rgba(31, 107, 69, 0.12), transparent 35%), radial-gradient(circle at 90% 20%, rgba(17, 110, 152, 0.14), transparent 35%);
 }
 
-.contact-grid {
-  align-items: stretch;
+.contact-grid { align-items: stretch; }
+.contact-info { padding: 14px 0; }
+.contact-badges { margin-top: 20px; display:flex; flex-wrap: wrap; gap: 10px; }
+.contact-badges span { padding: 8px 12px; border:1px solid var(--color-border); border-radius: 999px; background: #fff; color: var(--color-text); font-weight: 600; font-size: .9rem; }
+
+.contact-form { position: relative; overflow: hidden; }
+.contact-form::before {
+  content: "";
+  position: absolute;
+  inset: auto -40px -50px auto;
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(31, 107, 69, 0.18), transparent 66%);
 }
