@@ -516,14 +516,15 @@
 }
 
 .cinta-nosotros-mini span {
-  padding: 12px 16px;
+  padding: 11px 16px;
   border-radius: 999px;
-  background: rgba(19, 103, 138, 0.08);
-  border: 1px solid rgba(19, 103, 138, 0.12);
-  color: #13678a;
-  font-size: 0.94rem;
-  font-weight: 700;
-  letter-spacing: 0.02em;
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.92), rgba(228, 241, 248, 0.88));
+  border: 1px solid rgba(19, 103, 138, 0.18);
+  color: #0f5b78;
+  font-size: 0.92rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  box-shadow: 0 10px 20px rgba(15, 91, 120, 0.08);
 }
 
 .cinta-nosotros-media {
@@ -539,7 +540,7 @@
   border-radius: 34px;
   position: relative;
   background: #dfe9ee;
-  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 26px 64px rgba(0, 0, 0, 0.16);
   perspective: 1200px;
   border: 1px solid rgba(255, 255, 255, 0.45);
 }
@@ -571,14 +572,15 @@
   position: absolute;
   left: 26px;
   bottom: 26px;
-  z-index: 2;
-  max-width: 360px;
+  z-index: 3;
+  max-width: min(420px, calc(100% - 170px));
   padding: 20px 22px;
   border-radius: 22px;
-  background: rgba(255, 255, 255, 0.82);
-  border: 1px solid rgba(19, 103, 138, 0.15);
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.86), rgba(242, 249, 252, 0.8));
+  border: 1px solid rgba(19, 103, 138, 0.2);
   color: #102f24;
   backdrop-filter: blur(12px);
+  box-shadow: 0 16px 34px rgba(6, 42, 57, 0.2);
 }
 
 .cinta-nosotros-overlay-card strong {
@@ -752,12 +754,14 @@
   right: 24px;
   bottom: 24px;
   z-index: 3;
+  max-width: min(460px, calc(100% - 48px));
   padding: 20px 22px;
-  border-radius: 18px;
-  background: rgba(255, 255, 255, 0.82);
-  border: 1px solid rgba(19, 103, 138, 0.14);
-  backdrop-filter: blur(10px);
-  color: #102f24;
+  border-radius: 20px;
+  background: linear-gradient(145deg, rgba(13, 20, 24, 0.72), rgba(17, 38, 48, 0.62));
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(12px);
+  color: #f3f8fb;
+  box-shadow: 0 18px 34px rgba(3, 14, 19, 0.3);
   transform: translateY(24px);
   opacity: 0;
   transition: transform 0.6s ease, opacity 0.6s ease;
@@ -770,17 +774,22 @@
 
 .about-slide-caption span {
   display: inline-block;
-  font-size: 0.82rem;
+  font-size: 0.78rem;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: rgba(16, 47, 36, 0.7);
+  color: rgba(226, 243, 251, 0.86);
   margin-bottom: 8px;
+  padding: 8px 14px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  background: rgba(255, 255, 255, 0.06);
 }
 
 .about-slide-caption strong {
   display: block;
-  font-size: 1.04rem;
-  line-height: 1.55;
+  font-size: 1.08rem;
+  line-height: 1.6;
+  color: #ffffff;
 }
 
 .about-slider-indicators {
@@ -2310,27 +2319,27 @@
   }
 
   .cinta-nosotros-frame {
-    min-height: 360px;
-    height: 360px;
+    min-height: 410px;
+    height: 410px;
     border-radius: 24px;
   }
 
   .cinta-floating-stack {
-    right: 10px;
-    left: 10px;
-    top: auto;
-    bottom: 12px;
-    grid-template-columns: repeat(3, 1fr);
+    right: 12px;
+    top: 12px;
+    bottom: auto;
+    grid-template-columns: 1fr;
     gap: 8px;
   }
 
   .cinta-floating-item {
-    width: 100%;
+    width: 84px;
+    border-radius: 12px;
   }
 
   .about-slider,
   .about-slide {
-    height: 380px;
+    height: 430px;
     border-radius: 24px;
   }
 
@@ -2481,8 +2490,8 @@
   }
 
   .cinta-nosotros-frame {
-    height: 280px;
-    min-height: 280px;
+    height: 330px;
+    min-height: 330px;
   }
 
   .peru-map-stage {
@@ -2491,14 +2500,44 @@
 
   .about-slider,
   .about-slide {
-    height: 280px;
+    height: 350px;
   }
 
-  .cinta-nosotros-overlay-card {
+  .about-slide-caption {
     left: 14px;
     right: 14px;
     bottom: 14px;
+    max-width: calc(100% - 28px);
+    padding: 14px 14px;
+  }
+
+  .about-slide-caption span {
+    font-size: 0.68rem;
+    padding: 6px 10px;
+  }
+
+  .about-slide-caption strong {
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+
+  .cinta-floating-stack {
+    right: 8px;
+    top: 8px;
+    gap: 6px;
+  }
+
+  .cinta-floating-item {
+    width: 68px;
+  }
+
+  .cinta-nosotros-overlay-card {
+    left: 12px;
+    right: 86px;
+    bottom: 12px;
     max-width: unset;
+    padding: 14px 14px;
+    border-radius: 14px;
   }
 
   .certifications-accordion-card,
