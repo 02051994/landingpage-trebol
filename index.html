@@ -38,6 +38,7 @@
           <li><a href="servicios.html">Servicios</a></li>
           <li><a href="productos.html">Productos</a></li>
           <li><a href="nosotros.html">Nosotros</a></li>
+          <li><a href="operacion.html">Operación</a></li>
           <li><a href="contacto.html" class="btn btn-outline">Contacto</a></li>
         </ul>
       </nav>
@@ -438,280 +439,30 @@
       </div>
     </section>
 
-    <section class="section section-ubicacion-peru reveal section-theme-sunrise" id="seccionUbicacionPeru">
-      <div class="container ubicacion-peru-layout">
-        <article class="ubicacion-peru-map-card">
-          <span class="section-tag">Ubicación</span>
-          <h2>Estamos ubicados en Huaral, Perú</h2>
-          <p>Visualiza el mapa completo del Perú con referencia del distrito de Huaral.</p>
-
-          <div class="peru-map-stage">
-            <iframe
-              class="peru-map-iframe"
-              src="https://www.google.com/maps?q=Peru&z=5&output=embed"
-              title="Mapa completo del Perú con referencia de Huaral"
-              loading="lazy"
-              referrerpolicy="no-referrer-when-downgrade"
-            ></iframe>
-
-            <a
-              class="huaral-point"
-              href="https://maps.app.goo.gl/yHARtf1XhCwDWM88A?g_st=awb"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Abrir ubicación del distrito de Huaral en Google Maps"
-            >
-              <span>Distrito de Huaral</span>
-            </a>
-          </div>
-        </article>
-
-        <article class="ubicacion-peru-copy-card">
-          <span class="section-tag">Referencia geográfica</span>
-          <h3>Distrito de Huaral</h3>
-          <ul>
-            <li><strong>Provincia:</strong> Huaral, Lima</li>
-            <li><strong>Coordenadas:</strong> -11.499852687666987, -77.0363172576723</li>
-            <li><strong>Altitud aproximada:</strong> 188 m s. n. m.</li>
-          </ul>
-          <a
-            class="btn btn-primary"
-            href="https://www.google.com/maps?q=-11.499852687666987,-77.0363172576723"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Abrir ubicación
-          </a>
-        </article>
-      </div>
-    </section>
-
-    <section class="section certifications-section section-theme-emerald">
-      <div class="container">
-        <header class="section-header reveal certifications-header">
-          <span class="section-tag">Estándares</span>
-          <h2>Destinos y Certificaciones</h2>
+    <section class="section section-operacion-resumen reveal section-theme-emerald" id="operacionResumen">
+      <div class="container operacion-resumen-layout">
+        <article class="operacion-resumen-card">
+          <span class="section-tag">Orden y enfoque</span>
+          <h2>Ahora la información operativa detallada vive en una pestaña propia.</h2>
           <p>
-            Nuestra operación se apoya en lineamientos técnicos, control documentario y disciplina operativa para responder a mercados exigentes.
+            Para que el Inicio sea más claro y rápido de recorrer, movimos los bloques de ubicación y destinos/certificaciones a una página dedicada.
           </p>
-        </header>
+          <a class="btn btn-primary" href="operacion.html">Ir a Operación y Destinos</a>
+        </article>
 
-        <div class="certifications-layout reveal" id="certificationsSection">
-
-          <div class="certifications-tabs-panel">
-            <div class="destinations-mobile-select-wrap">
-              <label class="destinations-mobile-label" for="mobileDestinationSelect">Destino de exportación</label>
-              <select id="mobileDestinationSelect" class="destinations-mobile-select" aria-label="Seleccionar destino de exportación">
-                <option value="0">Europa</option>
-                <option value="1">Estados Unidos</option>
-                <option value="2">Tailandia</option>
-                <option value="3">China</option>
-                <option value="4">Singapur</option>
-                <option value="5">Emiratos</option>
-              </select>
-            </div>
-
-            <div class="tabs-header" id="certTabs" role="tablist" aria-label="Destinos de exportación">
-              <button
-                class="tab-button active"
-                type="button"
-                role="tab"
-                aria-selected="true"
-                data-tag="Europa"
-                data-route="Ruta marítima"
-                data-path="M 36 72 Q 48 30, 66 28"
-                data-destx="66%"
-                data-desty="28%"
-                data-point="Europa"
-                data-kg="320000"
-                data-icon="ship"
-              >
-                Europa
-              </button>
-
-              <button
-                class="tab-button"
-                type="button"
-                role="tab"
-                aria-selected="false"
-                data-tag="EEUU"
-                data-route="Ruta aérea"
-                data-path="M 36 72 Q 26 40, 31 26"
-                data-destx="31%"
-                data-desty="26%"
-                data-point="Estados Unidos"
-                data-kg="500000"
-                data-icon="plane"
-              >
-                Estados Unidos
-              </button>
-
-              <button
-                class="tab-button"
-                type="button"
-                role="tab"
-                aria-selected="false"
-                data-tag="Asia"
-                data-route="Ruta marítima"
-                data-path="M 36 72 Q 58 28, 83 49"
-                data-destx="83%"
-                data-desty="49%"
-                data-point="Tailandia"
-                data-kg="140000"
-                data-icon="ship"
-              >
-                Tailandia
-              </button>
-
-              <button
-                class="tab-button"
-                type="button"
-                role="tab"
-                aria-selected="false"
-                data-tag="Asia"
-                data-route="Ruta aérea"
-                data-path="M 36 72 Q 58 26, 80 42"
-                data-destx="80%"
-                data-desty="42%"
-                data-point="China"
-                data-kg="210000"
-                data-icon="plane"
-              >
-                China
-              </button>
-
-              <button
-                class="tab-button"
-                type="button"
-                role="tab"
-                aria-selected="false"
-                data-tag="Asia"
-                data-route="Ruta marítima"
-                data-path="M 36 72 Q 58 34, 86 62"
-                data-destx="86%"
-                data-desty="62%"
-                data-point="Singapur"
-                data-kg="95000"
-                data-icon="ship"
-              >
-                Singapur
-              </button>
-
-              <button
-                class="tab-button"
-                type="button"
-                role="tab"
-                aria-selected="false"
-                data-tag="Medio Oriente"
-                data-route="Ruta aérea"
-                data-path="M 36 72 Q 54 30, 76 39"
-                data-destx="76%"
-                data-desty="39%"
-                data-point="Emiratos"
-                data-kg="125000"
-                data-icon="plane"
-              >
-                Emiratos
-              </button>
-            </div>
-          </div>
-
-          <div class="certifications-map-panel">
-            <div class="certifications-map-card">
-              <div class="map-card-top">
-                <span class="section-tag map-card-tag" id="mapCardTag">Europa</span>
-                <span class="map-card-route" id="mapCardRoute">Ruta marítima</span>
-              </div>
-
-              <div class="world-map-stage">
-                <svg class="world-map-svg" viewBox="0 0 900 480" aria-hidden="true">
-                  <g class="world-map-land">
-                    <path d="M95 126 L150 102 L208 110 L248 93 L288 104 L314 130 L307 175 L266 208 L220 198 L178 214 L138 196 L110 176 L85 150 Z"/>
-                    <path d="M202 221 L229 245 L248 289 L238 334 L216 385 L188 416 L162 388 L171 332 L166 287 L154 245 Z"/>
-                    <path d="M432 101 L490 88 L550 98 L600 113 L648 134 L702 146 L754 164 L803 192 L786 212 L735 204 L699 195 L664 204 L613 195 L574 182 L534 186 L490 174 L452 155 L432 132 Z"/>
-                    <path d="M470 210 L512 221 L543 254 L565 315 L543 366 L508 412 L468 402 L446 364 L425 314 L440 265 Z"/>
-                    <path d="M680 272 L728 256 L785 266 L824 292 L798 339 L742 356 L688 347 L650 313 L655 277 Z"/>
-                  </g>
-                  <g class="world-map-grid">
-                    <line x1="85" y1="120" x2="815" y2="120"/>
-                    <line x1="85" y1="185" x2="815" y2="185"/>
-                    <line x1="85" y1="250" x2="815" y2="250"/>
-                    <line x1="85" y1="315" x2="815" y2="315"/>
-                    <line x1="85" y1="380" x2="815" y2="380"/>
-                    <line x1="130" y1="80" x2="130" y2="392"/>
-                    <line x1="245" y1="80" x2="245" y2="392"/>
-                    <line x1="360" y1="80" x2="360" y2="392"/>
-                    <line x1="475" y1="80" x2="475" y2="392"/>
-                    <line x1="590" y1="80" x2="590" y2="392"/>
-                    <line x1="705" y1="80" x2="705" y2="392"/>
-                    <line x1="815" y1="80" x2="815" y2="392"/>
-                  </g>
-                </svg>
-
-                <div class="map-route-layer" id="mapRouteLayer">
-                  <span class="map-point map-point-peru"><span>Perú</span></span>
-
-                  <span class="map-point map-point-destination" id="mapDestinationPoint">
-                    <span class="map-point-info">
-                      <small id="mapDestinationKg">320,000 Kg</small>
-                      <strong id="mapDestinationName">Europa</strong>
-                    </span>
-                  </span>
-
-                  <svg class="map-route-svg" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
-                    <path id="mapRoutePath" class="map-route-path" d="M 36 72 Q 48 30, 66 28" />
-                  </svg>
-
-                  <span class="map-route-vehicle" id="mapRouteVehicle" aria-hidden="true">
-                    <svg viewBox="0 0 24 24">
-                      <path d="M4 15.5l1.5 1.2c.8.6 1.8.6 2.6 0l1-.8 1 .8c.8.6 1.8.6 2.6 0l1-.8 1 .8c.8.6 1.8.6 2.6 0L20 15.5V10l-3-1.2V6.5h-3V7.6L12 6 7 8.2v4.3L4 13.8zm5-2.7V9.7l3-1.2 3 1.2v3.1zM4.5 19c.7.7 1.8.7 2.5 0 .7.7 1.8.7 2.5 0 .7.7 1.8.7 2.5 0 .7.7 1.8.7 2.5 0 .7.7 1.8.7 2.5 0 .7.7 1.8.7 2.5 0"/>
-                    </svg>
-                  </span>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="certifications-accordion-card">
-            <div class="certifications-accordion" id="certificationsAccordion">
-              <article class="cert-accordion-item active">
-                <button class="cert-accordion-header" type="button" aria-expanded="true">
-                  <span>GlobalG.A.P.</span>
-                  <span class="cert-accordion-icon">+</span>
-                </button>
-                <div class="cert-accordion-body">
-                  <p>
-                    Estándar orientado a buenas prácticas agrícolas, trazabilidad, control de procesos y cumplimiento en campo.
-                  </p>
-                </div>
-              </article>
-
-              <article class="cert-accordion-item">
-                <button class="cert-accordion-header" type="button" aria-expanded="false">
-                  <span>GRASP</span>
-                  <span class="cert-accordion-icon">+</span>
-                </button>
-                <div class="cert-accordion-body">
-                  <p>
-                    Refuerza aspectos sociales, condiciones laborales, bienestar del personal y orden documental en la operación.
-                  </p>
-                </div>
-              </article>
-
-              <article class="cert-accordion-item">
-                <button class="cert-accordion-header" type="button" aria-expanded="false">
-                  <span>SMETA / Auditorías éticas</span>
-                  <span class="cert-accordion-icon">+</span>
-                </button>
-                <div class="cert-accordion-body">
-                  <p>
-                    Evalúa prácticas de cumplimiento, responsabilidad empresarial, seguridad y consistencia en la gestión operativa.
-                  </p>
-                </div>
-              </article>
-            </div>
-          </div>
-
+        <div class="operacion-resumen-highlights">
+          <article>
+            <h3>Ubicación estratégica</h3>
+            <p>Mapa, coordenadas y acceso directo a Huaral en una sola sección enfocada.</p>
+          </article>
+          <article>
+            <h3>Destinos y certificaciones</h3>
+            <p>Vista completa por mercado de exportación con datos y narrativa técnica.</p>
+          </article>
+          <article>
+            <h3>Navegación más simple</h3>
+            <p>Inicio centrado en propuesta de valor; detalle operativo en su pestaña propia.</p>
+          </article>
         </div>
       </div>
     </section>
@@ -1085,6 +836,7 @@
           <li><a href="servicios.html">Servicios</a></li>
           <li><a href="productos.html">Productos</a></li>
           <li><a href="nosotros.html">Nosotros</a></li>
+          <li><a href="operacion.html">Operación</a></li>
           <li><a href="contacto.html">Contacto</a></li>
           <li><a href="#sostenibilidad">Sostenibilidad</a></li>
           <li><a href="#noticias">Noticias</a></li>
