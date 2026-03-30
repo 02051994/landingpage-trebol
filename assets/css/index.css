@@ -491,8 +491,11 @@
   justify-content: center;
   align-items: center;
   text-align: center;
-  padding: 42px 24px;
-  background: transparent;
+  padding: clamp(28px, 3.2vw, 42px) clamp(18px, 2.6vw, 30px);
+  background: linear-gradient(155deg, rgba(20, 92, 124, 0.97), rgba(15, 73, 102, 0.96));
+  border-radius: 28px;
+  border: 1px solid rgba(195, 229, 243, 0.34);
+  box-shadow: 0 22px 46px rgba(8, 45, 63, 0.28);
 }
 
 .cinta-nosotros-texto h2 {
@@ -505,8 +508,9 @@
 }
 
 .cinta-nosotros-texto .section-tag {
-  background: rgba(255, 255, 255, 0.7);
-  color: #1e5d79;
+  background: rgba(255, 255, 255, 0.18);
+  color: #f3fbff;
+  border: 1px solid rgba(255, 255, 255, 0.35);
 }
 
 .cinta-kpis {
@@ -694,19 +698,23 @@
 .cinta-zoom-dialog {
   position: relative;
   z-index: 1;
-  width: min(92vw, 920px);
-  max-height: 86vh;
+  width: min(90vw, 1300px);
+  height: min(70vh, 900px);
   border-radius: 18px;
   overflow: hidden;
   box-shadow: 0 24px 56px rgba(0, 0, 0, 0.35);
+  background: #061620;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .cinta-zoom-dialog img {
   display: block;
   width: 100%;
-  max-height: 86vh;
+  height: 100%;
   object-fit: contain;
-  background: #ffffff;
+  background: #061620;
 }
 
 .cinta-zoom-close {

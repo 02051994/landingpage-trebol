@@ -880,6 +880,10 @@ document.addEventListener("DOMContentLoaded", () => {
   const cintaZoomClose = document.getElementById("cintaZoomClose");
   const cintaZoomBackdrop = document.getElementById("cintaZoomBackdrop");
 
+  if (cintaZoomModal && cintaZoomModal.parentElement !== document.body) {
+    document.body.appendChild(cintaZoomModal);
+  }
+
   function openCintaZoom(src) {
     if (!cintaZoomModal || !cintaZoomImage || !src) return;
     cintaZoomImage.src = src;
