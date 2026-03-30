@@ -505,13 +505,36 @@
   justify-content: center;
 }
 
+.cinta-title-banner {
+  position: relative;
+  margin: 10px 0 24px;
+  padding: clamp(18px, 3vw, 28px);
+  border-radius: 24px;
+  overflow: hidden;
+  background:
+    linear-gradient(135deg, rgba(7, 24, 32, 0.72), rgba(7, 24, 32, 0.52)),
+    url("../img/hero/principal_2.jpeg") center/cover no-repeat;
+  box-shadow: 0 16px 34px rgba(7, 24, 32, 0.24);
+}
+
+.cinta-title-banner::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(100deg, rgba(255, 255, 255, 0.18), transparent 45%);
+}
+
 .cinta-nosotros-texto h2 {
+  position: relative;
+  z-index: 1;
   font-size: clamp(2.15rem, 3.75vw, 3.85rem);
   line-height: 0.98;
   letter-spacing: -0.04em;
-  color: #0f2f3f;
-  margin: 10px 0 24px;
+  color: #f6fbff;
+  margin: 0;
   max-width: 10.5ch;
+  text-shadow: 0 10px 26px rgba(0, 0, 0, 0.34);
 }
 
 .cinta-nosotros-texto p {
@@ -624,6 +647,19 @@
   color: rgba(16, 47, 36, 0.84);
   line-height: 1.7;
   font-size: 0.96rem;
+}
+
+
+.cinta-nosotros-decor-frame {
+  position: absolute;
+  right: -18px;
+  bottom: -18px;
+  width: clamp(150px, 24vw, 270px);
+  opacity: 0.55;
+  pointer-events: none;
+  z-index: 2;
+  filter: drop-shadow(0 14px 24px rgba(8, 46, 32, 0.28));
+  mix-blend-mode: screen;
 }
 
 .cinta-floating-stack {
@@ -2882,5 +2918,14 @@
 
   .compliance-layout {
     grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 900px) {
+  .cinta-nosotros-decor-frame {
+    width: clamp(120px, 35vw, 190px);
+    right: -10px;
+    bottom: -10px;
+    opacity: 0.48;
   }
 }
