@@ -2832,3 +2832,127 @@
     grid-template-columns: 1fr;
   }
 }
+
+
+/* =========================
+   DESTINOS (movido desde servicios)
+========================= */
+.section-destinos { background: linear-gradient(180deg, #ffffff 0%, #f7f7f5 100%); }
+.destinos-grid { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: var(--space-48); align-items: center; }
+.map-card { background: linear-gradient(150deg, #ffffff, #f2f7f5); border-radius: var(--radius-xl); padding: 22px; box-shadow: var(--shadow-soft); }
+.world-map { width: 100%; }
+.map-title { font-size: 26px; font-weight: 700; fill: #0f172a; }
+.map-routes path { fill: none; stroke: #8eb7ff; stroke-width: 2.4; stroke-dasharray: 6 8; animation: dashMove 14s linear infinite; }
+.destination-label { font-size: 18px; fill: #334155; font-weight: 600; }
+.world-map text { font-size: 20px; fill: #1f2937; font-weight: 600; }
+.origin-dot { fill: var(--color-primary); }
+.origin-ring { fill: none; stroke: var(--color-primary); stroke-width: 2; opacity: .35; }
+.destinos-content h2 { margin-bottom: 18px; }
+.destinos-list { margin-top: 20px; display:grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
+.destinos-list li { position:relative; padding-left:16px; font-weight:700; color: var(--color-text); }
+.destinos-list li::before { content:""; position:absolute; left:0; top:10px; width:7px; height:7px; border-radius:50%; background: var(--color-primary); }
+
+/* =========================
+   BLOQUE "NUESTRA GENTE" (referencia Agrofresh)
+========================= */
+.agf-people-section {
+  background: #ffffff;
+  padding: clamp(48px, 7vw, 88px) 0;
+}
+
+.agf-people-wrap {
+  display: grid;
+  gap: 26px;
+}
+
+.agf-badges {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(16px, 3vw, 44px);
+}
+
+.agf-badges img {
+  width: auto;
+  height: clamp(42px, 5vw, 62px);
+  object-fit: contain;
+  filter: drop-shadow(0 6px 12px rgba(0, 0, 0, 0.14));
+  animation: agfBadgeFloat 3.8s ease-in-out infinite;
+}
+
+.agf-badges img:nth-child(2) { animation-delay: .2s; }
+.agf-badges img:nth-child(3) { animation-delay: .4s; }
+
+.agf-people-grid {
+  display: grid;
+  grid-template-columns: minmax(280px, .9fr) minmax(320px, 1.1fr);
+  gap: clamp(22px, 4vw, 48px);
+  align-items: center;
+}
+
+.agf-people-copy h3 {
+  margin: 0;
+  color: #61a741;
+  font-size: clamp(1.1rem, 2vw, 1.55rem);
+  text-transform: uppercase;
+}
+
+.agf-people-copy h2 {
+  margin: 2px 0 14px;
+  color: #0f4f2e;
+  font-size: clamp(2rem, 4vw, 3.25rem);
+  line-height: .98;
+  text-transform: uppercase;
+}
+
+.agf-people-copy p {
+  color: #425466;
+  font-size: 1rem;
+  line-height: 1.65;
+  margin: 0 0 12px;
+}
+
+.agf-people-copy .btn {
+  margin-top: 12px;
+  border-radius: 999px;
+  padding-inline: 30px;
+  letter-spacing: .04em;
+}
+
+.agf-people-media {
+  position: relative;
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 30px 60px rgba(9, 30, 14, 0.24);
+}
+
+.agf-people-media img {
+  display: block;
+  width: 100%;
+  height: auto;
+  transform: scale(1.02);
+  transition: transform .5s ease;
+}
+
+.agf-people-media:hover img {
+  transform: scale(1.05);
+}
+
+@keyframes agfBadgeFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-4px); }
+}
+
+@media (max-width: 980px) {
+  .agf-people-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .agf-people-copy {
+    text-align: center;
+  }
+
+  .agf-badges {
+    flex-wrap: wrap;
+  }
+}
