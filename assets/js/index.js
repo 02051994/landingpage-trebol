@@ -412,35 +412,35 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   /* =========================
-     CINTA NOSOTROS
+     NUESTRA GENTE
   ========================= */
-  const cintaNosotros = document.getElementById("cintaNosotros");
-  const cintaNosotrosImage = document.getElementById("cintaNosotrosImage");
+  const agfPeopleSection = document.getElementById("cintaNosotros");
+  const agfPeopleImage = document.getElementById("agfPeopleImage");
 
-  function updateCintaNosotrosReveal() {
-    if (!cintaNosotros || !cintaNosotrosImage || window.innerWidth <= 768) {
-      if (cintaNosotrosImage && window.innerWidth <= 768) {
-        cintaNosotrosImage.style.transform = "scale(1.02)";
-      }
+  function updateAgfPeopleReveal() {
+    if (!agfPeopleSection || !agfPeopleImage) return;
+
+    if (window.innerWidth <= 768) {
+      agfPeopleImage.style.transform = "scale(1.02)";
       return;
     }
 
-    const rect = cintaNosotros.getBoundingClientRect();
+    const rect = agfPeopleSection.getBoundingClientRect();
     const viewportHeight = window.innerHeight;
     const sectionCenter = rect.top + rect.height / 2;
     const viewportCenter = viewportHeight / 2;
     const distance = Math.abs(sectionCenter - viewportCenter);
-    const maxDistance = viewportHeight * 0.62;
+    const maxDistance = viewportHeight * 0.65;
     const progress = 1 - Math.min(distance / maxDistance, 1);
-    const travelY = (0.5 - progress) * 14;
-    const scale = 1.01 + progress * 0.035;
+    const travelY = (0.5 - progress) * 18;
+    const scale = 1.02 + progress * 0.04;
 
-    cintaNosotrosImage.style.transform = `translate3d(0, ${travelY}px, 0) scale(${scale})`;
+    agfPeopleImage.style.transform = `translate3d(0, ${travelY}px, 0) scale(${scale})`;
   }
 
-  window.addEventListener("scroll", updateCintaNosotrosReveal, { passive: true });
-  window.addEventListener("load", updateCintaNosotrosReveal);
-  window.addEventListener("resize", debounce(updateCintaNosotrosReveal, 100));
+  window.addEventListener("scroll", updateAgfPeopleReveal, { passive: true });
+  window.addEventListener("load", updateAgfPeopleReveal);
+  window.addEventListener("resize", debounce(updateAgfPeopleReveal, 100));
 
   /* =========================
      MAPA + DESTINOS
