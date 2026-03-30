@@ -416,6 +416,12 @@ document.addEventListener("DOMContentLoaded", () => {
   ========================= */
   const cintaNosotros = document.getElementById("cintaNosotros");
   const cintaNosotrosImage = document.getElementById("cintaNosotrosImage");
+  const cintaFloatingItems = document.querySelectorAll(".cinta-floating-item[data-modal-image]");
+  const cintaImageModal = document.getElementById("cintaImageModal");
+  const cintaImageModalOverlay = document.getElementById("cintaImageModalOverlay");
+  const cintaImageModalClose = document.getElementById("cintaImageModalClose");
+  const cintaImageModalImg = document.getElementById("cintaImageModalImg");
+  const cintaImageModalTitle = document.getElementById("cintaImageModalTitle");
 
   function updateCintaNosotrosReveal() {
     if (!cintaNosotros || !cintaNosotrosImage || window.innerWidth <= 768) {
@@ -441,6 +447,47 @@ document.addEventListener("DOMContentLoaded", () => {
   window.addEventListener("scroll", updateCintaNosotrosReveal, { passive: true });
   window.addEventListener("load", updateCintaNosotrosReveal);
   window.addEventListener("resize", debounce(updateCintaNosotrosReveal, 100));
+
+  function closeCintaImageModal() {
+    if (!cintaImageModal) return;
+    cintaImageModal.classList.remove("is-open");
+    cintaImageModal.setAttribute("aria-hidden", "true");
+    document.body.style.overflow = "";
+  }
+
+  function openCintaImageModal(src, altText) {
+    if (!cintaImageModal || !cintaImageModalImg) return;
+    cintaImageModalImg.src = src;
+    cintaImageModalImg.alt = altText || "Imagen ampliada del equipo";
+    if (cintaImageModalTitle) {
+      cintaImageModalTitle.textContent = altText || "Vista ampliada";
+    }
+    cintaImageModal.classList.add("is-open");
+    cintaImageModal.setAttribute("aria-hidden", "false");
+    document.body.style.overflow = "hidden";
+  }
+
+  if (cintaFloatingItems.length && cintaImageModal) {
+    cintaFloatingItems.forEach((item) => {
+      item.addEventListener("click", () => {
+        openCintaImageModal(item.dataset.modalImage, item.dataset.modalAlt);
+      });
+    });
+
+    if (cintaImageModalOverlay) {
+      cintaImageModalOverlay.addEventListener("click", closeCintaImageModal);
+    }
+
+    if (cintaImageModalClose) {
+      cintaImageModalClose.addEventListener("click", closeCintaImageModal);
+    }
+
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape" && cintaImageModal.classList.contains("is-open")) {
+        closeCintaImageModal();
+      }
+    });
+  }
 
   /* =========================
      MAPA + DESTINOS
