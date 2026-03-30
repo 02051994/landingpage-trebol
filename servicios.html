@@ -75,53 +75,232 @@
       </div>
     </section>
 
-    <section class="section section-destinos section-theme-ocean">
-      <div class="container destinos-grid">
-        <div class="destinos-map reveal">
-          <div class="map-card">
-            <svg class="world-map" viewBox="0 0 1000 520" xmlns="http://www.w3.org/2000/svg" aria-label="Mapa de destinos de exportación">
-              <rect x="0" y="0" width="1000" height="520" rx="24" fill="#f5f7f8" />
-              <path d="M115 145 L180 110 L255 120 L300 155 L292 210 L250 245 L210 235 L170 255 L130 225 L105 180 Z" fill="#d9e3dd" />
-              <path d="M255 270 L285 290 L300 345 L280 410 L245 455 L220 430 L225 375 L210 320 Z" fill="#d9e3dd" />
-              <path d="M430 115 L505 95 L590 105 L655 135 L700 155 L735 185 L710 225 L640 225 L600 255 L560 240 L525 250 L475 220 L435 190 Z" fill="#d9e3dd" />
-              <path d="M505 270 L555 285 L590 325 L615 390 L585 450 L545 440 L510 390 L490 330 Z" fill="#d9e3dd" />
-              <path d="M735 315 L805 290 L875 305 L930 345 L900 395 L835 415 L770 405 L725 360 Z" fill="#d9e3dd" />
-              <text x="90" y="60" class="map-title">Destinos de exportación</text>
-              <g class="map-origin"><circle cx="270" cy="315" r="9" class="origin-dot" /><circle cx="270" cy="315" r="18" class="origin-ring" /><text x="288" y="310">Perú</text></g>
-              <g class="map-routes">
-                <path d="M270 315 Q220 220 210 165" />
-                <path d="M270 315 Q410 180 520 150" />
-                <path d="M270 315 Q450 235 585 205" />
-                <path d="M270 315 Q530 170 760 215" />
-                <path d="M270 315 Q545 215 785 250" />
-                <path d="M270 315 Q560 235 810 270" />
-              </g>
-              <g class="map-destinations">
-                <text x="145" y="150" class="destination-label">Estados Unidos</text>
-                <text x="495" y="135" class="destination-label">Europa</text>
-                <text x="560" y="190" class="destination-label">Emiratos</text>
-                <text x="740" y="198" class="destination-label">China</text>
-                <text x="768" y="236" class="destination-label">Tailandia</text>
-                <text x="790" y="288" class="destination-label">Singapur</text>
-              </g>
-            </svg>
-          </div>
-        </div>
-
-        <div class="destinos-content reveal">
-          <span class="section-tag">Cobertura Global</span>
-          <h2>Llegamos a mercados premium en América, Europa y Asia</h2>
+    <section class="section certifications-section section-theme-emerald">
+      <div class="container">
+        <header class="section-header reveal certifications-header">
+          <span class="section-tag">Estándares</span>
+          <h2>Destinos y Certificaciones</h2>
           <p>
-            Nuestra operación conecta origen y destino con protocolos de frescura y control para que cada embarque conserve su valor comercial.
+            Nuestra operación se apoya en lineamientos técnicos, control documentario y disciplina operativa para responder a mercados exigentes.
           </p>
-          <ul class="destinos-list">
-            <li>Estados Unidos</li>
-            <li>Europa</li>
-            <li>China</li>
-            <li>Singapur</li>
-            <li>Tailandia</li>
-            <li>Emiratos Árabes Unidos</li>
-          </ul>
+        </header>
+
+        <div class="certifications-layout reveal" id="certificationsSection">
+
+          <div class="certifications-tabs-panel">
+            <div class="destinations-mobile-select-wrap">
+              <label class="destinations-mobile-label" for="mobileDestinationSelect">Destino de exportación</label>
+              <select id="mobileDestinationSelect" class="destinations-mobile-select" aria-label="Seleccionar destino de exportación">
+                <option value="0">Europa</option>
+                <option value="1">Estados Unidos</option>
+                <option value="2">Tailandia</option>
+                <option value="3">China</option>
+                <option value="4">Singapur</option>
+                <option value="5">Emiratos</option>
+              </select>
+            </div>
+
+            <div class="tabs-header" id="certTabs" role="tablist" aria-label="Destinos de exportación">
+              <button
+                class="tab-button active"
+                type="button"
+                role="tab"
+                aria-selected="true"
+                data-tag="Europa"
+                data-route="Ruta marítima"
+                data-path="M 36 72 Q 48 30, 66 28"
+                data-destx="66%"
+                data-desty="28%"
+                data-point="Europa"
+                data-kg="320000"
+                data-icon="ship"
+              >
+                Europa
+              </button>
+
+              <button
+                class="tab-button"
+                type="button"
+                role="tab"
+                aria-selected="false"
+                data-tag="EEUU"
+                data-route="Ruta aérea"
+                data-path="M 36 72 Q 26 40, 31 26"
+                data-destx="31%"
+                data-desty="26%"
+                data-point="Estados Unidos"
+                data-kg="500000"
+                data-icon="plane"
+              >
+                Estados Unidos
+              </button>
+
+              <button
+                class="tab-button"
+                type="button"
+                role="tab"
+                aria-selected="false"
+                data-tag="Asia"
+                data-route="Ruta marítima"
+                data-path="M 36 72 Q 58 28, 83 49"
+                data-destx="83%"
+                data-desty="49%"
+                data-point="Tailandia"
+                data-kg="140000"
+                data-icon="ship"
+              >
+                Tailandia
+              </button>
+
+              <button
+                class="tab-button"
+                type="button"
+                role="tab"
+                aria-selected="false"
+                data-tag="Asia"
+                data-route="Ruta aérea"
+                data-path="M 36 72 Q 58 26, 80 42"
+                data-destx="80%"
+                data-desty="42%"
+                data-point="China"
+                data-kg="210000"
+                data-icon="plane"
+              >
+                China
+              </button>
+
+              <button
+                class="tab-button"
+                type="button"
+                role="tab"
+                aria-selected="false"
+                data-tag="Asia"
+                data-route="Ruta marítima"
+                data-path="M 36 72 Q 58 34, 86 62"
+                data-destx="86%"
+                data-desty="62%"
+                data-point="Singapur"
+                data-kg="95000"
+                data-icon="ship"
+              >
+                Singapur
+              </button>
+
+              <button
+                class="tab-button"
+                type="button"
+                role="tab"
+                aria-selected="false"
+                data-tag="Medio Oriente"
+                data-route="Ruta aérea"
+                data-path="M 36 72 Q 54 30, 76 39"
+                data-destx="76%"
+                data-desty="39%"
+                data-point="Emiratos"
+                data-kg="125000"
+                data-icon="plane"
+              >
+                Emiratos
+              </button>
+            </div>
+          </div>
+
+          <div class="certifications-map-panel">
+            <div class="certifications-map-card">
+              <div class="map-card-top">
+                <span class="section-tag map-card-tag" id="mapCardTag">Europa</span>
+                <span class="map-card-route" id="mapCardRoute">Ruta marítima</span>
+              </div>
+
+              <div class="world-map-stage">
+                <svg class="world-map-svg" viewBox="0 0 900 480" aria-hidden="true">
+                  <g class="world-map-land">
+                    <path d="M95 126 L150 102 L208 110 L248 93 L288 104 L314 130 L307 175 L266 208 L220 198 L178 214 L138 196 L110 176 L85 150 Z"/>
+                    <path d="M202 221 L229 245 L248 289 L238 334 L216 385 L188 416 L162 388 L171 332 L166 287 L154 245 Z"/>
+                    <path d="M432 101 L490 88 L550 98 L600 113 L648 134 L702 146 L754 164 L803 192 L786 212 L735 204 L699 195 L664 204 L613 195 L574 182 L534 186 L490 174 L452 155 L432 132 Z"/>
+                    <path d="M470 210 L512 221 L543 254 L565 315 L543 366 L508 412 L468 402 L446 364 L425 314 L440 265 Z"/>
+                    <path d="M680 272 L728 256 L785 266 L824 292 L798 339 L742 356 L688 347 L650 313 L655 277 Z"/>
+                  </g>
+                  <g class="world-map-grid">
+                    <line x1="85" y1="120" x2="815" y2="120"/>
+                    <line x1="85" y1="185" x2="815" y2="185"/>
+                    <line x1="85" y1="250" x2="815" y2="250"/>
+                    <line x1="85" y1="315" x2="815" y2="315"/>
+                    <line x1="85" y1="380" x2="815" y2="380"/>
+                    <line x1="130" y1="80" x2="130" y2="392"/>
+                    <line x1="245" y1="80" x2="245" y2="392"/>
+                    <line x1="360" y1="80" x2="360" y2="392"/>
+                    <line x1="475" y1="80" x2="475" y2="392"/>
+                    <line x1="590" y1="80" x2="590" y2="392"/>
+                    <line x1="705" y1="80" x2="705" y2="392"/>
+                    <line x1="815" y1="80" x2="815" y2="392"/>
+                  </g>
+                </svg>
+
+                <div class="map-route-layer" id="mapRouteLayer">
+                  <span class="map-point map-point-peru"><span>Perú</span></span>
+
+                  <span class="map-point map-point-destination" id="mapDestinationPoint">
+                    <span class="map-point-info">
+                      <small id="mapDestinationKg">320,000 Kg</small>
+                      <strong id="mapDestinationName">Europa</strong>
+                    </span>
+                  </span>
+
+                  <svg class="map-route-svg" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+                    <path id="mapRoutePath" class="map-route-path" d="M 36 72 Q 48 30, 66 28" />
+                  </svg>
+
+                  <span class="map-route-vehicle" id="mapRouteVehicle" aria-hidden="true">
+                    <svg viewBox="0 0 24 24">
+                      <path d="M4 15.5l1.5 1.2c.8.6 1.8.6 2.6 0l1-.8 1 .8c.8.6 1.8.6 2.6 0l1-.8 1 .8c.8.6 1.8.6 2.6 0L20 15.5V10l-3-1.2V6.5h-3V7.6L12 6 7 8.2v4.3L4 13.8zm5-2.7V9.7l3-1.2 3 1.2v3.1zM4.5 19c.7.7 1.8.7 2.5 0 .7.7 1.8.7 2.5 0 .7.7 1.8.7 2.5 0 .7.7 1.8.7 2.5 0 .7.7 1.8.7 2.5 0 .7.7 1.8.7 2.5 0"/>
+                    </svg>
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="certifications-accordion-card">
+            <div class="certifications-accordion" id="certificationsAccordion">
+              <article class="cert-accordion-item active">
+                <button class="cert-accordion-header" type="button" aria-expanded="true">
+                  <span>GlobalG.A.P.</span>
+                  <span class="cert-accordion-icon">+</span>
+                </button>
+                <div class="cert-accordion-body">
+                  <p>
+                    Estándar orientado a buenas prácticas agrícolas, trazabilidad, control de procesos y cumplimiento en campo.
+                  </p>
+                </div>
+              </article>
+
+              <article class="cert-accordion-item">
+                <button class="cert-accordion-header" type="button" aria-expanded="false">
+                  <span>GRASP</span>
+                  <span class="cert-accordion-icon">+</span>
+                </button>
+                <div class="cert-accordion-body">
+                  <p>
+                    Refuerza aspectos sociales, condiciones laborales, bienestar del personal y orden documental en la operación.
+                  </p>
+                </div>
+              </article>
+
+              <article class="cert-accordion-item">
+                <button class="cert-accordion-header" type="button" aria-expanded="false">
+                  <span>SMETA / Auditorías éticas</span>
+                  <span class="cert-accordion-icon">+</span>
+                </button>
+                <div class="cert-accordion-body">
+                  <p>
+                    Evalúa prácticas de cumplimiento, responsabilidad empresarial, seguridad y consistencia en la gestión operativa.
+                  </p>
+                </div>
+              </article>
+            </div>
+          </div>
+
         </div>
       </div>
     </section>
