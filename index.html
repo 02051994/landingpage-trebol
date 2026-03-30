@@ -380,50 +380,46 @@
       </div>
     </section>
 
-    <section class="section section-ubicacion-peru reveal section-theme-sunrise" id="seccionUbicacionPeru">
-      <div class="container ubicacion-peru-layout">
-        <article class="ubicacion-peru-map-card">
-          <span class="section-tag">Ubicación</span>
-          <h2>Estamos ubicados en Huaral, Perú</h2>
-          <p>Visualiza el mapa completo del Perú con referencia del distrito de Huaral.</p>
+    <section class="section section-geo-story reveal section-theme-sunrise" id="seccionGeoStory">
+      <div class="container geo-story-layout">
+        <article class="geo-story-copy-card">
+          <span class="section-tag">Geo Storytelling</span>
+          <h2>Del Perú a Huaral: una narrativa geográfica viva</h2>
+          <p>
+            Sigue la secuencia territorial de Grupo Trébol: vista nacional, enfoque provincial,
+            zoom distrital y ruta final desde Palpa hasta nuestro punto operativo.
+          </p>
 
-          <div class="peru-map-stage">
-            <iframe
-              class="peru-map-iframe"
-              src="https://www.google.com/maps?q=Peru&z=5&output=embed"
-              title="Mapa completo del Perú con referencia de Huaral"
-              loading="lazy"
-              referrerpolicy="no-referrer-when-downgrade"
-            ></iframe>
+          <ol class="geo-story-steps" id="geoStorySteps" aria-label="Secuencia de narrativa geográfica">
+            <li class="is-active" data-step="1">Mapa del Perú por departamentos</li>
+            <li data-step="2">Enfoque en la provincia de Huaral</li>
+            <li data-step="3">Zoom al distrito de Huaral y puntos internos</li>
+            <li data-step="4">Ruta animada de Palpa al destino Grupo Trébol</li>
+          </ol>
 
-            <a
-              class="huaral-point"
-              href="https://maps.app.goo.gl/yHARtf1XhCwDWM88A?g_st=awb"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Abrir ubicación del distrito de Huaral en Google Maps"
-            >
-              <span>Distrito de Huaral</span>
-            </a>
+          <div class="geo-story-meta">
+            <div>
+              <span>Origen</span>
+              <strong>Palpa</strong>
+            </div>
+            <div>
+              <span>Destino</span>
+              <strong>Grupo Trébol · Huaral</strong>
+              <small>-11.499878959997583, -77.03627434530604</small>
+            </div>
           </div>
+
+          <button class="btn btn-primary geo-story-replay" type="button" id="geoStoryReplay">
+            Reproducir secuencia
+          </button>
         </article>
 
-        <article class="ubicacion-peru-copy-card">
-          <span class="section-tag">Referencia geográfica</span>
-          <h3>Distrito de Huaral</h3>
-          <ul>
-            <li><strong>Provincia:</strong> Huaral, Lima</li>
-            <li><strong>Coordenadas:</strong> -11.499852687666987, -77.0363172576723</li>
-            <li><strong>Altitud aproximada:</strong> 188 m s. n. m.</li>
-          </ul>
-          <a
-            class="btn btn-primary"
-            href="https://www.google.com/maps?q=-11.499852687666987,-77.0363172576723"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Abrir ubicación
-          </a>
+        <article class="geo-story-map-card">
+          <div class="geo-story-map-head">
+            <span class="section-tag">Mapa vectorial interactivo</span>
+            <p id="geoStoryStatus">Preparando narrativa territorial...</p>
+          </div>
+          <div class="geo-story-stage" id="geoStoryMap" role="img" aria-label="Mapa narrativo de Perú, Huaral y ruta a Grupo Trébol"></div>
         </article>
       </div>
     </section>
@@ -679,6 +675,7 @@
   </footer>
 
   <script src="assets/js/global.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
   <script src="assets/js/index.js"></script>
 
 </body>

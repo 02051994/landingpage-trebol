@@ -831,6 +831,366 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   /* =========================
+     GEO NARRATIVA INTERACTIVA
+  ========================= */
+  const geoStoryContainer = document.getElementById("geoStoryMap");
+  const geoStoryStatus = document.getElementById("geoStoryStatus");
+  const geoStoryReplay = document.getElementById("geoStoryReplay");
+  const geoStorySteps = document.querySelectorAll("#geoStorySteps li");
+
+  const geoStoryData = {
+    destinationCoordinates: [-11.499878959997583, -77.03627434530604],
+    peruOutline: [[236, 44], [324, 42], [396, 84], [440, 168], [426, 252], [374, 346], [338, 448], [344, 548], [334, 734], [254, 724], [184, 684], [146, 608], [124, 526], [116, 442], [124, 332], [144, 236], [184, 148], [214, 84]],
+    departments: [
+      { id: "tumbes-piura", name: "Tumbes · Piura", label: [266, 96], points: [[236, 54], [324, 48], [356, 112], [304, 164], [234, 138]] },
+      { id: "lambayeque-libertad", name: "Lambayeque · La Libertad", label: [246, 186], points: [[214, 142], [310, 168], [320, 252], [250, 274], [196, 214]] },
+      { id: "ancash", name: "Áncash", label: [228, 276], points: [[186, 220], [252, 276], [244, 346], [184, 354], [154, 284]] },
+      { id: "lima", name: "Lima", label: [222, 362], points: [[172, 348], [246, 350], [264, 412], [218, 454], [164, 430], [146, 388]] },
+      { id: "ica", name: "Ica", label: [212, 474], points: [[162, 434], [220, 458], [236, 530], [186, 566], [148, 520], [136, 462]] },
+      { id: "arequipa", name: "Arequipa", label: [236, 598], points: [[184, 568], [248, 574], [278, 638], [246, 706], [196, 674], [166, 614]] },
+      { id: "amazonas-sanmartin", name: "Amazonas · San Martín", label: [332, 198], points: [[308, 112], [400, 96], [436, 178], [416, 274], [324, 270], [286, 184]] },
+      { id: "huanuco-pasco", name: "Huánuco · Pasco", label: [314, 308], points: [[246, 272], [320, 278], [360, 360], [306, 424], [242, 386], [226, 324]] },
+      { id: "junin-ayacucho", name: "Junín · Ayacucho", label: [304, 444], points: [[224, 394], [306, 432], [334, 520], [280, 578], [220, 522], [202, 454]] },
+      { id: "cusco-puno", name: "Cusco · Puno", label: [332, 592], points: [[274, 522], [340, 540], [376, 620], [334, 734], [254, 720], [238, 642]] }
+    ],
+    huaralProvince: {
+      id: "huaral-province",
+      name: "Provincia de Huaral",
+      label: [212, 378],
+      points: [[176, 340], [246, 336], [266, 386], [236, 438], [176, 430], [154, 384]]
+    },
+    districts: [
+      { id: "chancay", name: "Chancay", points: [[166, 350], [206, 344], [216, 382], [186, 402], [156, 384]], centroid: [184, 374] },
+      { id: "huaral-distrito", name: "Huaral", points: [[196, 372], [242, 362], [256, 410], [220, 436], [188, 408]], centroid: [222, 398] },
+      { id: "aucallama", name: "Aucallama", points: [[218, 344], [254, 338], [270, 374], [242, 396], [214, 376]], centroid: [240, 366] }
+    ],
+    localPoints: [
+      { id: "palpa", name: "Palpa", coord: [208, 404] },
+      { id: "trebol", name: "Grupo Trébol", coord: [232, 422] },
+      { id: "nodo-logistico", name: "Nodo logístico", coord: [252, 392] }
+    ]
+  };
+
+  function updateGeoStoryStep(stepNumber) {
+    geoStorySteps.forEach((item) => {
+      item.classList.toggle("is-active", Number(item.dataset.step) === stepNumber);
+    });
+  }
+
+  function updateGeoStoryStatus(text) {
+    if (geoStoryStatus) {
+      geoStoryStatus.textContent = text;
+    }
+  }
+
+  function initializeGeoStoryMap() {
+    if (!geoStoryContainer || !window.d3) return null;
+
+    const d3 = window.d3;
+    const width = 900;
+    const height = 620;
+
+    geoStoryContainer.innerHTML = "";
+
+    const svg = d3
+      .select(geoStoryContainer)
+      .append("svg")
+      .attr("viewBox", `0 0 ${width} ${height}`)
+      .attr("preserveAspectRatio", "xMidYMid meet");
+
+    const defs = svg.append("defs");
+    const mapGlow = defs
+      .append("filter")
+      .attr("id", "geoGlow")
+      .attr("x", "-50%")
+      .attr("y", "-50%")
+      .attr("width", "200%")
+      .attr("height", "200%");
+
+    mapGlow.append("feGaussianBlur").attr("stdDeviation", 4).attr("result", "blur");
+    mapGlow.append("feMerge").html("<feMergeNode in='blur'></feMergeNode><feMergeNode in='SourceGraphic'></feMergeNode>");
+
+    const overlayLayer = svg.append("g").attr("class", "geo-overlay");
+    const mapGroup = svg.append("g").attr("class", "geo-main-group");
+    const departmentLayer = mapGroup.append("g").attr("class", "geo-departments-layer");
+    const provinceLayer = mapGroup.append("g").attr("class", "geo-province-layer").style("opacity", 0);
+    const districtLayer = mapGroup.append("g").attr("class", "geo-district-layer").style("opacity", 0);
+    const labelLayer = mapGroup.append("g").attr("class", "geo-label-layer");
+    const pointsLayer = mapGroup.append("g").attr("class", "geo-points-layer").style("opacity", 0);
+    const routeLayer = mapGroup.append("g").attr("class", "geo-route-layer").style("opacity", 0);
+
+    for (let x = 0; x <= width; x += 50) {
+      overlayLayer.append("line").attr("class", "geo-grid-overlay").attr("x1", x).attr("y1", 0).attr("x2", x).attr("y2", height);
+    }
+
+    for (let y = 0; y <= height; y += 50) {
+      overlayLayer.append("line").attr("class", "geo-grid-overlay").attr("x1", 0).attr("y1", y).attr("x2", width).attr("y2", y);
+    }
+
+    function toPath(points) {
+      return `M ${points.map(([x, y]) => `${x},${y}`).join(" L ")} Z`;
+    }
+
+    function renderMap() {
+      departmentLayer
+        .selectAll("path.geo-peru-outline")
+        .data([geoStoryData.peruOutline])
+        .join("path")
+        .attr("class", "geo-peru-outline")
+        .attr("d", (d) => toPath(d));
+
+      departmentLayer
+        .selectAll("path.geo-base-region")
+        .data(geoStoryData.departments, (d) => d.id)
+        .join("path")
+        .attr("class", "geo-base-region")
+        .attr("data-id", (d) => d.id)
+        .attr("d", (d) => toPath(d.points));
+
+      provinceLayer
+        .selectAll("path")
+        .data([geoStoryData.huaralProvince], (d) => d.id)
+        .join("path")
+        .attr("class", "geo-subregion")
+        .attr("data-id", (d) => d.id)
+        .attr("d", (d) => toPath(d.points));
+
+      districtLayer
+        .selectAll("path")
+        .data(geoStoryData.districts, (d) => d.id)
+        .join("path")
+        .attr("class", "geo-subregion")
+        .attr("data-id", (d) => d.id)
+        .attr("d", (d) => toPath(d.points));
+    }
+
+    function showGeographicLayer(layerName) {
+      departmentLayer.transition().duration(700).style("opacity", layerName === "departments" ? 1 : 0.2);
+      provinceLayer.transition().duration(700).style("opacity", layerName === "province" ? 1 : 0);
+      districtLayer.transition().duration(700).style("opacity", layerName === "districts" ? 1 : 0);
+    }
+
+    function highlightZone(layerName, id) {
+      const layerMap = {
+        departments: departmentLayer,
+        province: provinceLayer,
+        districts: districtLayer
+      };
+
+      const layer = layerMap[layerName];
+      if (!layer) return;
+
+      const selector = layerName === "departments" ? "path.geo-base-region" : "path";
+
+      layer
+        .selectAll(selector)
+        .classed("is-highlight", (d) => d.id === id)
+        .classed("is-muted", (d) => d.id !== id);
+    }
+
+    function zoomToZone(points, scale = 2.1, duration = 1800) {
+      const box = {
+        minX: Math.min(...points.map((point) => point[0])),
+        maxX: Math.max(...points.map((point) => point[0])),
+        minY: Math.min(...points.map((point) => point[1])),
+        maxY: Math.max(...points.map((point) => point[1]))
+      };
+
+      const centerX = (box.minX + box.maxX) / 2;
+      const centerY = (box.minY + box.maxY) / 2;
+
+      const translateX = width / 2 - centerX * scale;
+      const translateY = height / 2 - centerY * scale;
+
+      return mapGroup
+        .transition()
+        .duration(duration)
+        .ease(d3.easeCubicInOut)
+        .attr("transform", `translate(${translateX}, ${translateY}) scale(${scale})`)
+        .end();
+    }
+
+    function resetZoom(duration = 1100) {
+      return mapGroup
+        .transition()
+        .duration(duration)
+        .ease(d3.easeCubicInOut)
+        .attr("transform", "translate(0, 0) scale(1)")
+        .end();
+    }
+
+    function controlLabels(labelData, visibleIds = []) {
+      const labels = labelLayer
+        .selectAll("text")
+        .data(labelData, (d) => d.id)
+        .join("text")
+        .attr("class", "geo-label")
+        .attr("data-id", (d) => d.id)
+        .attr("x", (d) => d.coord[0])
+        .attr("y", (d) => d.coord[1])
+        .text((d) => d.name);
+
+      labels.classed("is-visible", (d) => visibleIds.includes(d.id));
+    }
+
+    function drawRoute(routePoints) {
+      routeLayer.style("opacity", 1);
+
+      const lineGenerator = d3.line().curve(d3.curveCatmullRom.alpha(0.58));
+      const pathData = lineGenerator(routePoints);
+
+      const routePath = routeLayer
+        .selectAll("path.geo-route")
+        .data([pathData])
+        .join("path")
+        .attr("class", "geo-route")
+        .attr("d", (d) => d)
+        .attr("filter", "url(#geoGlow)");
+
+      const totalLength = routePath.node().getTotalLength();
+
+      routePath
+        .attr("stroke-dasharray", `${totalLength} ${totalLength}`)
+        .attr("stroke-dashoffset", totalLength)
+        .transition()
+        .duration(1700)
+        .ease(d3.easeCubicOut)
+        .attr("stroke-dashoffset", 0);
+    }
+
+    function showInnerPoints(pointIds = []) {
+      pointsLayer
+        .selectAll("circle.geo-point")
+        .data(geoStoryData.localPoints, (d) => d.id)
+        .join("circle")
+        .attr("class", "geo-point")
+        .attr("cx", (d) => d.coord[0])
+        .attr("cy", (d) => d.coord[1])
+        .attr("r", 4)
+        .style("opacity", (d) => (pointIds.includes(d.id) ? 1 : 0));
+
+      pointsLayer
+        .selectAll("text.geo-point-label")
+        .data(geoStoryData.localPoints, (d) => d.id)
+        .join("text")
+        .attr("class", "geo-point-label")
+        .attr("x", (d) => d.coord[0] + 10)
+        .attr("y", (d) => d.coord[1] - 8)
+        .text((d) => d.name)
+        .style("opacity", (d) => (pointIds.includes(d.id) ? 1 : 0));
+
+      pointsLayer.transition().duration(500).style("opacity", 1);
+    }
+
+    function markDestinationPoint(destinationId) {
+      const destination = geoStoryData.localPoints.find((point) => point.id === destinationId);
+      if (!destination) return;
+
+      routeLayer
+        .selectAll("circle.geo-destination-ring")
+        .data([destination])
+        .join("circle")
+        .attr("class", "geo-destination-ring")
+        .classed("is-pulsing", true)
+        .attr("cx", (d) => d.coord[0])
+        .attr("cy", (d) => d.coord[1])
+        .attr("r", 7);
+
+      routeLayer
+        .selectAll("circle.geo-destination-core")
+        .data([destination])
+        .join("circle")
+        .attr("class", "geo-destination-core")
+        .attr("cx", (d) => d.coord[0])
+        .attr("cy", (d) => d.coord[1])
+        .attr("r", 5);
+    }
+
+    let isPlaying = false;
+
+    async function runNarrativeSequence() {
+      if (isPlaying) return;
+      isPlaying = true;
+
+      try {
+        renderMap();
+        await resetZoom(0);
+        showGeographicLayer("departments");
+        controlLabels(geoStoryData.departments.map((dept) => ({ id: dept.id, name: dept.name, coord: dept.label })), geoStoryData.departments.map((dept) => dept.id));
+
+        updateGeoStoryStep(1);
+        updateGeoStoryStatus("Paso 1/4 · Vista nacional por departamentos");
+        await wait(1100);
+
+        highlightZone("departments", "lima");
+        controlLabels([{ id: "huaral-province-label", name: "Provincia de Huaral", coord: geoStoryData.huaralProvince.label }], ["huaral-province-label"]);
+        updateGeoStoryStep(2);
+        updateGeoStoryStatus("Paso 2/4 · Huaral resaltado en el territorio de Lima");
+        await zoomToZone(geoStoryData.huaralProvince.points, 2.45, 1900);
+
+        showGeographicLayer("districts");
+        highlightZone("districts", "huaral-distrito");
+        controlLabels(geoStoryData.districts.map((district) => ({ id: district.id, name: district.name, coord: district.centroid })), ["huaral-distrito", "chancay"]);
+        updateGeoStoryStep(3);
+        updateGeoStoryStatus("Paso 3/4 · Distritos de la provincia de Huaral");
+        await zoomToZone(geoStoryData.districts.find((d) => d.id === "huaral-distrito").points, 4, 1800);
+
+        showInnerPoints(["palpa", "trebol"]);
+        drawRoute([
+          geoStoryData.localPoints.find((point) => point.id === "palpa").coord,
+          [218, 410],
+          [224, 418],
+          geoStoryData.localPoints.find((point) => point.id === "trebol").coord
+        ]);
+        markDestinationPoint("trebol");
+
+        updateGeoStoryStep(4);
+        updateGeoStoryStatus(`Paso 4/4 · Ruta Palpa → Grupo Trébol (${geoStoryData.destinationCoordinates[0]}, ${geoStoryData.destinationCoordinates[1]})`);
+      } finally {
+        isPlaying = false;
+      }
+    }
+
+    renderMap();
+
+    return {
+      runNarrativeSequence,
+      resizeMap: () => {
+        renderMap();
+      }
+    };
+  }
+
+  let geoStoryApi = null;
+  let geoStoryHasPlayed = false;
+
+  if (geoStoryContainer && window.d3) {
+    geoStoryApi = initializeGeoStoryMap();
+
+    const geoStoryObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting && !geoStoryHasPlayed && geoStoryApi) {
+            geoStoryHasPlayed = true;
+            geoStoryApi.runNarrativeSequence();
+          }
+        });
+      },
+      { threshold: 0.42 }
+    );
+
+    geoStoryObserver.observe(geoStoryContainer);
+
+    if (geoStoryReplay && geoStoryApi) {
+      geoStoryReplay.addEventListener("click", () => {
+        geoStoryApi.runNarrativeSequence();
+      });
+    }
+  } else if (geoStoryStatus && !window.d3) {
+    updateGeoStoryStatus("No se pudo cargar D3.js. Verifica conectividad para habilitar el mapa interactivo.");
+  }
+
+  /* =========================
      CONTACTO PREMIUM (EMAIL + WHATSAPP)
   ========================= */
   const premiumContactForm = document.querySelector(".contact-premium-section .contact-form");
@@ -926,6 +1286,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (mapRoutePath && mapRouteVehicle) {
       animateMapRoute();
+    }
+
+    if (geoStoryApi) {
+      geoStoryApi.resizeMap();
     }
 
     const activeValueAccordion = document.querySelector(".accordion-item.active .accordion-body");
