@@ -1058,14 +1058,16 @@
    VIDEO CORPORATIVO
 ========================= */
 .section-video-corporativo {
-  width: 100%;
+  width: 100vw;
+  height: 50vh;
   padding: 0;
-  margin: 10px 0 0;
+  margin: 0;
 }
 
 .video-corporativo-wrap {
   position: relative;
-  min-height: clamp(340px, 45vw, 620px);
+  width: 100%;
+  height: 100%;
   overflow: hidden;
 }
 
@@ -1076,31 +1078,6 @@
   height: 100%;
   object-fit: cover;
   filter: saturate(1.08) contrast(1.04);
-}
-
-.video-corporativo-overlay {
-  position: relative;
-  min-height: clamp(340px, 45vw, 620px);
-  display: grid;
-  place-items: center;
-  text-align: center;
-  padding: 34px 20px;
-  background:
-    linear-gradient(120deg, rgba(244, 251, 247, 0.72), rgba(225, 241, 232, 0.62));
-}
-
-.video-corporativo-content h2 {
-  color: #111111;
-  font-size: clamp(2rem, 4vw, 3.2rem);
-  margin: 10px 0 14px;
-  letter-spacing: -0.03em;
-}
-
-.video-corporativo-content p {
-  color: rgba(17, 17, 17, 0.88);
-  max-width: 70ch;
-  margin: 0 auto;
-  line-height: 1.8;
 }
 
 @keyframes floatBadge {
@@ -2535,11 +2512,6 @@
 
   .about-orbit-pills {
     display: none;
-  }
-
-  .video-corporativo-wrap,
-  .video-corporativo-overlay {
-    min-height: 320px;
   }
 
   .products-premium-section {
