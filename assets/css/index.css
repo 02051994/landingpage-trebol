@@ -2851,10 +2851,6 @@
 .destinos-list { margin-top: 20px; display:grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
 .destinos-list li { position:relative; padding-left:16px; font-weight:700; color: var(--color-text); }
 .destinos-list li::before { content:""; position:absolute; left:0; top:10px; width:7px; height:7px; border-radius:50%; background: var(--color-primary); }
-
-/* =========================
-   BLOQUE "NUESTRA GENTE" (referencia Agrofresh)
-========================= */
 .agf-people-section {
   background: #ffffff;
   padding: clamp(48px, 7vw, 88px) 0;
