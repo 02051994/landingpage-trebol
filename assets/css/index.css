@@ -2832,3 +2832,22 @@
     grid-template-columns: 1fr;
   }
 }
+
+
+/* =========================
+   DESTINOS (movido desde servicios)
+========================= */
+.section-destinos { background: linear-gradient(180deg, #ffffff 0%, #f7f7f5 100%); }
+.destinos-grid { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: var(--space-48); align-items: center; }
+.map-card { background: linear-gradient(150deg, #ffffff, #f2f7f5); border-radius: var(--radius-xl); padding: 22px; box-shadow: var(--shadow-soft); }
+.world-map { width: 100%; }
+.map-title { font-size: 26px; font-weight: 700; fill: #0f172a; }
+.map-routes path { fill: none; stroke: #8eb7ff; stroke-width: 2.4; stroke-dasharray: 6 8; animation: dashMove 14s linear infinite; }
+.destination-label { font-size: 18px; fill: #334155; font-weight: 600; }
+.world-map text { font-size: 20px; fill: #1f2937; font-weight: 600; }
+.origin-dot { fill: var(--color-primary); }
+.origin-ring { fill: none; stroke: var(--color-primary); stroke-width: 2; opacity: .35; }
+.destinos-content h2 { margin-bottom: 18px; }
+.destinos-list { margin-top: 20px; display:grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
+.destinos-list li { position:relative; padding-left:16px; font-weight:700; color: var(--color-text); }
+.destinos-list li::before { content:""; position:absolute; left:0; top:10px; width:7px; height:7px; border-radius:50%; background: var(--color-primary); }
