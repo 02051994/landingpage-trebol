@@ -1150,94 +1150,227 @@
 }
 
 /* =========================
-   UBICACIÓN PERÚ
+   GEO STORYTELLING MAPA
 ========================= */
-.section-ubicacion-peru {
-  background: linear-gradient(180deg, rgba(19, 103, 138, 0.06), rgba(19, 103, 138, 0.01));
+.section-geo-story {
+  background: linear-gradient(180deg, rgba(19, 103, 138, 0.08), rgba(19, 103, 138, 0.02));
 }
 
-.ubicacion-peru-layout {
+.geo-story-layout {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 0.78fr);
+  grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.25fr);
   gap: 24px;
+  align-items: stretch;
 }
 
-.ubicacion-peru-map-card,
-.ubicacion-peru-copy-card {
+.geo-story-copy-card,
+.geo-story-map-card {
   padding: 26px;
   border-radius: 28px;
-  background: rgba(255,255,255,0.88);
+  background: rgba(255, 255, 255, 0.9);
   border: 1px solid rgba(19, 103, 138, 0.12);
-  box-shadow: 0 18px 42px rgba(0,0,0,0.06);
+  box-shadow: 0 18px 42px rgba(0, 0, 0, 0.06);
 }
 
-.ubicacion-peru-map-card h2,
-.ubicacion-peru-copy-card h3 {
+.geo-story-copy-card h2 {
+  margin: 10px 0 12px;
   color: #111111;
-  margin: 10px 0 10px;
 }
 
-.ubicacion-peru-map-card p {
-  margin-bottom: 14px;
+.geo-story-copy-card p {
+  margin-bottom: 16px;
 }
 
-.peru-map-stage {
+.geo-story-steps {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 10px;
+}
+
+.geo-story-steps li {
   position: relative;
-  min-height: 360px;
-  border-radius: 24px;
+  padding: 12px 14px 12px 38px;
+  border-radius: 14px;
+  background: rgba(19, 103, 138, 0.07);
   border: 1px solid rgba(19, 103, 138, 0.1);
-  background: radial-gradient(circle at 30% 20%, #f3fbf7, #e4f2eb);
+  color: rgba(12, 35, 47, 0.9);
+  font-weight: 600;
+  transition: all 0.35s ease;
+}
+
+.geo-story-steps li::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 14px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: rgba(19, 103, 138, 0.36);
+  transform: translateY(-50%);
+}
+
+.geo-story-steps li.is-active {
+  border-color: rgba(31, 107, 69, 0.42);
+  background: linear-gradient(135deg, rgba(31, 107, 69, 0.16), rgba(58, 141, 104, 0.1));
+  color: #0f3e28;
+  box-shadow: 0 10px 22px rgba(17, 73, 48, 0.14);
+}
+
+.geo-story-steps li.is-active::before {
+  background: #1f6b45;
+  box-shadow: 0 0 0 8px rgba(31, 107, 69, 0.14);
+}
+
+.geo-story-meta {
+  margin: 18px 0 20px;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.geo-story-meta div {
+  padding: 12px 14px;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.82);
+  border: 1px solid rgba(19, 103, 138, 0.12);
+}
+
+.geo-story-meta span {
+  font-size: 0.72rem;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: rgba(19, 103, 138, 0.75);
+}
+
+.geo-story-meta strong {
+  display: block;
+  margin-top: 4px;
+  color: #111111;
+}
+
+.geo-story-map-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.geo-story-map-head p {
+  margin: 0;
+  color: rgba(17, 17, 17, 0.74);
+  font-weight: 600;
+  font-size: 0.93rem;
+}
+
+.geo-story-stage {
+  position: relative;
+  min-height: 440px;
+  border-radius: 24px;
+  border: 1px solid rgba(19, 103, 138, 0.16);
+  background:
+    radial-gradient(circle at 26% 14%, rgba(166, 224, 204, 0.35), transparent 32%),
+    radial-gradient(circle at 84% 24%, rgba(19, 103, 138, 0.15), transparent 38%),
+    linear-gradient(145deg, #f7fbff, #edf4f8);
   overflow: hidden;
 }
 
-.peru-map-iframe {
-  position: absolute;
-  inset: 10px;
-  width: calc(100% - 20px);
-  height: calc(100% - 20px);
-  border: 0;
-  border-radius: 18px;
+.geo-story-stage svg {
+  width: 100%;
+  height: 100%;
+  display: block;
 }
 
-
-.huaral-point {
-  position: absolute;
-  left: 43%;
-  top: 42%;
-  width: 16px;
-  height: 16px;
-  border-radius: 50%;
-  background: #1f6b45;
-  border: 2px solid #fff;
-  transform: translate(-50%, -50%);
-  box-shadow: 0 0 0 0 rgba(31, 107, 69, 0.4);
-  animation: huaralPulse 2.2s ease infinite;
-  z-index: 2;
+.geo-grid-overlay {
+  stroke: rgba(19, 103, 138, 0.08);
+  stroke-width: 1;
 }
 
-.huaral-point span {
-  position: absolute;
-  left: 22px;
-  top: -8px;
-  color: #111111;
+.geo-base-region,
+.geo-subregion {
+  fill: #d7e6ee;
+  stroke: #ffffff;
+  stroke-width: 1.6;
+  transition: fill 0.45s ease, opacity 0.45s ease;
+}
+
+.geo-base-region.is-muted,
+.geo-subregion.is-muted {
+  opacity: 0.3;
+}
+
+.geo-base-region.is-highlight,
+.geo-subregion.is-highlight {
+  fill: #1f6b45;
+}
+
+.geo-label {
+  font-size: 12px;
   font-weight: 700;
-  background: rgba(255,255,255,0.9);
-  border: 1px solid rgba(19, 103, 138, 0.14);
-  padding: 6px 10px;
-  border-radius: 999px;
+  fill: #0f2331;
+  text-anchor: middle;
+  opacity: 0;
+  transition: opacity 0.35s ease;
 }
 
-.ubicacion-peru-copy-card ul {
-  margin: 8px 0 22px;
-  padding-left: 18px;
-  display: grid;
-  gap: 8px;
+.geo-label.is-visible {
+  opacity: 1;
 }
 
-@keyframes huaralPulse {
-  0% { box-shadow: 0 0 0 0 rgba(31, 107, 69, 0.4); }
-  70% { box-shadow: 0 0 0 16px rgba(31, 107, 69, 0); }
-  100% { box-shadow: 0 0 0 0 rgba(31, 107, 69, 0); }
+.geo-point {
+  fill: #ffffff;
+  stroke: #1f6b45;
+  stroke-width: 2;
+  opacity: 0;
+}
+
+.geo-point-label {
+  font-size: 11px;
+  fill: #0f2331;
+  font-weight: 700;
+  opacity: 0;
+}
+
+.geo-route {
+  fill: none;
+  stroke: #1f6b45;
+  stroke-width: 3;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  filter: drop-shadow(0 6px 10px rgba(31, 107, 69, 0.2));
+}
+
+.geo-destination-ring {
+  fill: none;
+  stroke: rgba(31, 107, 69, 0.46);
+  stroke-width: 2;
+}
+
+.geo-destination-core {
+  fill: #1f6b45;
+  filter: drop-shadow(0 0 14px rgba(31, 107, 69, 0.45));
+}
+
+.geo-destination-ring.is-pulsing {
+  animation: geoDestPulse 2s ease infinite;
+}
+
+@keyframes geoDestPulse {
+  0% {
+    r: 7;
+    opacity: 0.8;
+  }
+  70% {
+    r: 19;
+    opacity: 0;
+  }
+  100% {
+    r: 7;
+    opacity: 0;
+  }
 }
 
 /* =========================
@@ -2255,16 +2388,15 @@
   color: #ffffff;
 }
 
-.peru-map-stage::before {
+.geo-story-stage::before {
   content: "";
   position: absolute;
-  top: 8px;
-  left: 8px;
-  width: 132px;
-  height: 44px;
-  border-radius: 10px;
-  background: linear-gradient(135deg, rgba(229, 241, 239, 0.96), rgba(217, 236, 232, 0.96));
-  z-index: 4;
+  inset: 0;
+  background:
+    linear-gradient(rgba(19, 103, 138, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(19, 103, 138, 0.06) 1px, transparent 1px);
+  background-size: 26px 26px;
+  opacity: 0.45;
   pointer-events: none;
 }
 
@@ -2290,7 +2422,7 @@
   .section_nosotros_2,
   .cinta-nosotros-container,
   .values-layout,
-  .ubicacion-peru-layout {
+  .geo-story-layout {
     grid-template-columns: 1fr;
   }
 
@@ -2677,8 +2809,8 @@
     min-height: 330px;
   }
 
-  .peru-map-stage {
-    min-height: 270px;
+  .geo-story-stage {
+    min-height: 320px;
   }
 
   .about-slider,
@@ -2770,8 +2902,8 @@
   .cinta-nosotros-image,
   .about-image,
   .about-slide-caption,
-  .peru-map-iframe,
-  .huaral-point,
+  .geo-story-stage svg,
+  .geo-destination-ring,
   .cinta-floating-item,
   .cinta-kpis article,
   .about-capability-card {
