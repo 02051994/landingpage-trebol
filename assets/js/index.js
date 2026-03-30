@@ -872,6 +872,51 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   /* =========================
+     ZOOM EN IMÁGENES FLOTANTES
+  ========================= */
+  const floatingZoomItems = document.querySelectorAll(".cinta-floating-item[data-zoom-src]");
+  const cintaZoomModal = document.getElementById("cintaZoomModal");
+  const cintaZoomImage = document.getElementById("cintaZoomImage");
+  const cintaZoomClose = document.getElementById("cintaZoomClose");
+  const cintaZoomBackdrop = document.getElementById("cintaZoomBackdrop");
+
+  function openCintaZoom(src) {
+    if (!cintaZoomModal || !cintaZoomImage || !src) return;
+    cintaZoomImage.src = src;
+    cintaZoomModal.classList.add("is-open");
+    cintaZoomModal.setAttribute("aria-hidden", "false");
+    document.body.style.overflow = "hidden";
+  }
+
+  function closeCintaZoom() {
+    if (!cintaZoomModal || !cintaZoomImage) return;
+    cintaZoomModal.classList.remove("is-open");
+    cintaZoomModal.setAttribute("aria-hidden", "true");
+    cintaZoomImage.src = "";
+    document.body.style.overflow = "";
+  }
+
+  floatingZoomItems.forEach((item) => {
+    item.addEventListener("click", () => {
+      openCintaZoom(item.dataset.zoomSrc || "");
+    });
+  });
+
+  if (cintaZoomClose) {
+    cintaZoomClose.addEventListener("click", closeCintaZoom);
+  }
+
+  if (cintaZoomBackdrop) {
+    cintaZoomBackdrop.addEventListener("click", closeCintaZoom);
+  }
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape" && cintaZoomModal?.classList.contains("is-open")) {
+      closeCintaZoom();
+    }
+  });
+
+  /* =========================
      RESIZE
   ========================= */
   window.addEventListener("resize", debounce(() => {
