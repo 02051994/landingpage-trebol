@@ -444,6 +444,19 @@
   isolation: isolate;
 }
 
+.section-cinta-nosotros::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 46%;
+  height: clamp(150px, 20vw, 280px);
+  transform: translateY(-50%);
+  background: linear-gradient(90deg, rgba(19, 103, 138, 0.16), rgba(25, 128, 160, 0.24), rgba(19, 103, 138, 0.14));
+  z-index: -2;
+  pointer-events: none;
+}
+
 .section_nosotros_2 {
   background:
     linear-gradient(180deg, rgba(31, 107, 69, 0.07), rgba(31, 107, 69, 0.02));
@@ -493,7 +506,7 @@
 }
 
 .cinta-nosotros-texto h2 {
-  font-size: clamp(2.5rem, 4.2vw, 4.45rem);
+  font-size: clamp(2.15rem, 3.75vw, 3.85rem);
   line-height: 0.98;
   letter-spacing: -0.04em;
   color: #0f2f3f;
@@ -620,10 +633,14 @@
   z-index: 2;
   display: grid;
   gap: 10px;
-  pointer-events: none;
+  pointer-events: auto;
 }
 
 .cinta-floating-item {
+  appearance: none;
+  background: transparent;
+  padding: 0;
+  cursor: pointer;
   width: 110px;
   aspect-ratio: 1 / 1;
   border-radius: 18px;
@@ -986,37 +1003,73 @@
 }
 
 .video-corporativo-wrap video {
-  position: absolute;
-  inset: 0;
+  display: block;
   width: 100%;
   height: 100%;
   object-fit: cover;
   filter: saturate(1.08) contrast(1.04);
 }
 
-.video-corporativo-overlay {
+.cinta-image-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 1200;
+  display: none;
+  align-items: center;
+  justify-content: center;
+}
+
+.cinta-image-modal.is-open {
+  display: flex;
+}
+
+.cinta-image-modal-overlay {
+  position: absolute;
+  inset: 0;
+  border: 0;
+  background: rgba(7, 22, 30, 0.74);
+  cursor: pointer;
+}
+
+.cinta-image-modal-dialog {
   position: relative;
-  min-height: clamp(340px, 45vw, 620px);
+  z-index: 1;
+  width: min(92vw, 920px);
+  max-height: 86vh;
+  padding: 18px;
+  border-radius: 20px;
+  background: #f5fbff;
+  box-shadow: 0 28px 64px rgba(0, 0, 0, 0.34);
   display: grid;
-  place-items: center;
-  text-align: center;
-  padding: 34px 20px;
-  background:
-    linear-gradient(120deg, rgba(244, 251, 247, 0.72), rgba(225, 241, 232, 0.62));
+  gap: 12px;
 }
 
-.video-corporativo-content h2 {
-  color: #111111;
-  font-size: clamp(2rem, 4vw, 3.2rem);
-  margin: 10px 0 14px;
-  letter-spacing: -0.03em;
+.cinta-image-modal-dialog h2 {
+  margin: 0;
+  font-size: 1rem;
+  color: #13394b;
 }
 
-.video-corporativo-content p {
-  color: rgba(17, 17, 17, 0.88);
-  max-width: 70ch;
-  margin: 0 auto;
-  line-height: 1.8;
+.cinta-image-modal-dialog img {
+  width: 100%;
+  max-height: calc(86vh - 72px);
+  object-fit: contain;
+  border-radius: 14px;
+}
+
+.cinta-image-modal-close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 34px;
+  height: 34px;
+  border: 0;
+  border-radius: 50%;
+  background: rgba(10, 37, 50, 0.86);
+  color: #fff;
+  font-size: 1.5rem;
+  line-height: 1;
+  cursor: pointer;
 }
 
 @keyframes floatBadge {
@@ -2447,8 +2500,7 @@
     display: none;
   }
 
-  .video-corporativo-wrap,
-  .video-corporativo-overlay {
+  .video-corporativo-wrap {
     min-height: 320px;
   }
 
