@@ -1068,8 +1068,10 @@
 .video-corporativo-wrap {
   position: relative;
   width: min(100%, 1680px);
-  height: clamp(320px, 56vh, 620px);
-  min-height: min(78vh, 680px);
+  height: 50vh;
+  height: 50dvh;
+  min-height: 50vh;
+  min-height: 50dvh;
   margin: 0 auto;
   overflow: hidden;
   isolation: isolate;
@@ -1147,7 +1149,10 @@
 
 @media (max-width: 768px) {
   .video-corporativo-wrap {
-    min-height: clamp(360px, 74vh, 600px);
+    height: 50vh;
+    height: 50dvh;
+    min-height: 50vh;
+    min-height: 50dvh;
   }
 
   .video-corporativo-content {
