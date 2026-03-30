@@ -1251,13 +1251,6 @@
   color: #111111;
 }
 
-.geo-story-meta small {
-  display: block;
-  margin-top: 4px;
-  font-size: 0.75rem;
-  color: rgba(17, 17, 17, 0.62);
-}
-
 .geo-story-map-head {
   display: flex;
   align-items: center;
@@ -1296,13 +1289,6 @@
   stroke-width: 1;
 }
 
-
-.geo-peru-outline {
-  fill: rgba(31, 107, 69, 0.08);
-  stroke: rgba(15, 62, 40, 0.34);
-  stroke-width: 2.2;
-}
-
 .geo-base-region,
 .geo-subregion {
   fill: #d7e6ee;
@@ -1322,12 +1308,9 @@
 }
 
 .geo-label {
-  font-size: 11px;
+  font-size: 12px;
   font-weight: 700;
   fill: #0f2331;
-  paint-order: stroke;
-  stroke: rgba(255, 255, 255, 0.75);
-  stroke-width: 3px;
   text-anchor: middle;
   opacity: 0;
   transition: opacity 0.35s ease;

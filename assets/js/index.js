@@ -839,35 +839,31 @@ document.addEventListener("DOMContentLoaded", () => {
   const geoStorySteps = document.querySelectorAll("#geoStorySteps li");
 
   const geoStoryData = {
-    destinationCoordinates: [-11.499878959997583, -77.03627434530604],
-    peruOutline: [[236, 44], [324, 42], [396, 84], [440, 168], [426, 252], [374, 346], [338, 448], [344, 548], [334, 734], [254, 724], [184, 684], [146, 608], [124, 526], [116, 442], [124, 332], [144, 236], [184, 148], [214, 84]],
     departments: [
-      { id: "tumbes-piura", name: "Tumbes · Piura", label: [266, 96], points: [[236, 54], [324, 48], [356, 112], [304, 164], [234, 138]] },
-      { id: "lambayeque-libertad", name: "Lambayeque · La Libertad", label: [246, 186], points: [[214, 142], [310, 168], [320, 252], [250, 274], [196, 214]] },
-      { id: "ancash", name: "Áncash", label: [228, 276], points: [[186, 220], [252, 276], [244, 346], [184, 354], [154, 284]] },
-      { id: "lima", name: "Lima", label: [222, 362], points: [[172, 348], [246, 350], [264, 412], [218, 454], [164, 430], [146, 388]] },
-      { id: "ica", name: "Ica", label: [212, 474], points: [[162, 434], [220, 458], [236, 530], [186, 566], [148, 520], [136, 462]] },
-      { id: "arequipa", name: "Arequipa", label: [236, 598], points: [[184, 568], [248, 574], [278, 638], [246, 706], [196, 674], [166, 614]] },
-      { id: "amazonas-sanmartin", name: "Amazonas · San Martín", label: [332, 198], points: [[308, 112], [400, 96], [436, 178], [416, 274], [324, 270], [286, 184]] },
-      { id: "huanuco-pasco", name: "Huánuco · Pasco", label: [314, 308], points: [[246, 272], [320, 278], [360, 360], [306, 424], [242, 386], [226, 324]] },
-      { id: "junin-ayacucho", name: "Junín · Ayacucho", label: [304, 444], points: [[224, 394], [306, 432], [334, 520], [280, 578], [220, 522], [202, 454]] },
-      { id: "cusco-puno", name: "Cusco · Puno", label: [332, 592], points: [[274, 522], [340, 540], [376, 620], [334, 734], [254, 720], [238, 642]] }
+      { id: "piura", name: "Piura", points: [[90, 70], [170, 58], [196, 104], [138, 152], [82, 124]] },
+      { id: "lambayeque", name: "Lambayeque", points: [[110, 156], [188, 148], [212, 194], [148, 240], [92, 210]] },
+      { id: "la-libertad", name: "La Libertad", points: [[130, 246], [212, 232], [228, 284], [176, 330], [120, 298]] },
+      { id: "lima", name: "Lima", points: [[158, 334], [238, 322], [256, 394], [204, 450], [150, 416]] },
+      { id: "ica", name: "Ica", points: [[182, 456], [252, 450], [270, 508], [220, 562], [170, 522]] },
+      { id: "arequipa", name: "Arequipa", points: [[214, 568], [292, 560], [322, 640], [260, 706], [198, 660]] },
+      { id: "cusco", name: "Cusco", points: [[308, 520], [390, 510], [420, 582], [352, 650], [294, 602]] },
+      { id: "puno", name: "Puno", points: [[368, 612], [452, 602], [486, 678], [414, 744], [350, 700]] },
+      { id: "huanuco", name: "Huánuco", points: [[246, 288], [334, 278], [360, 352], [286, 412], [232, 360]] }
     ],
     huaralProvince: {
       id: "huaral-province",
       name: "Provincia de Huaral",
-      label: [212, 378],
-      points: [[176, 340], [246, 336], [266, 386], [236, 438], [176, 430], [154, 384]]
+      points: [[152, 352], [262, 332], [306, 398], [250, 474], [142, 430]]
     },
     districts: [
-      { id: "chancay", name: "Chancay", points: [[166, 350], [206, 344], [216, 382], [186, 402], [156, 384]], centroid: [184, 374] },
-      { id: "huaral-distrito", name: "Huaral", points: [[196, 372], [242, 362], [256, 410], [220, 436], [188, 408]], centroid: [222, 398] },
-      { id: "aucallama", name: "Aucallama", points: [[218, 344], [254, 338], [270, 374], [242, 396], [214, 376]], centroid: [240, 366] }
+      { id: "chancay", name: "Chancay", points: [[168, 374], [216, 360], [234, 396], [196, 424], [162, 406]], centroid: [198, 392] },
+      { id: "huaral-distrito", name: "Huaral", points: [[206, 386], [266, 372], [286, 430], [224, 460], [194, 420]], centroid: [238, 414] },
+      { id: "atavillos", name: "Atavillos", points: [[246, 356], [300, 344], [320, 394], [276, 422], [236, 390]], centroid: [276, 382] }
     ],
     localPoints: [
-      { id: "palpa", name: "Palpa", coord: [208, 404] },
-      { id: "trebol", name: "Grupo Trébol", coord: [232, 422] },
-      { id: "nodo-logistico", name: "Nodo logístico", coord: [252, 392] }
+      { id: "palpa", name: "Palpa", coord: [218, 424] },
+      { id: "trebol", name: "Grupo Trébol", coord: [252, 442] },
+      { id: "nodo-logistico", name: "Nodo logístico", coord: [272, 410] }
     ]
   };
 
@@ -933,14 +929,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function renderMap() {
       departmentLayer
-        .selectAll("path.geo-peru-outline")
-        .data([geoStoryData.peruOutline])
-        .join("path")
-        .attr("class", "geo-peru-outline")
-        .attr("d", (d) => toPath(d));
-
-      departmentLayer
-        .selectAll("path.geo-base-region")
+        .selectAll("path")
         .data(geoStoryData.departments, (d) => d.id)
         .join("path")
         .attr("class", "geo-base-region")
@@ -980,10 +969,8 @@ document.addEventListener("DOMContentLoaded", () => {
       const layer = layerMap[layerName];
       if (!layer) return;
 
-      const selector = layerName === "departments" ? "path.geo-base-region" : "path";
-
       layer
-        .selectAll(selector)
+        .selectAll("path")
         .classed("is-highlight", (d) => d.id === id)
         .classed("is-muted", (d) => d.id !== id);
     }
@@ -1116,36 +1103,36 @@ document.addEventListener("DOMContentLoaded", () => {
         renderMap();
         await resetZoom(0);
         showGeographicLayer("departments");
-        controlLabels(geoStoryData.departments.map((dept) => ({ id: dept.id, name: dept.name, coord: dept.label })), geoStoryData.departments.map((dept) => dept.id));
+        controlLabels(geoStoryData.departments.map((dept) => ({ id: dept.id, name: dept.name, coord: [dept.points[0][0] + 16, dept.points[0][1] + 24] })), ["lima", "ica", "cusco"]);
 
         updateGeoStoryStep(1);
         updateGeoStoryStatus("Paso 1/4 · Vista nacional por departamentos");
         await wait(1100);
 
         highlightZone("departments", "lima");
-        controlLabels([{ id: "huaral-province-label", name: "Provincia de Huaral", coord: geoStoryData.huaralProvince.label }], ["huaral-province-label"]);
+        controlLabels([{ id: "huaral-province-label", name: "Provincia de Huaral", coord: [218, 376] }], ["huaral-province-label"]);
         updateGeoStoryStep(2);
         updateGeoStoryStatus("Paso 2/4 · Huaral resaltado en el territorio de Lima");
-        await zoomToZone(geoStoryData.huaralProvince.points, 2.45, 1900);
+        await zoomToZone(geoStoryData.huaralProvince.points, 2.2, 1800);
 
         showGeographicLayer("districts");
         highlightZone("districts", "huaral-distrito");
         controlLabels(geoStoryData.districts.map((district) => ({ id: district.id, name: district.name, coord: district.centroid })), ["huaral-distrito", "chancay"]);
         updateGeoStoryStep(3);
         updateGeoStoryStatus("Paso 3/4 · Distritos de la provincia de Huaral");
-        await zoomToZone(geoStoryData.districts.find((d) => d.id === "huaral-distrito").points, 4, 1800);
+        await zoomToZone(geoStoryData.districts.find((d) => d.id === "huaral-distrito").points, 3.4, 1700);
 
-        showInnerPoints(["palpa", "trebol"]);
+        showInnerPoints(["palpa", "trebol", "nodo-logistico"]);
         drawRoute([
           geoStoryData.localPoints.find((point) => point.id === "palpa").coord,
-          [218, 410],
-          [224, 418],
+          [232, 430],
+          [244, 438],
           geoStoryData.localPoints.find((point) => point.id === "trebol").coord
         ]);
         markDestinationPoint("trebol");
 
         updateGeoStoryStep(4);
-        updateGeoStoryStatus(`Paso 4/4 · Ruta Palpa → Grupo Trébol (${geoStoryData.destinationCoordinates[0]}, ${geoStoryData.destinationCoordinates[1]})`);
+        updateGeoStoryStatus("Paso 4/4 · Ruta animada Palpa → Grupo Trébol");
       } finally {
         isPlaying = false;
       }
