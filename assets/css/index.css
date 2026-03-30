@@ -660,6 +660,128 @@
 }
 
 /* =========================
+   BLOQUE AGROFRESH PEOPLE
+========================= */
+.agrofresh-people-section {
+  position: relative;
+  width: 100%;
+  padding: 96px 0;
+  background: #ffffff;
+  overflow: hidden;
+}
+
+.agrofresh-people-section::before,
+.agrofresh-people-section::after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.agrofresh-people-section::before {
+  width: clamp(220px, 24vw, 340px);
+  aspect-ratio: 1 / 1;
+  left: -120px;
+  top: 12%;
+  background: radial-gradient(circle, rgba(66, 167, 68, 0.18) 0%, rgba(66, 167, 68, 0) 74%);
+}
+
+.agrofresh-people-section::after {
+  width: clamp(210px, 21vw, 320px);
+  aspect-ratio: 1 / 1;
+  right: -120px;
+  bottom: 6%;
+  background: radial-gradient(circle, rgba(34, 142, 81, 0.14) 0%, rgba(34, 142, 81, 0) 70%);
+}
+
+.agrofresh-people-container {
+  position: relative;
+  z-index: 1;
+  width: min(100% - 40px, 1180px);
+  margin-inline: auto;
+  display: grid;
+  grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+  align-items: center;
+  gap: clamp(26px, 4vw, 72px);
+}
+
+.agrofresh-people-eyebrow {
+  display: inline-block;
+  color: #46a342;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  margin-bottom: 6px;
+}
+
+.agrofresh-people-content h2 {
+  margin: 0 0 16px;
+  font-size: clamp(2.4rem, 5vw, 4rem);
+  line-height: 0.96;
+  color: #0a3826;
+  letter-spacing: -0.03em;
+}
+
+.agrofresh-people-content p {
+  margin: 0 0 26px;
+  max-width: 56ch;
+  color: #2f4839;
+  font-size: clamp(1.04rem, 1.55vw, 1.2rem);
+  line-height: 1.85;
+}
+
+.agrofresh-people-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+  padding: 0 24px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #53bd44, #2f9f41);
+  color: #fff;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-decoration: none;
+  font-size: 0.76rem;
+  box-shadow: 0 16px 30px rgba(54, 148, 59, 0.28);
+  transition: transform 0.28s ease, box-shadow 0.28s ease, filter 0.28s ease;
+}
+
+.agrofresh-people-cta:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 20px 38px rgba(54, 148, 59, 0.34);
+  filter: saturate(1.1);
+}
+
+.agrofresh-people-media {
+  margin: 0;
+  border-radius: 26px;
+  overflow: hidden;
+  min-height: clamp(300px, 44vw, 560px);
+  box-shadow: 0 24px 48px rgba(8, 41, 26, 0.18);
+  position: relative;
+}
+
+.agrofresh-people-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  animation: agrofreshPeoplePulse 10s ease-in-out infinite alternate;
+}
+
+@keyframes agrofreshPeoplePulse {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.04);
+  }
+}
+
+/* =========================
    ABOUT SLIDER INDEX
 ========================= */
 .section_nosotros_2 {
@@ -2950,5 +3072,27 @@
 
   .agf-badges {
     flex-wrap: wrap;
+  }
+}
+
+
+@media (max-width: 980px) {
+  .agrofresh-people-container {
+    grid-template-columns: 1fr;
+  }
+
+  .agrofresh-people-content {
+    text-align: center;
+    justify-self: center;
+  }
+
+  .agrofresh-people-content p {
+    margin-inline: auto;
+  }
+
+  .agrofresh-people-media {
+    width: min(100%, 620px);
+    margin-inline: auto;
+    min-height: clamp(280px, 62vw, 460px);
   }
 }
