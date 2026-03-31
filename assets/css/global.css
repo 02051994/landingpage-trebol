@@ -1190,3 +1190,22 @@ body.js-ready .parallax-soft {
     grid-template-columns: 1fr;
   }
 }
+
+/* Ajuste corporativo para reducir saturación visual */
+:root {
+  --header-bg: linear-gradient(135deg, rgba(10, 48, 34, 0.95), rgba(17, 74, 50, 0.92));
+  --header-border: rgba(255, 255, 255, 0.14);
+  --color-bg: #f2f4f1;
+  --color-surface-alt: #e9efea;
+}
+
+.page-vibrant {
+  background: var(--color-bg);
+}
+
+.section-theme-ocean::before,
+.section-theme-emerald::before,
+.section-theme-sunrise::before,
+.section-theme-plum::before {
+  background: linear-gradient(180deg, #f7f8f6 0%, #eef2ee 100%);
+}
