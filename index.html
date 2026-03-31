@@ -166,6 +166,64 @@
       </div>
     </section>
 
+    <section class="geo-story-section section-theme-plum" id="geoStorySection" aria-label="Narrativa geográfica Grupo Trébol">
+      <div class="container geo-story-wrapper">
+        <div class="geo-story-intro reveal">
+          <span class="section-tag">Ruta territorial</span>
+          <h2>Desde Lima hasta nuestro punto operativo en Huaral</h2>
+          <p>
+            Te mostramos un recorrido geográfico animado: iniciamos en Lima, hacemos zoom hacia Huaral y trazamos una ruta curva
+            hasta la ubicación de Grupo Trébol.
+          </p>
+        </div>
+
+        <div class="geo-story-canvas" id="geoStoryCanvas">
+          <figure class="geo-map geo-map-1" aria-label="Mapa de Lima">
+            <img src="assets/img/hero/mapa_1.png" alt="Mapa general con referencia a Lima" />
+          </figure>
+
+          <figure class="geo-map geo-map-2" aria-label="Mapa de Huaral">
+            <img src="assets/img/hero/mapa_2.png" alt="Mapa intermedio con referencia a Huaral" />
+          </figure>
+
+          <figure class="geo-map geo-map-3" aria-label="Mapa final con ubicación de Grupo Trébol">
+            <img src="assets/img/hero/mapa_3.png" alt="Mapa final con logo de Grupo Trébol" />
+
+            <div class="geo-route-layer" aria-hidden="true">
+              <svg viewBox="0 0 100 100" preserveAspectRatio="none">
+                <defs>
+                  <linearGradient id="geoRouteGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stop-color="#b0f5d2" />
+                    <stop offset="55%" stop-color="#49d693" />
+                    <stop offset="100%" stop-color="#ffffff" />
+                  </linearGradient>
+                  <filter id="geoRouteGlow" x="-30%" y="-30%" width="160%" height="160%">
+                    <feGaussianBlur stdDeviation="1.2" result="blur" />
+                    <feMerge>
+                      <feMergeNode in="blur" />
+                      <feMergeNode in="SourceGraphic" />
+                    </feMerge>
+                  </filter>
+                </defs>
+                <path id="geoRoutePath" d="M 29 66 C 38 76, 58 73, 71 52" />
+              </svg>
+              <span class="geo-route-arrow" id="geoRouteArrow" aria-hidden="true">➤</span>
+            </div>
+          </figure>
+
+          <a
+            class="geo-location-btn"
+            id="geoLocationBtn"
+            href="https://www.google.com/maps?q=-11.499868446541566,-77.03626361646987"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Abrir ubicación
+          </a>
+        </div>
+      </div>
+    </section>
+
     <section class="tech-ribbon section-theme-plum">
       <div class="ribbon-track">
 
