@@ -920,6 +920,91 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
+
+  /* =========================
+     NARRATIVA GEOGRÁFICA
+  ========================= */
+  const geoStorySection = document.getElementById("geoStorySection");
+  const geoStoryCanvas = document.getElementById("geoStoryCanvas");
+  const geoRoutePath = document.getElementById("geoRoutePath");
+  const geoRouteArrow = document.getElementById("geoRouteArrow");
+
+  function placeGeoArrow(progress) {
+    if (!geoStoryCanvas || !geoRoutePath || !geoRouteArrow) return;
+
+    const totalLength = geoRoutePath.getTotalLength();
+    const currentLength = totalLength * progress;
+    const point = geoRoutePath.getPointAtLength(currentLength);
+    const prevPoint = geoRoutePath.getPointAtLength(Math.max(0, currentLength - 0.4));
+    const nextPoint = geoRoutePath.getPointAtLength(Math.min(totalLength, currentLength + 0.4));
+    const angle = Math.atan2(nextPoint.y - prevPoint.y, nextPoint.x - prevPoint.x) * (180 / Math.PI);
+
+    const svg = geoRoutePath.ownerSVGElement;
+    const box = geoStoryCanvas.getBoundingClientRect();
+    const viewBox = svg.viewBox.baseVal;
+
+    const x = (point.x / viewBox.width) * box.width;
+    const y = (point.y / viewBox.height) * box.height;
+
+    geoRouteArrow.style.transform = `translate(${x - 12}px, ${y - 16}px) rotate(${angle}deg)`;
+  }
+
+  function animateGeoArrow() {
+    if (!geoRouteArrow || !geoRoutePath) return;
+
+    let start = null;
+    const duration = 1600;
+
+    function step(timestamp) {
+      if (!start) start = timestamp;
+      const progress = Math.min((timestamp - start) / duration, 1);
+      placeGeoArrow(progress);
+
+      if (progress < 1) {
+        requestAnimationFrame(step);
+      }
+    }
+
+    requestAnimationFrame(step);
+  }
+
+  function runGeoStoryAnimation() {
+    if (!geoStoryCanvas) return;
+
+    geoStoryCanvas.classList.remove("step-1", "step-2", "step-3", "route-done");
+    geoStoryCanvas.classList.add("step-1");
+
+    setTimeout(() => {
+      geoStoryCanvas.classList.add("step-2");
+    }, 1800);
+
+    setTimeout(() => {
+      geoStoryCanvas.classList.add("step-3");
+      animateGeoArrow();
+    }, 3500);
+
+    setTimeout(() => {
+      geoStoryCanvas.classList.add("route-done");
+      placeGeoArrow(1);
+    }, 5400);
+  }
+
+  if (geoStorySection && geoStoryCanvas) {
+    const geoStoryObserver = new IntersectionObserver(
+      (entries, observer) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            runGeoStoryAnimation();
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.45 }
+    );
+
+    geoStoryObserver.observe(geoStorySection);
+  }
+
   /* =========================
      RESIZE
   ========================= */
