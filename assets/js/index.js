@@ -154,14 +154,16 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   function resetHeroAnimation() {
-    if (!heroTitle || !heroText || !heroMetrics) return;
+    if (!heroTitle || !heroText) return;
 
     clearHeroTimers();
 
     if (!heroLettersBuilt) buildHeroLetters();
 
     heroText.classList.remove("show");
-    heroMetrics.classList.remove("show");
+    if (heroMetrics) {
+      heroMetrics.classList.remove("show");
+    }
 
     if (heroActions) {
       heroActions.classList.remove("show");
@@ -172,7 +174,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   function playHeroAnimation() {
-    if (!heroTitle || !heroText || !heroMetrics) return;
+    if (!heroTitle || !heroText) return;
 
     if (!heroLettersBuilt) buildHeroLetters();
 
@@ -199,12 +201,16 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     }, titleAnimationTime + 120);
 
-    const metricsTimer = setTimeout(() => {
-      heroMetrics.classList.add("show");
-      animateHeroCounters();
-    }, titleAnimationTime + 240);
+    const timers = [textTimer, actionsTimer];
+    if (heroMetrics) {
+      const metricsTimer = setTimeout(() => {
+        heroMetrics.classList.add("show");
+        animateHeroCounters();
+      }, titleAnimationTime + 240);
+      timers.push(metricsTimer);
+    }
 
-    heroTimers.push(textTimer, actionsTimer, metricsTimer);
+    heroTimers.push(...timers);
   }
 
   function resetDotProgress() {
@@ -314,6 +320,52 @@ document.addEventListener("DOMContentLoaded", () => {
         startAutoPlay();
       }, { passive: true });
     }
+  }
+
+  const kpiValues = document.querySelectorAll(".kpi-value");
+  let kpiAnimated = false;
+
+  function animateKpiValues() {
+    if (kpiAnimated || !kpiValues.length) return;
+    kpiAnimated = true;
+
+    kpiValues.forEach((element, index) => {
+      const target = Number(element.dataset.target || 0);
+      const suffix = element.dataset.suffix || "";
+      const duration = 1400 + index * 130;
+      const start = performance.now();
+
+      function update(now) {
+        const progress = Math.min((now - start) / duration, 1);
+        const value = target * easeOutCubic(progress);
+        element.textContent = `${Math.round(value).toLocaleString("es-PE")}${suffix}`;
+
+        if (progress < 1) {
+          requestAnimationFrame(update);
+        } else {
+          element.textContent = `${target.toLocaleString("es-PE")}${suffix}`;
+        }
+      }
+
+      requestAnimationFrame(update);
+    });
+  }
+
+  const kpiSection = document.querySelector(".section-kpi-row");
+  if (kpiSection) {
+    const kpiObserver = new IntersectionObserver(
+      (entries, observer) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            animateKpiValues();
+            observer.disconnect();
+          }
+        });
+      },
+      { threshold: 0.35 }
+    );
+
+    kpiObserver.observe(kpiSection);
   }
 
   /* =========================
