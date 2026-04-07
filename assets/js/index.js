@@ -369,6 +369,44 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   /* =========================
+     PROCESO PRODUCTIVO ACORDEÓN
+  ========================= */
+  const processAccordionItems = document.querySelectorAll(".process-accordion-item");
+  const processAccordionHeaders = document.querySelectorAll(".process-card-header");
+
+  function openProcessAccordion(item) {
+    processAccordionItems.forEach((accordionItem) => {
+      const body = accordionItem.querySelector(".process-card-body");
+      const header = accordionItem.querySelector(".process-card-header");
+      if (!body || !header) return;
+
+      accordionItem.classList.remove("active");
+      header.setAttribute("aria-expanded", "false");
+      body.style.maxHeight = "0px";
+    });
+
+    const body = item.querySelector(".process-card-body");
+    const header = item.querySelector(".process-card-header");
+    if (!body || !header) return;
+
+    item.classList.add("active");
+    header.setAttribute("aria-expanded", "true");
+    body.style.maxHeight = `${body.scrollHeight}px`;
+  }
+
+  processAccordionHeaders.forEach((header) => {
+    header.addEventListener("click", () => {
+      const item = header.closest(".process-accordion-item");
+      if (item) openProcessAccordion(item);
+    });
+  });
+
+  const activeProcessAccordion = document.querySelector(".process-accordion-item.active");
+  if (activeProcessAccordion) {
+    openProcessAccordion(activeProcessAccordion);
+  }
+
+  /* =========================
      ABOUT SLIDER
   ========================= */
   const aboutSlider = document.getElementById("aboutSlider");
