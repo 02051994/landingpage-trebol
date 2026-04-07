@@ -19,17 +19,11 @@
 
   <main>
     <section class="section video-banner-section video-banner-intro section-theme-plum">
-      <div class="video-banner reveal">
+      <div class="video-banner reveal" tabindex="0" aria-label="Video institucional de Grupo Trébol">
         <video autoplay muted loop playsinline preload="metadata">
           <source src="assets/img/hero/WhatsApp Video 2026-03-24 at 9.07.31 AM.mp4" type="video/mp4" />
         </video>
-        <div class="video-overlay">
-          <div class="container reveal">
-            <span class="section-tag">Grupo Trébol</span>
-            <h2>Excelencia profesional en cada etapa de nuestra operación</h2>
-            <p>Desde la planificación hasta la entrega, trabajamos con enfoque técnico, compromiso humano y visión de largo plazo.</p>
-          </div>
-        </div>
+        <div class="video-focus-effect" aria-hidden="true"></div>
       </div>
     </section>
 
@@ -43,9 +37,9 @@
         </div>
         <div class="hero-media reveal">
           <div class="hero-gallery">
-            <figure class="gallery-card gallery-card-main"><img src="assets/img/nosotros/nosotros_hero1.jpeg" alt="Equipo de Grupo Trébol"></figure>
-            <figure class="gallery-card gallery-card-secondary"><img src="assets/img/nosotros/nosotros_hero2.jpeg" alt="Control de calidad"></figure>
-            <figure class="gallery-card gallery-card-accent"><img src="assets/img/nosotros/nosotros_hero3.jpeg" alt="Gestión logística"></figure>
+            <figure class="gallery-card gallery-card-main"><img src="assets/img/nosotros/nosotros_hero1.jpeg" alt="Equipo de Grupo Trébol" decoding="async" fetchpriority="high"></figure>
+            <figure class="gallery-card gallery-card-secondary"><img src="assets/img/nosotros/nosotros_hero2.jpeg" alt="Control de calidad" loading="lazy" decoding="async"></figure>
+            <figure class="gallery-card gallery-card-accent"><img src="assets/img/nosotros/nosotros_hero3.jpeg" alt="Gestión logística" loading="lazy" decoding="async"></figure>
           </div>
         </div>
       </div>
@@ -55,7 +49,7 @@
       <div class="container about-grid">
         <div class="about-media reveal">
           <div class="about-motion-frame">
-            <img src="assets/img/hero/principal_3.jpeg" alt="Historia de Grupo Trébol" />
+            <img src="assets/img/hero/principal_3.jpeg" alt="Historia de Grupo Trébol" loading="lazy" decoding="async" />
             <div class="about-kpi"><span class="kpi-value">+12</span><span class="kpi-label">Años construyendo confianza</span></div>
           </div>
         </div>
