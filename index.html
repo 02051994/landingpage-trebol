@@ -112,23 +112,6 @@
               <a href="productos.html" class="btn btn-primary">Explorar productos</a>
               <a href="nosotros.html" class="btn btn-secondary">Conocer más</a>
             </div>
-
-            <div class="hero-metrics" id="heroMetrics" aria-label="Indicadores de campaña">
-              <article class="hero-metric-card">
-                <span class="hero-metric-label">Toneladas cosechadas</span>
-                <strong class="hero-metric-value counter-value" data-target="307.83">0</strong>
-              </article>
-
-              <article class="hero-metric-card">
-                <span class="hero-metric-label">Toneladas exportadas</span>
-                <strong class="hero-metric-value counter-value" data-target="285.77">0</strong>
-              </article>
-
-              <article class="hero-metric-card">
-                <span class="hero-metric-label">Hectáreas</span>
-                <strong class="hero-metric-value counter-value" data-target="20.50">0</strong>
-              </article>
-            </div>
           </div>
         </div>
 
@@ -157,263 +140,97 @@
       </div>
     </section>
 
-    <section class="geo-story-section section-theme-plum" id="geoStorySection" aria-label="Narrativa geográfica Grupo Trébol">
-      <div class="container geo-story-wrapper">
-        <div class="geo-story-intro reveal">
-          <span class="section-tag">Ruta territorial</span>
-          <h2>Desde Lima hasta nuestro punto operativo en Huaral</h2>
+    <section class="section section-kpi-row reveal" aria-label="Métricas principales de exportación">
+      <div class="container">
+        <div class="section-heading-center">
+          <span class="section-tag">Métricas</span>
+          <h2>Resultados que respaldan nuestra operación</h2>
+        </div>
+
+        <div class="kpi-row">
+          <article class="kpi-card">
+            <strong class="kpi-value" data-target="307" data-suffix="+">0</strong>
+            <span>Toneladas exportadas</span>
+          </article>
+          <article class="kpi-card">
+            <strong class="kpi-value" data-target="40" data-suffix="+">0</strong>
+            <span>Hectáreas de arándano</span>
+          </article>
+          <article class="kpi-card">
+            <strong class="kpi-value" data-target="30" data-suffix="+">0</strong>
+            <span>Países destino</span>
+          </article>
+          <article class="kpi-card">
+            <strong class="kpi-value" data-target="3" data-suffix="kg/planta">0</strong>
+            <span>Rendimiento promedio</span>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-destinos section-theme-ocean" aria-label="Sección de destinos">
+      <div class="container destinos-grid">
+        <div class="destinos-map reveal">
+          <div class="map-card">
+            <svg class="world-map" viewBox="0 0 1000 520" xmlns="http://www.w3.org/2000/svg" aria-label="Mapa de destinos de exportación">
+              <rect x="0" y="0" width="1000" height="520" rx="24" fill="#f5f7f8" />
+              <path d="M115 145 L180 110 L255 120 L300 155 L292 210 L250 245 L210 235 L170 255 L130 225 L105 180 Z" fill="#d9e3dd" />
+              <path d="M255 270 L285 290 L300 345 L280 410 L245 455 L220 430 L225 375 L210 320 Z" fill="#d9e3dd" />
+              <path d="M430 115 L505 95 L590 105 L655 135 L700 155 L735 185 L710 225 L640 225 L600 255 L560 240 L525 250 L475 220 L435 190 Z" fill="#d9e3dd" />
+              <path d="M505 270 L555 285 L590 325 L615 390 L585 450 L545 440 L510 390 L490 330 Z" fill="#d9e3dd" />
+              <path d="M735 315 L805 290 L875 305 L930 345 L900 395 L835 415 L770 405 L725 360 Z" fill="#d9e3dd" />
+              <text x="90" y="60" class="map-title">Destinos de exportación</text>
+              <g class="map-origin"><circle cx="270" cy="315" r="9" class="origin-dot" /><circle cx="270" cy="315" r="18" class="origin-ring" /><text x="288" y="310">Perú</text></g>
+              <g class="map-routes">
+                <path d="M270 315 Q220 220 210 165" />
+                <path d="M270 315 Q410 180 520 150" />
+                <path d="M270 315 Q450 235 585 205" />
+                <path d="M270 315 Q530 170 760 215" />
+                <path d="M270 315 Q545 215 785 250" />
+                <path d="M270 315 Q560 235 810 270" />
+              </g>
+              <g class="map-destinations">
+                <text x="145" y="150" class="destination-label">Estados Unidos</text>
+                <text x="495" y="135" class="destination-label">Europa</text>
+                <text x="560" y="190" class="destination-label">Emiratos</text>
+                <text x="740" y="198" class="destination-label">China</text>
+                <text x="768" y="236" class="destination-label">Tailandia</text>
+                <text x="790" y="288" class="destination-label">Singapur</text>
+              </g>
+            </svg>
+          </div>
+        </div>
+
+        <div class="destinos-content reveal">
+          <span class="section-tag">Destinos</span>
+          <h2>Llegamos a mercados clave en América, Europa y Asia</h2>
           <p>
-            Te mostramos un recorrido geográfico animado: iniciamos en Lima, hacemos zoom hacia Huaral y trazamos una ruta curva
-            hasta la ubicación de Grupo Trébol.
+            Conectamos origen y destino con protocolos de calidad, trazabilidad y logística de exportación eficiente.
           </p>
-        </div>
-
-        <div class="geo-story-canvas" id="geoStoryCanvas">
-          <figure class="geo-map geo-map-1" aria-label="Mapa de Lima">
-            <img src="assets/img/hero/mapa_1.png" alt="Mapa general con referencia a Lima" />
-          </figure>
-
-          <figure class="geo-map geo-map-2" aria-label="Mapa de Huaral">
-            <img src="assets/img/hero/mapa_2.png" alt="Mapa intermedio con referencia a Huaral" />
-          </figure>
-
-          <figure class="geo-map geo-map-3" aria-label="Mapa final con ubicación de Grupo Trébol">
-            <img src="assets/img/hero/mapa_3.png" alt="Mapa final con logo de Grupo Trébol" />
-
-            <div class="geo-route-layer" aria-hidden="true">
-              <svg viewBox="0 0 100 100" preserveAspectRatio="none">
-                <defs>
-                  <linearGradient id="geoRouteGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                    <stop offset="0%" stop-color="#b0f5d2" />
-                    <stop offset="55%" stop-color="#49d693" />
-                    <stop offset="100%" stop-color="#ffffff" />
-                  </linearGradient>
-                  <filter id="geoRouteGlow" x="-30%" y="-30%" width="160%" height="160%">
-                    <feGaussianBlur stdDeviation="1.2" result="blur" />
-                    <feMerge>
-                      <feMergeNode in="blur" />
-                      <feMergeNode in="SourceGraphic" />
-                    </feMerge>
-                  </filter>
-                </defs>
-                <path id="geoRoutePath" d="M 29 66 C 38 76, 58 73, 71 52" />
-              </svg>
-              <span class="geo-route-arrow" id="geoRouteArrow" aria-hidden="true">➤</span>
-            </div>
-          </figure>
-
-          <a
-            class="geo-location-btn"
-            id="geoLocationBtn"
-            href="https://www.google.com/maps?q=-11.499868446541566,-77.03626361646987"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Abrir ubicación
-          </a>
+          <ul class="destinos-list">
+            <li>Estados Unidos</li>
+            <li>Europa</li>
+            <li>China</li>
+            <li>Singapur</li>
+            <li>Tailandia</li>
+            <li>Emiratos Árabes Unidos</li>
+          </ul>
         </div>
       </div>
     </section>
 
-    <section class="tech-ribbon section-theme-plum">
-      <div class="ribbon-track">
-
-        <article class="flip-card" tabindex="0">
-          <div class="flip-card-inner">
-            <div class="flip-card-front color-1">
-              <span>Riego tecnificado</span>
-            </div>
-            <div class="flip-card-back">
-              <img src="assets/img/productos/producto1_carrousel.jpg" alt="Riego tecnificado">
-            </div>
-          </div>
-        </article>
-
-        <article class="flip-card" tabindex="0">
-          <div class="flip-card-inner">
-            <div class="flip-card-front color-2">
-              <span>Trazabilidad total</span>
-            </div>
-            <div class="flip-card-back">
-              <img src="assets/img/productos/producto2_carrousel.jpg" alt="Trazabilidad total">
-            </div>
-          </div>
-        </article>
-
-        <article class="flip-card" tabindex="0">
-          <div class="flip-card-inner">
-            <div class="flip-card-front color-3">
-              <span>Control fitosanitario</span>
-            </div>
-            <div class="flip-card-back">
-              <img src="assets/img/productos/producto3_carrousel.jpg" alt="Control fitosanitario">
-            </div>
-          </div>
-        </article>
-
-        <article class="flip-card" tabindex="0">
-          <div class="flip-card-inner">
-            <div class="flip-card-front color-4">
-              <span>Calidad certificada</span>
-            </div>
-            <div class="flip-card-back">
-              <img src="assets/img/nosotros/nosotros_hero1.jpeg" alt="Calidad certificada">
-            </div>
-          </div>
-        </article>
-
-        <article class="flip-card" tabindex="0">
-          <div class="flip-card-inner">
-            <div class="flip-card-front color-5">
-              <span>Eficiencia operativa</span>
-            </div>
-            <div class="flip-card-back">
-              <img src="assets/img/nosotros/nosotros_hero2.jpeg" alt="Eficiencia operativa">
-            </div>
-          </div>
-        </article>
-
-        <article class="flip-card" tabindex="0">
-          <div class="flip-card-inner">
-            <div class="flip-card-front color-6">
-              <span>Logística de exportación</span>
-            </div>
-            <div class="flip-card-back">
-              <img src="assets/img/nosotros/nosotros_hero3.jpeg" alt="Logística de exportación">
-            </div>
-          </div>
-        </article>
-
-      </div>
-    </section>
-
-    <section class="premium-impact reveal" id="premiumImpact">
-      <div class="container premium-impact-inner">
-        <div class="premium-impact-heading">
-          <h2>Una operación diseñada para impresionar a clientes globales.</h2>
-          <p>
-            Convertimos precisión técnica en resultados medibles: más consistencia, mayor velocidad de respuesta y un estándar operativo que transmite confianza desde el primer contacto.
-          </p>
+    <section class="section section-process reveal" aria-label="Proceso productivo">
+      <div class="container">
+        <div class="section-heading-center">
+          <span class="section-tag">Proceso productivo</span>
+          <h2>Operación técnica de principio a fin</h2>
         </div>
 
-        <div class="premium-impact-grid">
-          <article class="premium-card">
-            <span class="premium-card-kicker">Calidad operativa</span>
-            <strong>98.7% de cumplimiento en protocolos críticos</strong>
-            <p>Supervisión en campo, trazabilidad por lote y control continuo para sostener estándar de exportación.</p>
-          </article>
-
-          <article class="premium-card premium-card-highlight">
-            <span class="premium-card-kicker">Tiempo de respuesta</span>
-            <strong>Ventana de coordinación en menos de 24 horas</strong>
-            <p>Decisiones rápidas entre campo, logística y comercial para proteger calidad y fechas de entrega.</p>
-          </article>
-
-          <article class="premium-card">
-            <span class="premium-card-kicker">Escalabilidad</span>
-            <strong>Capacidad para campañas de alta exigencia</strong>
-            <p>Estructura flexible para crecer sin perder control, precisión ni visibilidad operativa.</p>
-          </article>
-        </div>
-
-        <div class="premium-journey">
-          <h3>Ruta de excelencia: del campo al mercado</h3>
-          <div class="premium-steps">
-            <article>
-              <span>01</span>
-              <p>Monitoreo agronómico predictivo</p>
-            </article>
-            <article>
-              <span>02</span>
-              <p>Selección y control de calidad por lote</p>
-            </article>
-            <article>
-              <span>03</span>
-              <p>Logística inteligente para exportación</p>
-            </article>
-            <article>
-              <span>04</span>
-              <p>Trazabilidad visible para cada cliente</p>
-            </article>
-          </div>
-        </div>
-      </div>
-    </section>
-    <section class="section-cinta-nosotros reveal section-surface section-surface-blue" id="cintaNosotros">
-      <div class="section-divider" aria-hidden="true"></div>
-
-      <div class="cinta-nosotros-container">
-        <div class="cinta-nosotros-texto reveal">
-          <h2>Una operación de alto nivel se construye con personas, método y liderazgo visible.</h2>
-
-          <div class="cinta-kpis" aria-label="Indicadores de nuestro equipo">
-            <article>
-              <span>Colaboradores capacitados</span>
-            </article>
-            <article>
-              <strong>100%</strong>
-              <span>Cumplimiento operativo auditado</span>
-            </article>
-            <article>
-              <strong>24/7</strong>
-              <span>Supervisión en campañas críticas</span>
-            </article>
-          </div>
-        </div>
-
-        <div class="cinta-nosotros-media reveal">
-          <div class="cinta-nosotros-frame image-lift" data-float-strength="16">
-            <img
-              src="assets/img/nosotros/nosotros_hero1.jpeg"
-              alt="Equipo de Grupo Trébol"
-              class="cinta-nosotros-image parallax-soft"
-              id="cintaNosotrosImage"
-            >
-            <div class="cinta-nosotros-overlay-card">
-              <strong>Talento que sostiene la operación</strong>
-              <span>Capacitación, orden, exigencia y ejecución precisa en cada frente.</span>
-            </div>
-
-            <div class="cinta-floating-stack">
-              <button class="cinta-floating-item" type="button" data-zoom-src="assets/img/nosotros/nosotros_hero1.jpeg" aria-label="Ampliar imagen flotante 1">
-                <img src="assets/img/nosotros/nosotros_hero1.jpeg" alt="">
-              </button>
-              <button class="cinta-floating-item" type="button" data-zoom-src="assets/img/nosotros/nosotros_hero2.jpeg" aria-label="Ampliar imagen flotante 2">
-                <img src="assets/img/nosotros/nosotros_hero2.jpeg" alt="">
-              </button>
-              <button class="cinta-floating-item" type="button" data-zoom-src="assets/img/nosotros/nosotros_hero3.jpeg" aria-label="Ampliar imagen flotante 3">
-                <img src="assets/img/nosotros/nosotros_hero3.jpeg" alt="">
-              </button>
-            </div>
-          </div>
-          <img
-            class="cinta-nosotros-leaves"
-            src="assets/img/hero/hojas_trebol_sinfondo.png"
-            alt=""
-            aria-hidden="true"
-          >
-        </div>
-      </div>
-
-      <div class="cinta-zoom-modal" id="cintaZoomModal" aria-hidden="true">
-        <button class="cinta-zoom-backdrop" type="button" id="cintaZoomBackdrop" aria-label="Cerrar ampliación"></button>
-        <div class="cinta-zoom-dialog" role="dialog" aria-modal="true" aria-label="Imagen ampliada">
-          <button class="cinta-zoom-close" type="button" id="cintaZoomClose" aria-label="Cerrar imagen ampliada">&times;</button>
-          <img id="cintaZoomImage" src="" alt="Imagen flotante ampliada">
-        </div>
-      </div>
-    </section>
-    <section class="section section-video-corporativo reveal" aria-label="Video corporativo de Grupo Trébol">
-      <div class="video-corporativo-wrap">
-        <video autoplay muted loop playsinline preload="metadata">
-          <source src="assets/img/hero/WhatsApp Video 2026-03-24 at 9.07.31 AM.mp4" type="video/mp4">
-        </video>
-
-        <div class="video-corporativo-overlay" aria-hidden="true"></div>
-
-        <div class="video-corporativo-content">
-          <span class="video-corporativo-tag">Video Corporativo</span>
-          <h2>Producción agrícola con estándares de exportación</h2>
+        <div class="process-grid">
+          <article class="process-card"><h3>Riego tecnificado</h3><p>Optimización hídrica para uniformidad y productividad del cultivo.</p></article>
+          <article class="process-card"><h3>Control fitosanitario</h3><p>Monitoreo y protocolos preventivos para fruta segura y de calidad.</p></article>
+          <article class="process-card"><h3>Trazabilidad total</h3><p>Seguimiento por lote desde campo hasta destino comercial.</p></article>
+          <article class="process-card"><h3>Logística de exportación</h3><p>Coordinación integral para mantener tiempos, cadena fría y cumplimiento.</p></article>
         </div>
       </div>
     </section>
@@ -465,173 +282,21 @@
         </article>
       </div>
     </section>
-    <section class="section section-destinos section-theme-ocean">
-      <div class="container destinos-grid">
-        <div class="destinos-map reveal">
-          <div class="map-card">
-            <svg class="world-map" viewBox="0 0 1000 520" xmlns="http://www.w3.org/2000/svg" aria-label="Mapa de destinos de exportación">
-              <rect x="0" y="0" width="1000" height="520" rx="24" fill="#f5f7f8" />
-              <path d="M115 145 L180 110 L255 120 L300 155 L292 210 L250 245 L210 235 L170 255 L130 225 L105 180 Z" fill="#d9e3dd" />
-              <path d="M255 270 L285 290 L300 345 L280 410 L245 455 L220 430 L225 375 L210 320 Z" fill="#d9e3dd" />
-              <path d="M430 115 L505 95 L590 105 L655 135 L700 155 L735 185 L710 225 L640 225 L600 255 L560 240 L525 250 L475 220 L435 190 Z" fill="#d9e3dd" />
-              <path d="M505 270 L555 285 L590 325 L615 390 L585 450 L545 440 L510 390 L490 330 Z" fill="#d9e3dd" />
-              <path d="M735 315 L805 290 L875 305 L930 345 L900 395 L835 415 L770 405 L725 360 Z" fill="#d9e3dd" />
-              <text x="90" y="60" class="map-title">Destinos de exportación</text>
-              <g class="map-origin"><circle cx="270" cy="315" r="9" class="origin-dot" /><circle cx="270" cy="315" r="18" class="origin-ring" /><text x="288" y="310">Perú</text></g>
-              <g class="map-routes">
-                <path d="M270 315 Q220 220 210 165" />
-                <path d="M270 315 Q410 180 520 150" />
-                <path d="M270 315 Q450 235 585 205" />
-                <path d="M270 315 Q530 170 760 215" />
-                <path d="M270 315 Q545 215 785 250" />
-                <path d="M270 315 Q560 235 810 270" />
-              </g>
-              <g class="map-destinations">
-                <text x="145" y="150" class="destination-label">Estados Unidos</text>
-                <text x="495" y="135" class="destination-label">Europa</text>
-                <text x="560" y="190" class="destination-label">Emiratos</text>
-                <text x="740" y="198" class="destination-label">China</text>
-                <text x="768" y="236" class="destination-label">Tailandia</text>
-                <text x="790" y="288" class="destination-label">Singapur</text>
-              </g>
-            </svg>
-          </div>
-        </div>
 
-        <div class="destinos-content reveal">
-          <span class="section-tag">Cobertura Global</span>
-          <h2>Llegamos a mercados premium en América, Europa y Asia</h2>
-          <p>
-            Nuestra operación conecta origen y destino con protocolos de frescura y control para que cada embarque conserve su valor comercial.
-          </p>
-          <ul class="destinos-list">
-            <li>Estados Unidos</li>
-            <li>Europa</li>
-            <li>China</li>
-            <li>Singapur</li>
-            <li>Tailandia</li>
-            <li>Emiratos Árabes Unidos</li>
-          </ul>
-        </div>
-      </div>
-    </section>
-    <section class="section values-section section-theme-plum">
+    <section class="section section-certifications reveal" aria-label="Certificaciones">
       <div class="container">
-        <div class="values-layout reveal">
-          <div class="values-media">
-            <div class="values-image-card image-lift" data-float-strength="12">
-              <img
-                id="valuesImage"
-                src="assets/img/nosotros/nosotros_hero2.jpeg"
-                alt="Valor corporativo Grupo Trébol"
-                class="parallax-soft"
-              />
-              <div class="values-image-overlay">
-                <span class="section-tag values-image-tag">Cultura organizacional</span>
-                <h3 id="valuesImageTitle">Compromiso</h3>
-                <p id="valuesImageText">
-                  Trabajamos con constancia, responsabilidad y foco en resultados sostenibles.
-                </p>
-              </div>
-            </div>
-          </div>
+        <div class="section-heading-center">
+          <span class="section-tag">Certificaciones</span>
+          <h2>Cumplimos estándares internacionales</h2>
+        </div>
 
-          <div class="values-content">
-            <span class="section-tag">Valores</span>
-            <h2>Nuestra manera de trabajar no se improvisa</h2>
-            <p class="values-intro">
-              Lo que mostramos al mercado empieza por lo que sostenemos internamente: disciplina, responsabilidad y coherencia operativa.
-            </p>
-
-            <div class="accordion" id="valuesAccordion">
-              <article class="accordion-item active">
-                <button
-                  class="accordion-header"
-                  type="button"
-                  aria-expanded="true"
-                  data-title="Compromiso"
-                  data-text="Trabajamos con constancia, responsabilidad y foco en resultados sostenibles."
-                  data-image="assets/img/nosotros/nosotros_hero2.jpeg"
-                >
-                  <span>Compromiso</span>
-                  <span class="accordion-icon">+</span>
-                </button>
-                <div class="accordion-body">
-                  <p>
-                    Cada tarea se ejecuta con responsabilidad, continuidad y sentido de pertenencia por la operación.
-                  </p>
-                </div>
-              </article>
-
-              <article class="accordion-item">
-                <button
-                  class="accordion-header"
-                  type="button"
-                  aria-expanded="false"
-                  data-title="Disciplina"
-                  data-text="La consistencia no nace del discurso, nace del orden y la ejecución rigurosa."
-                  data-image="assets/img/nosotros/nosotros_hero1.jpeg"
-                >
-                  <span>Disciplina operativa</span>
-                  <span class="accordion-icon">+</span>
-                </button>
-                <div class="accordion-body">
-                  <p>
-                    Sostenemos estándares, controles y hábitos de trabajo que hacen posible una operación confiable.
-                  </p>
-                </div>
-              </article>
-
-              <article class="accordion-item">
-                <button
-                  class="accordion-header"
-                  type="button"
-                  aria-expanded="false"
-                  data-title="Calidad"
-                  data-text="La calidad se construye en cada detalle, no solo al final del proceso."
-                  data-image="assets/img/hero/principal_3.jpeg"
-                >
-                  <span>Orientación a la calidad</span>
-                  <span class="accordion-icon">+</span>
-                </button>
-                <div class="accordion-body">
-                  <p>
-                    Desde el campo hasta la salida comercial, buscamos consistencia, presentación y cumplimiento.
-                  </p>
-                </div>
-              </article>
-
-              <article class="accordion-item">
-                <button
-                  class="accordion-header"
-                  type="button"
-                  aria-expanded="false"
-                  data-title="Mejora continua"
-                  data-text="Aprender, corregir y elevar el estándar forma parte del trabajo diario."
-                  data-image="assets/img/nosotros/nosotros_hero3.jpeg"
-                >
-                  <span>Mejora continua</span>
-                  <span class="accordion-icon">+</span>
-                </button>
-                <div class="accordion-body">
-                  <p>
-                    Revisamos procesos, fortalecemos capacidades y ajustamos la operación para seguir creciendo.
-                  </p>
-                </div>
-              </article>
-            </div>
-          </div>
+        <div class="certification-list">
+          <span>GLOBAL G.A.P.</span>
+          <span>SPRING</span>
+          <span>FSMA</span>
         </div>
       </div>
     </section>
-    <section class="section cta-band reveal section-theme-sunrise">
-      <div class="container cta-band-content">
-        <h2>¿Quieres elevar tu operación de exportación?</h2>
-        <p>Conversemos sobre una estrategia a medida para tu mercado objetivo.</p>
-        <a href="contacto.html" class="btn btn-primary">Hablar con un especialista</a>
-      </div>
-    </section>
-
 
   </main>
 
