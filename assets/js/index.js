@@ -373,8 +373,11 @@ document.addEventListener("DOMContentLoaded", () => {
   ========================= */
   const processAccordionItems = document.querySelectorAll(".process-accordion-item");
   const processAccordionHeaders = document.querySelectorAll(".process-card-header");
+  const processAccordion = document.getElementById("processAccordion");
 
   function openProcessAccordion(item) {
+    const itemTopBefore = item.getBoundingClientRect().top;
+
     processAccordionItems.forEach((accordionItem) => {
       const body = accordionItem.querySelector(".process-card-body");
       const header = accordionItem.querySelector(".process-card-header");
@@ -392,6 +395,15 @@ document.addEventListener("DOMContentLoaded", () => {
     item.classList.add("active");
     header.setAttribute("aria-expanded", "true");
     body.style.maxHeight = `${body.scrollHeight}px`;
+
+    requestAnimationFrame(() => {
+      const itemTopAfter = item.getBoundingClientRect().top;
+      const jumpOffset = itemTopAfter - itemTopBefore;
+
+      if (Math.abs(jumpOffset) > 1) {
+        window.scrollBy({ top: jumpOffset, behavior: "auto" });
+      }
+    });
   }
 
   processAccordionHeaders.forEach((header) => {
@@ -404,6 +416,18 @@ document.addEventListener("DOMContentLoaded", () => {
   const activeProcessAccordion = document.querySelector(".process-accordion-item.active");
   if (activeProcessAccordion) {
     openProcessAccordion(activeProcessAccordion);
+  }
+
+  if (processAccordion) {
+    window.addEventListener("resize", debounce(() => {
+      const activeItem = processAccordion.querySelector(".process-accordion-item.active");
+      if (!activeItem) return;
+
+      const body = activeItem.querySelector(".process-card-body");
+      if (!body) return;
+
+      body.style.maxHeight = `${body.scrollHeight}px`;
+    }, 120));
   }
 
   /* =========================
