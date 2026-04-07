@@ -3224,9 +3224,9 @@
 .section-kpi-row {
   position: relative;
   background:
-    radial-gradient(circle at 12% 10%, rgba(116, 180, 255, 0.16), transparent 38%),
-    radial-gradient(circle at 88% 84%, rgba(52, 168, 83, 0.16), transparent 35%),
-    linear-gradient(160deg, #07162a 0%, #0b2440 55%, #0a1b31 100%);
+    radial-gradient(circle at 12% 10%, rgba(116, 180, 255, 0.2), transparent 40%),
+    radial-gradient(circle at 88% 84%, rgba(52, 168, 83, 0.18), transparent 38%),
+    linear-gradient(160deg, #f5fcff 0%, #ebf8ff 55%, #e6f6f2 100%);
 }
 
 .section-kpi-row::before,
@@ -3246,7 +3246,7 @@
 }
 
 .section-heading-center h2 {
-  color: #f3f7ff;
+  color: #015958;
   margin-top: 12px;
 }
 
@@ -3259,21 +3259,21 @@
 .kpi-card {
   padding: 26px 20px;
   border-radius: 18px;
-  border: 1px solid rgba(160, 202, 255, 0.28);
-  background: rgba(8, 27, 52, 0.72);
-  box-shadow: 0 22px 34px rgba(2, 9, 18, 0.28);
+  border: 1px solid rgba(1, 89, 88, 0.18);
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.94), rgba(237, 249, 248, 0.92));
+  box-shadow: 0 18px 28px rgba(1, 89, 88, 0.1);
   text-align: center;
   transition: transform 0.25s ease, border-color 0.25s ease;
 }
 
 .kpi-card:hover {
   transform: translateY(-6px);
-  border-color: rgba(190, 220, 255, 0.56);
+  border-color: rgba(1, 89, 88, 0.34);
 }
 
 .kpi-value {
   display: block;
-  color: #ffffff;
+  color: #015958;
   font-size: clamp(2rem, 3.3vw, 2.7rem);
   font-weight: 900;
   letter-spacing: 0.01em;
@@ -3281,13 +3281,13 @@
 }
 
 .kpi-card span {
-  color: rgba(231, 242, 255, 0.9);
+  color: #015958;
   font-weight: 600;
 }
 
 .section-process {
   position: relative;
-  background: linear-gradient(160deg, #071a2e 0%, #09223c 50%, #0a2b42 100%);
+  background: linear-gradient(160deg, #f3fbff 0%, #e8f5ff 50%, #e4f7f4 100%);
 }
 
 .process-grid {
@@ -3297,26 +3297,26 @@
 }
 
 .process-card {
-  background: rgba(7, 30, 48, 0.84);
-  border: 1px solid rgba(115, 196, 255, 0.23);
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.94), rgba(236, 249, 247, 0.9));
+  border: 1px solid rgba(1, 89, 88, 0.2);
   border-radius: 18px;
   padding: 24px 20px;
-  box-shadow: 0 16px 28px rgba(3, 12, 22, 0.28);
+  box-shadow: 0 14px 24px rgba(1, 89, 88, 0.1);
 }
 
 .process-card h3 {
-  color: #f4f9ff;
+  color: #015958;
   margin-bottom: 10px;
 }
 
 .process-card p {
-  color: rgba(224, 238, 252, 0.86);
+  color: #015958;
   margin: 0;
 }
 
 .section-certifications {
   position: relative;
-  background: linear-gradient(150deg, #051324 0%, #0a1d35 52%, #10294a 100%);
+  background: linear-gradient(150deg, #f7fdff 0%, #eaf6ff 52%, #e6f7f3 100%);
 }
 
 .certification-list {
@@ -3329,11 +3329,22 @@
 .certification-list span {
   padding: 14px 20px;
   border-radius: 999px;
-  border: 1px solid rgba(176, 211, 255, 0.4);
-  background: rgba(9, 34, 58, 0.78);
-  color: #f4f8ff;
+  border: 1px solid rgba(1, 89, 88, 0.28);
+  background: rgba(255, 255, 255, 0.9);
+  color: #015958;
   font-weight: 700;
   letter-spacing: 0.06em;
+}
+
+.page-index main > section:not(.hero-slider-section),
+.page-index main > section:not(.hero-slider-section) h1,
+.page-index main > section:not(.hero-slider-section) h2,
+.page-index main > section:not(.hero-slider-section) h3,
+.page-index main > section:not(.hero-slider-section) p,
+.page-index main > section:not(.hero-slider-section) li,
+.page-index main > section:not(.hero-slider-section) span,
+.page-index main > section:not(.hero-slider-section) strong {
+  color: #015958;
 }
 
 @media (max-width: 1000px) {
