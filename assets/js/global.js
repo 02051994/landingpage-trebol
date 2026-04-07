@@ -120,6 +120,11 @@ if (siteHeader) {
 ========================= */
 const revealElements = document.querySelectorAll(".reveal");
 
+revealElements.forEach((element, index) => {
+  const delay = (index % 6) * 55;
+  element.style.setProperty("--reveal-delay", `${delay}ms`);
+});
+
 function revealOnScroll() {
   const windowHeight = window.innerHeight;
   const visiblePoint = 110;

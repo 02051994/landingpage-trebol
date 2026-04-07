@@ -127,7 +127,25 @@ p {
 }
 
 .section {
+  position: relative;
+  isolation: isolate;
+  overflow: clip;
   padding: var(--space-120) 0;
+}
+
+.section::after {
+  content: "";
+  position: absolute;
+  inset: -22% auto auto -12%;
+  width: clamp(180px, 26vw, 360px);
+  height: clamp(180px, 26vw, 360px);
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(31, 107, 69, 0.12) 0%, rgba(31, 107, 69, 0) 70%);
+  filter: blur(2px);
+  pointer-events: none;
+  opacity: 0.55;
+  z-index: -1;
+  animation: sectionAmbientDrift 18s ease-in-out infinite alternate;
 }
 
 .section-alt {
@@ -709,7 +727,9 @@ p {
 .reveal {
   opacity: 0;
   transform: translateY(32px);
-  transition: opacity 0.8s ease, transform 0.8s ease;
+  transition:
+    opacity 0.8s ease var(--reveal-delay, 0ms),
+    transform 0.8s ease var(--reveal-delay, 0ms);
 }
 
 .reveal.visible {
@@ -735,6 +755,23 @@ p {
 
 body.js-ready .parallax-soft {
   transition: transform 0.28s ease-out;
+}
+
+@keyframes sectionAmbientDrift {
+  0% {
+    transform: translate3d(0, 0, 0) scale(1);
+    opacity: 0.48;
+  }
+  100% {
+    transform: translate3d(22px, 18px, 0) scale(1.08);
+    opacity: 0.7;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .section::after {
+    animation: none;
+  }
 }
 
 /* =========================
