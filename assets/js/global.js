@@ -116,8 +116,29 @@ if (siteHeader) {
 }
 
 /* =========================
-   ANIMACIÓN SCROLL
+   ANIMACIÓN SCROLL BIDIRECCIONAL
 ========================= */
+const autoRevealSelectors = [
+  "main > section",
+  "main section .section-header",
+  "main section .section-heading-center",
+  "main section article",
+  "main section .card",
+  "main section .kpi-card",
+  "main section .principle",
+  "main section .process-card",
+  "main section .destinos-content",
+  "main section .destinos-map",
+  "main section .hero-content",
+  "main section .hero-media",
+  "main section .video-overlay .container > *",
+  "main section .about-content",
+  "main section .about-media",
+];
+
+const autoRevealNodes = document.querySelectorAll(autoRevealSelectors.join(","));
+autoRevealNodes.forEach((node) => node.classList.add("reveal"));
+
 const revealElements = document.querySelectorAll(".reveal");
 
 revealElements.forEach((element, index) => {
@@ -125,22 +146,40 @@ revealElements.forEach((element, index) => {
   element.style.setProperty("--reveal-delay", `${delay}ms`);
 });
 
-function revealOnScroll() {
-  const windowHeight = window.innerHeight;
-  const visiblePoint = 110;
-
-  revealElements.forEach((el) => {
-    const rect = el.getBoundingClientRect();
-
-    if (rect.top < windowHeight - visiblePoint && rect.bottom > 40) {
-      el.classList.add("visible");
+if ("IntersectionObserver" in window) {
+  const revealObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+        } else {
+          entry.target.classList.remove("visible");
+        }
+      });
+    },
+    {
+      threshold: 0.18,
+      rootMargin: "0px 0px -8% 0px",
     }
-  });
-}
+  );
 
-window.addEventListener("scroll", revealOnScroll, { passive: true });
-window.addEventListener("load", revealOnScroll);
-window.addEventListener("resize", revealOnScroll);
+  revealElements.forEach((element) => revealObserver.observe(element));
+} else {
+  const revealOnScroll = () => {
+    const windowHeight = window.innerHeight;
+    const visiblePoint = 110;
+
+    revealElements.forEach((el) => {
+      const rect = el.getBoundingClientRect();
+      const isVisible = rect.top < windowHeight - visiblePoint && rect.bottom > 40;
+      el.classList.toggle("visible", isVisible);
+    });
+  };
+
+  window.addEventListener("scroll", revealOnScroll, { passive: true });
+  window.addEventListener("load", revealOnScroll);
+  window.addEventListener("resize", revealOnScroll);
+}
 
 /* =========================
    PARALLAX SUAVE PARA IMÁGENES

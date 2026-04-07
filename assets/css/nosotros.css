@@ -35,6 +35,29 @@
 .video-overlay h2 { margin: .7rem 0 .8rem; font-size: clamp(1.8rem, 3.3vw, 2.8rem); color:#fff; }
 .video-overlay p { color: rgba(255, 255, 255, 0.94); }
 
+.video-banner-intro {
+  margin-top: var(--header-height);
+}
+
+.video-banner-intro .video-banner {
+  min-height: clamp(420px, 62vh, 680px);
+}
+
+.video-banner-intro .video-overlay {
+  min-height: clamp(420px, 62vh, 680px);
+  background: linear-gradient(115deg, rgba(8, 22, 34, 0.82), rgba(8, 44, 67, 0.48));
+}
+
+.video-banner-intro .video-overlay .container {
+  max-width: 760px;
+  padding: 2rem;
+  border-radius: 1.1rem;
+  border: 1px solid rgba(255, 255, 255, 0.24);
+  background: linear-gradient(135deg, rgba(8, 24, 38, 0.45), rgba(13, 49, 72, 0.25));
+  backdrop-filter: blur(3px);
+  box-shadow: 0 22px 56px rgba(1, 8, 15, 0.38);
+}
+
 @keyframes driftMain { 50% { transform: translateY(-12px); } }
 @keyframes driftSecondary { 50% { transform: translateY(10px) translateX(-6px); } }
 @keyframes driftAccent { 50% { transform: translateY(-10px); } }
