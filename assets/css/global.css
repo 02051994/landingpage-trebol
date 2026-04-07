@@ -116,6 +116,11 @@ h4 {
   text-wrap: balance;
 }
 
+h1 { font-size: clamp(2.25rem, 1.6rem + 2.6vw, 4.35rem); }
+h2 { font-size: clamp(1.8rem, 1.25rem + 2.05vw, 3.4rem); }
+h3 { font-size: clamp(1.3rem, 1.05rem + 1.1vw, 2rem); }
+h4 { font-size: clamp(1.05rem, 0.95rem + 0.45vw, 1.4rem); }
+
 p {
   color: var(--color-text-soft);
   text-wrap: pretty;
@@ -131,6 +136,20 @@ p {
   isolation: isolate;
   overflow: clip;
   padding: var(--space-120) 0;
+}
+
+.section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(112deg, transparent 0%, rgba(255, 255, 255, 0.18) 48%, transparent 100%);
+  opacity: 0.2;
+  mix-blend-mode: soft-light;
+  transform: translateX(-36%);
+  animation: sectionLightSweep 14s ease-in-out infinite;
+  pointer-events: none;
+  z-index: -1;
 }
 
 .section::after {
@@ -251,7 +270,7 @@ p {
 
 .section-header h1,
 .section-header h2 {
-  font-size: clamp(2.2rem, 4vw, 3.4rem);
+  font-size: clamp(2.3rem, 1.6rem + 2.55vw, 3.85rem);
   line-height: 1.05;
   margin-bottom: 18px;
 }
@@ -496,7 +515,7 @@ p {
 }
 
 .hero-content h1 {
-  font-size: clamp(2.4rem, 5vw, 4rem);
+  font-size: clamp(2.6rem, 1.8rem + 2.75vw, 4.45rem);
   margin-bottom: var(--space-24);
 }
 
@@ -759,16 +778,31 @@ body.js-ready .parallax-soft {
 
 @keyframes sectionAmbientDrift {
   0% {
-    transform: translate3d(0, 0, 0) scale(1);
-    opacity: 0.48;
+    transform: translate3d(-6px, -10px, 0) scale(1);
   }
   100% {
-    transform: translate3d(22px, 18px, 0) scale(1.08);
-    opacity: 0.7;
+    transform: translate3d(14px, 18px, 0) scale(1.08);
+  }
+}
+
+@keyframes sectionLightSweep {
+  0%,
+  18% {
+    transform: translateX(-36%);
+    opacity: 0.12;
+  }
+  52% {
+    transform: translateX(10%);
+    opacity: 0.28;
+  }
+  100% {
+    transform: translateX(34%);
+    opacity: 0.1;
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
+  .section::before,
   .section::after {
     animation: none;
   }
@@ -1066,7 +1100,7 @@ body.js-ready .parallax-soft {
   .contact-info h2,
   .about-content h2,
   .hero-content h1 {
-    font-size: 1.95rem;
+    font-size: clamp(2.05rem, 8.2vw, 2.35rem);
   }
 
   .section-header p {
