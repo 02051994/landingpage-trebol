@@ -74,7 +74,7 @@ ul {
   --color-surface: #ffffff;
   --color-surface-alt: #eef2ec;
   --color-text: #182028;
-  --color-text-soft: #5f6b76;
+  --color-text-soft: #46525d;
   --color-primary: #1f6b45;
   --color-primary-hover: #185537;
   --color-border: rgba(24, 32, 40, 0.10);
@@ -653,7 +653,7 @@ p {
 ========================= */
 .footer {
   background: linear-gradient(180deg, #132019 0%, #101820 100%);
-  color: #e5e7eb;
+  color: #ffffff;
   padding-top: var(--space-80);
 }
 
@@ -672,7 +672,7 @@ p {
 .footer-grid p,
 .footer-links li,
 .footer-links a {
-  color: #cfd7de;
+  color: rgba(255, 255, 255, 0.96);
 }
 
 .footer-links {
@@ -682,6 +682,14 @@ p {
 
 .footer-links a:hover {
   color: #ffffff;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.footer a:focus-visible {
+  outline: 2px solid rgba(255, 255, 255, 0.92);
+  outline-offset: 3px;
+  border-radius: 6px;
 }
 
 .footer-bottom {
