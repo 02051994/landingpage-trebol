@@ -2299,9 +2299,9 @@
   margin-top: 0;
 }
 
-.page-index h1,
-.page-index h2,
-.page-index h3 {
+.page-index main h1,
+.page-index main h2,
+.page-index main h3 {
   color: #000000;
 }
 
